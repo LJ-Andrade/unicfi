@@ -2,12 +2,12 @@
 	<div class="container footer">
 		<div class="col-md-4 contact-data fadeIn animated wow">
 			<h2>Datos</h2><hr>
-			<span class="icon"><i class="ion-iphone"></i></span><span> (011) 15-5160-1565</span> <br>
-			<span class="icon"><i class="ion-ios-email-outline"></i></span><span> info@vimana.studio</span> <br>
+			<span class="icon"><i class="ion-iphone"></i></span><span> (011) 1111-1111</span> <br>
+			<span class="icon"><i class="ion-ios-email-outline"></i></span><span> mail@vimana.studio</span> <br>
 			<span class="icon"><i class="ion-ios-location-outline"></i></span><span> Buenos Aires - Argentina <br>
 		</div>
 		<div class="col-md-4 tags">
-			<h2>Portfolio</h2><hr>
+			<h2>Items</h2><hr>
 			@foreach($categories as $category)
 			<a href="{{ route('web.search.category', $category->name ) }}"><span class="tag red-tag wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">{{ $category->name }}</span></a>
 			@endforeach

@@ -55,8 +55,8 @@
 		</div>
 	</section>
 	
-	<section id="Empresas" class="container-fluid home-big-menu brd ">
-<div class="row row1 row-flex">
+	<section id="Empresas" class="container-fluid home-big-menu">
+		<div class="row row1 row-flex">
 			{{-- COL 1 --}}
 			<div class="col-md-6 col-xs-12 item HomeItem item-1">
 				<div class="inner">
