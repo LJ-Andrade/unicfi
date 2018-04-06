@@ -1,0 +1,420 @@
+////////////////////////////////////////
+//                                    //
+//              HOME                  //
+//                                    //
+////////////////////////////////////////
+
+.home-desktop
+	position: relative
+	.inner-content
+		position: absolute
+		left: 35px
+		top: 35px
+		z-index: 9999
+		.text
+			margin-top: 150px
+			width: 650px
+			max-width: 100%
+			p
+				color: #fff
+				font-size: 1.3rem
+				font-weight: 300
+			h1
+				color: #fff
+				font-weight: 600
+				font-size: 5rem
+			hr
+    			border-top: 4px solid #fff
+	.swiper-slide
+		// text-align: center
+		max-height: 100vh
+	.swiper-container
+		.swiper-button-prev,.swiper-button-next
+			@include transition(0.2s)
+			background-image: none
+			font-size: 2rem
+			opacity: 0
+			i
+				font-weight: 400
+				color: blue
+		img
+			max-width: 100%
+		.swiper-scrollbar
+			display: none
+		&:hover
+			.swiper-button-prev,.swiper-button-next
+				opacity: 1
+.home-mobile
+	display: none
+
+@media (max-width: 1140px)
+	.home-desktop .inner-content
+		.text
+			h1
+				font-size: 3.5rem
+
+@media (min-width: 960px)
+	.home-desktop .inner-content
+		.buttons
+			margin-top: 40px
+
+
+@media (max-width: 1030px) and (min-width:800px)
+	.home-desktop .inner-content
+		.text
+			margin-top: 40px
+
+@media (max-width: 800px)
+	.home-desktop
+		display: none
+	.home-mobile
+		display: block
+		background-color: #ccc
+		background: url('../webimages/home/background-mobile.jpg') no-repeat center center fixed
+		-webkit-background-size: cover
+		-moz-background-size: cover
+		-o-background-size: cover
+		background-size: cover
+		.inner-content
+			.logo
+				margin-top: 25px
+			.text
+				margin-top: 100px
+				margin-bottom: 100px
+				max-width: 500px
+				h1
+					font-size: 2rem
+				p
+				color: #fff
+				font-size: 1.3rem
+				font-weight: 600
+				h1
+					color: #fff
+					font-weight: 600
+				hr
+					border-top: 4px solid #fff
+			
+////////////////////////////////////////
+//                                    //
+//           HOME BIG MENU            //
+//                                    //
+////////////////////////////////////////
+
+.home-big-menu
+	.row-flex
+		display: flex
+	.row1
+		//min-height: 300px
+		.item
+			// @include flex-center-left
+			min-height: 100%
+			padding: 60px 50px
+			position: relative
+		.overlay
+			position: absolute
+			min-height: 100%
+			width: 100%
+			z-index: 8888
+			left: 0
+			top: 0
+			overflow: hidden
+			.btnClose
+				position: absolute
+				right: 10px
+				top: 10px
+				z-index: 8899
+			.overlay-color
+				background-color: #383838
+				position: absolute
+				height: 100%
+				width: 100%
+				top: 0
+				left: 100%
+			.overlay-text
+				padding: 10px 30px
+				color: #fff
+				position: absolute
+				p
+					font-size: 1rem
+		.item-1
+			color: $main-color
+			background: url('../webimages/home/img1.jpg') no-repeat center center
+			-webkit-background-size: cover
+			-moz-background-size: cover
+			-o-background-size: cover
+			background-size: cover 
+		.item-2
+			color: #fff
+			background: url('../webimages/home/img2.jpg') no-repeat center center
+			-webkit-background-size: cover
+			-moz-background-size: cover
+			-o-background-size: cover
+			background-size: cover 
+		.item-4
+			color: #fff
+			background: url('../webimages/home/img4.jpg') no-repeat center center
+			-webkit-background-size: cover
+			-moz-background-size: cover
+			-o-background-size: cover
+			background-size: cover 
+
+
+
+////////////////////////////////////////
+//                                    //
+//              CONTACT               //
+//                                    //
+////////////////////////////////////////
+
+$ph-text: 1.3rem
+$ph-color: #f9f9f9
+$ph-font: $font2
+$ph-weight: 400
+
+.contact-section
+	background: rgba(26,212,190,1)
+	background: -moz-linear-gradient(-45deg, rgba(26,212,190,1) 0%, rgba(51,86,227,1) 100%)
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(26,212,190,1)), color-stop(100%, rgba(51,86,227,1)))
+	background: -webkit-linear-gradient(-45deg, rgba(26,212,190,1) 0%, rgba(51,86,227,1) 100%)
+	background: -o-linear-gradient(-45deg, rgba(26,212,190,1) 0%, rgba(51,86,227,1) 100%)
+	background: -ms-linear-gradient(-45deg, rgba(26,212,190,1) 0%, rgba(51,86,227,1) 100%)
+	background: linear-gradient(135deg, rgba(26,212,190,1) 0%, rgba(51,86,227,1) 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1ad4be', endColorstr='#3356e3', GradientType=1 )
+	padding: 30px 5px 60px
+	.contact-data
+		text-align: center
+		padding: 25px 0 
+		span.mail
+			font-size: 2.5rem
+			color: #fff
+		.phone
+			font-size: 2rem
+			color: #fff
+			margin-top: 20px
+	.contact-head-data
+		color: #fff
+		text-align: left
+		display: inline-block
+		width: 100%
+		margin-top: 25px
+		margin-bottom: 40px
+		>div
+			border-right: 1px solid #fff
+			padding: 0 30px
+			&:last-child
+				border: 0
+		div
+			float: left
+		div.data-title
+			font-family: $font1
+			font-weight: 700
+			font-size: 1.5rem
+			margin-bottom: 5px
+			i
+				font-size: 1.8rem
+		div.data-info
+			font-family: $font1
+			color: #383838
+	.inner
+		text-align: center
+		@include flex-center
+		.contact-form
+			max-width: 880px
+			form
+				// background-color: rgba(206, 206, 206, 0.2)
+				// @include box-shadow-floor
+				color: #fff
+				padding: 20px
+				>.col-md-6
+					padding: 0
+				.form-group
+					margin-bottom: 0
+				// Chrome/Opera/Safari
+				::-webkit-input-placeholder 
+					color: $ph-color
+					font-size: $ph-text
+					font-family: $ph-font
+					font-weight: $ph-weight
+				// Firefox 19+
+				::-moz-placeholder
+					color:  $ph-color
+					font-size: $ph-text
+					font-family: $ph-font
+					font-weight: $ph-weight
+				//IE 10+
+				::-ms-input-placeholder
+					color: $ph-color
+					font-size: $ph-text
+					font-family: $ph-font
+					font-weight: $ph-weight
+				//Firefox 18-
+				::-moz-placeholder
+					color:  $ph-color
+					font-size: $ph-text
+					font-family: $ph-font
+					font-weight: $ph-weight
+			input
+				height: 70px
+			input,textarea
+				border: 0
+				border-radius: 0
+				background-color: transparent
+				border: 1px solid rgba(255,255,255,.5)
+				color: #fff
+				box-shadow: none
+				font-size: 1.5rem
+			.contactBtn
+				border-radius: 0
+				padding: 5px 120px
+				height: 50px
+				background-color: #fff
+				color: #383838
+				@include transition(0.2s)
+				&:hover
+					background-color: transparent
+					border: 1px solid #fff
+					color: #fff
+					// @include box-shadow-floor-big
+			textarea
+				height: 210px
+			.form-responses
+				padding-top: 30px
+				padding-bottom: 20px
+				color: #fff
+				font-size: 1.5rem
+				i
+					font-size: 4rem
+				i.success
+					color: $light-green
+				i.error
+					color: $main-red
+				hr
+					margin-top: 60px
+
+	.social-icons
+		text-align: center
+		margin-top: 25px
+		.title
+			margin-bottom: 15px
+		span
+			font-size: 1.6rem
+			font-family: $font2
+			font-weight: 400
+			color: #fff
+		img
+			border-radius: 100%
+			max-width: 70px
+			@include transition(0.5s)
+			&:hover
+				@include box-shadow-down
+				cursor: pointer
+
+@media (min-width: 698px)
+	.contact-section
+		.contact-head-data
+			@include flex-center
+
+@media (max-width: 698px)
+	.contact-section
+		.contact-head-data
+			color: #fff
+			text-align: left
+			display: block
+			// width: 100%
+			// @include flex-center
+			div
+				float: none
+				text-align: center
+				margin-bottom: 15px
+				br
+					display: none
+			>div
+				border-right: 0
+
+@media (max-width: 765px)
+	.contact-section
+		.social-icons
+			img
+				width: 75px
+
+@media (max-width: 405px)
+	.contact-section
+		.social-icons
+			img
+				width: 45px
+
+@media (max-width: 500px)
+	.contact-section
+		.contact-data
+			span.mail
+				font-size: 1.8rem
+			.phone
+				font-size: 1.4rem
+
+@media (max-width: 369px)
+	.contact-section
+		padding: 10px 0 
+		.contact-data
+			padding: 18px 0 10px
+			span.mail
+				font-size: 1.3rem
+			.phone
+				font-size: 1.2rem
+
+
+.whatsapp-call
+	padding: 10px
+	position: fixed
+	bottom: 50px
+	right: 0
+	background-color: #fff
+	border-radius: 5px 0 0 5px
+	@include box-shadow
+	z-index: 9999
+	img
+		width: 40px
+		&:hover
+			cursor: pointer
+
+@media (min-width: 1000px)
+	.whatsapp-call
+		bottom: 150px
+
+footer
+	background-color: $back-color
+	padding-left: 0 !important
+	padding-right: 0 !important
+	.footer
+		padding: 20px 10px 40px
+		h2
+			color: #fff
+		.contact-data
+			span
+				font-size: 1.2rem
+				font-family: $font2
+				font-weight: 400
+				color: #fff
+				text-align: center
+			i
+				color: #E7E7E7
+				font-size: 2rem
+			span.icon
+				margin-right: 10px
+				width: 50px
+		.social
+			span
+				color: #fff
+			#u_0_3
+				display: none
+
+
+	.copyright
+		background-color: #0A1120
+		padding: 10px 5px
+		text-align: center
+		color: #fff
+		font-family: $font2
+		font-weight: 400
+		font-size: 1.4rem
+
+

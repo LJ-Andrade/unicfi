@@ -1,0 +1,156 @@
+.main-menu-btn
+	z-index: 999
+	position: absolute
+	right: 25px
+	top: 25px
+	
+.main-menu
+	position: fixed
+	background-color: $main-color
+	width: 100%
+	height: 100%
+	z-index: 998
+	padding-top: 150px
+	color: #ffffff
+	font-size: 1.5rem
+	.inner-menu
+		width: 300px
+		li
+			padding: 15px 50px 15px 80px
+			@include transition(0.2s)
+			&:hover
+				background-color: #fff
+		a
+			color: #fff
+			font-family: $font2
+			font-weight: 600
+			&:hover
+				color: #383838
+	.inner-text
+		position: absolute
+		bottom: 50px
+		right: 50px
+		text-align: right
+		.logo
+			max-width: 150px
+			margin-bottom: 15px
+		.text
+			font-size: 1rem
+			width: 100%
+			height: 20px
+			color: #000
+		.icons
+			img
+				width: 40px
+
+@media (max-width: 500px)
+	.main-menu
+		padding-top: 40px
+		overflow: scroll
+		.inner-menu
+			width: 100%
+			li
+				padding: 10px 25px
+		.inner-text
+			margin-top: 50px
+			padding-right: 15px
+			width: 100%
+			bottom: 0
+			right: 0
+			
+.hamburger
+	padding: 15px 15px
+	display: inline-block
+	cursor: pointer
+	transition-property: opacity, filter
+	transition-duration: 0.15s
+	transition-timing-function: linear
+	font: inherit
+	color: inherit
+	text-transform: none
+	background-color: transparent
+	border: 0
+	margin: 0
+	overflow: visible
+	&:hover
+		opacity: 0.7
+
+.hamburger-box
+	width: 40px
+	height: 24px
+	display: inline-block
+	position: relative
+.hamburger-inner
+	display: block
+	top: 50%
+	margin-top: -2px
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after
+	width: 40px
+	height: 5px
+	background-color: $main-color
+	border-radius: 0
+	position: absolute
+	transition-property: transform
+	transition-duration: 0.15s
+	transition-timing-function: ease
+.hamburger-inner::before, .hamburger-inner::after
+	content: ""
+	display: block
+.hamburger-inner::before
+	top: -10px
+.hamburger-inner::after
+	bottom: -10px
+
+//Collapse
+.hamburger--collapse .hamburger-inner
+	top: auto
+	bottom: 0
+	transition-duration: 0.13s
+	transition-delay: 0.13s
+	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19)
+.hamburger--collapse .hamburger-inner::after
+	top: -20px
+	transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), opacity 0.1s linear
+.hamburger--collapse .hamburger-inner::before
+	transition: top 0.12s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19)
+.hamburger--collapse.is-active .hamburger-inner
+	transform: translate3d(0, -10px, 0) rotate(-45deg)
+	transition-delay: 0.22s
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1)
+	background-color: #fff
+.hamburger--collapse.is-active .hamburger-inner::after
+	top: 0
+	opacity: 0
+	transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), opacity 0.1s 0.22s linear
+	background-color: #fff
+.hamburger--collapse.is-active .hamburger-inner::before
+	top: 0
+	transform: rotate(-90deg)
+	transition: top 0.1s 0.16s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.25s cubic-bezier(0.215, 0.61, 0.355, 1)
+	background-color: #fff
+	
+
+//Collapse Reverse
+.hamburger--collapse-r .hamburger-inner
+	top: auto
+	bottom: 0
+	transition-duration: 0.13s
+	transition-delay: 0.13s
+	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19)
+.hamburger--collapse-r .hamburger-inner::after
+	top: -20px
+	transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), opacity 0.1s linear
+.hamburger--collapse-r .hamburger-inner::before
+	transition: top 0.12s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19)
+.hamburger--collapse-r.is-active .hamburger-inner
+	transform: translate3d(0, -10px, 0) rotate(45deg)
+	transition-delay: 0.22s
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1)
+.hamburger--collapse-r.is-active .hamburger-inner::after
+	top: 0
+	opacity: 0
+	transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), opacity 0.1s 0.22s linear
+.hamburger--collapse-r.is-active .hamburger-inner::before
+	top: 0
+	transform: rotate(90deg)
+	transition: top 0.1s 0.16s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.25s cubic-bezier(0.215, 0.61, 0.355, 1)
