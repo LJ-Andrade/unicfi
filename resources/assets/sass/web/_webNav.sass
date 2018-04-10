@@ -43,9 +43,23 @@
 			width: 100%
 			height: 20px
 			color: #000
-		.icons
-			img
-				width: 40px
+		.social-icons
+			padding: 0 15px
+			a
+				color: #fff
+			li
+				width: 33px
+				height: 35px
+				border: 1px solid #fff
+				font-size: 1.5rem
+				text-align: center
+				padding: 5px 2px
+				@include transition(0.2s)
+				&:hover
+					background: #fff
+					cursor: pointer
+					color: $main-color
+
 
 @media (min-width: 678px)
 	.main-menu .inner-menu a

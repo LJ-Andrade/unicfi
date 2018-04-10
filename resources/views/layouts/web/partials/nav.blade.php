@@ -11,7 +11,7 @@
             <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.2s">Noticias</li></a>
             <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.4s">Galería</li></a>
             <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.6s">Director</li></a>
-            <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.8s">Contacto</li></a>
+            <a href="#contact"><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.8s">Contacto</li></a>
         </ul>
     </div>
     
@@ -22,15 +22,16 @@
         <div class="clearfix"></div>
         <div class="text">Contactanos</div>
         <br>
-        <div class="horizontal-list icons">
-            <ul>
-                <li><img src="{{ asset('webimages/icons/menuredes1.png') }}" alt=""></li>
-                <li><img src="{{ asset('webimages/icons/menuredes2.png') }}" alt=""></li>
-                <li><img src="{{ asset('webimages/icons/menuredes3.png') }}" alt=""></li>
-                <li><img src="{{ asset('webimages/icons/menuredes4.png') }}" alt=""></li>
-                <li><img src="{{ asset('webimages/icons/menuredes5.png') }}" alt=""></li>
-            </ul>
+        <div class="social-icons">
+            <div class="row horizontal-list">
+                <ul>
+                    <a href=""><li><i class="ion-social-facebook"></i></li></a> 
+                    <a href=""><li><i class="ion-social-googleplus"></i></li></a> 
+                    <a href=""><li><i class="ion-social-twitter"></i></li></a> 
+                    <a href=""><li><i class="ion-social-instagram-outline"></i></li></a> 
+                    <a href=""><li><i class="ion-social-youtube"></i></li></a> 
+                </ul>
+            </div>
         </div>
-
     </div>
 </div>

@@ -1,74 +1,87 @@
-<div id="contact" class="container-fluid contact-section">
-	<div class="container wow animated fadeIn">
-		<div class="row inner">
-			<div class="col-md-12 contact-form">
-			{{-- <h1>CONTACTANOS !</h1> --}}
-			{{--  <img src="{{asset('webimages/logos/main-logo.png')}}" class="wow animated zoomIn" data-wow-delay="1.5s" data-wow-duration="3s">  --}}
+<div id="contact" class="container-fluid contact-section wow animated fadeIn">
+	<div class="row inner">
+		<div class=" col-lg-6 col-md-12 col-xs-12 contact-image">
+			<h1>Contactanos</h1>
+			<hr class="shortBoldHr">
+		</div>
+		<div class="col-lg-6 col-md-12 col-xs-12 contact-form">
+			<div class="row contact-data">
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<img src="{{ asset('webimages/icons/contact1.png') }}" alt="">
+					<div class="text1">Celular</div>
+					<div class="text2">11-0058-2258</div>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<img src="{{ asset('webimages/icons/contact2.png') }}" alt="">
+					<div class="text1">Teléfono</div>
+					<div class="text2">(011) 4545-4545 / 4545-4545</div>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<img src="{{ asset('webimages/icons/contact3.png') }}" alt="">
+					<div class="text1">Encontranos</div>
+					<div class="text2">Calle 234 - C.A.B.A </div>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<img src="{{ asset('webimages/icons/contact4.png') }}" alt="">
+					<div class="text1">Mail</div>
+					<div class="text2">hola@unicfi.com</div>
+				</div>
+			</div>
+
+			<div class="row">
 				{!! Form::open(['id' => 'MainContactForm', 'method' => 'POST']) !!}
-				
-					<div class="col-md-6">
+					<div class="col-md-6 col1">
 						<div class="form-group">
-							{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingresá tu nombre/empresa', 'required']) !!}
+							{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre', 'required']) !!}
 						</div>
-						<div class="form-group">
-							{!! Form::text('phone', null, ['class' => 'form-control', 'placeholder' => 'Ingresá tu teléfono', 'required']) !!}
-						</div>
-						<div class="form-group">
-							{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Ingresá tu E-Mail', 'required']) !!}
-						</div>
-							
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6 col2">
+						<div class="form-group">
+							{!! Form::text('phone', null, ['class' => 'form-control', 'placeholder' => 'Teléfono', 'required']) !!}
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'E-Mail', 'required']) !!}
+						</div>
+					</div>
+					<div class="col-md-12">
 						<div class="form-group">
 							{!! Form::textarea('message', null, ['size' => '30x5', 'class' => 'form-control', 'placeholder' => 'Dejanos tu pedido o consulta. Te responderemos cuanto antes']) !!}
 						</div>
 					</div>
-						{{ csrf_field() }}
+					{{ csrf_field() }}
+					<div class="col-md-12">
 						{!! Form::submit('Enviar', ['class' => 'contactBtn']) !!}
+					</div>
 				{!! Form::close() !!}
-				<div id="FormResponse"></div>
-				<div id="FormSuccess" class="form-responses animated fadeIn Hidden">
-					<i class="success ion-checkmark-round"></i>
-					<h2>Mensaje Enviado !</h2> 
-					Gracias por contactarse con nosotros. <br>
-					Nos estaremos comunicando a la brevedad.
-					<hr class="softhr">
-				</div>
-				<div id="FormError" class="form-responses animated fadeIn Hidden">
-					<i class="error ion-close-round"></i>
-					<h2>Ha ocurrido un error !</h2> 
-					Intente comunicarse directamente por mail o teléfono <br>
-					Gracias.
-				</div>
+			</div>
+			<div id="FormResponse"></div>
+			<div id="FormSuccess" class="row form-responses animated fadeIn wow slideInUp Hidden">
+				<i class="success ion-checkmark-round"></i>
+				<h2>Mensaje Enviado !</h2> 
+				<p>Gracias por contactarse con nosotros. <br>
+				Nos estaremos comunicando a la brevedad.</p>
+			</div>
+			<div id="FormError" class="row form-responses animated fadeIn  fadeIn wow slideInUp Hidden">
+				<i class="error ion-close-round"></i>
+				<h2>Ha ocurrido un error !</h2> 
+				<p>Intente comunicarse directamente por mail o teléfono <br>
+				Gracias.</p>
 			</div>
 		</div>
 
-		<div class="horizontal-list social-icons">
-			<div class="title">
-				<span>Seguí nuestro proceso creativo en las redes</span>
-			</div>
+	</div> {{-- /.row .inner--}}
+</div>{{-- /.container-fluid --}}
+<div class="container-fluid social-networks">
+	<div class="container social-icons">
+		<div class="row horizontal-list">
 			<ul>
-				<a href="https://www.facebook.com/studiograficovimana" target="_blank">
-					<li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"><img src="{{ asset('webimages/gral/social/social1.png') }}"></li>
-				</a>
-				<a href="https://twitter.com/StudioVimana" target="_blank">
-					<li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s"><img src="{{ asset('webimages/gral/social/social2.png') }}"></li>
-				</a>
-				<a href="https://www.youtube.com/channel/UCFT-sFx3Pv-r3ozgEqqnWfA" target="_blank">
-					<li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s"><img src="{{ asset('webimages/gral/social/social3.png') }}"></li>
-				</a>
-				<a href="https://es.pinterest.com/admstudiovimana/" target="_blank">
-					<li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s"><img src="{{ asset('webimages/gral/social/social4.png') }}"></li>
-				</a>
-				<a href="https://www.behance.net/studiovimana" target="_blank">
-					<li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s"><img src="{{ asset('webimages/gral/social/social5.png') }}"></li>
-				</a>
-				<a href="https://plus.google.com/u/0/+StudioVimana" target="_blank">
-					<li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.7s"><img src="{{ asset('webimages/gral/social/social6.png') }}"></li>
-				</a>
-				<a href="https://github.com/StudioVimana" target="_blank">
-					<li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s"><img src="{{ asset('webimages/gral/social/social7.png') }}"></li>
-				</a>
+				<a href=""><li><i class="ion-social-facebook"></i></li></a>
+				<a href=""><li><i class="ion-social-googleplus"></i></li></a>
+				<a href=""><li><i class="ion-social-twitter"></i></li></a>
+				<a href=""><li><i class="ion-social-instagram-outline"></i></li></a>
+				<a href=""><li><i class="ion-social-youtube"></i></li></a>
 			</ul>
 		</div>
 	</div>

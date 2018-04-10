@@ -582,6 +582,56 @@ $red1: rgb(235, 87, 87)
 	width: 50px
 	float: right
 
+// MouseScroll Animation
+.icon-scroll
+  position: absolute
+  left: 50%
+  &:before
+    position: absolute
+    left: 50%
+    content: ''
+    width: 8px
+    height: 8px
+    background: #fff
+    margin-left: -4px
+    top: 8px
+    border-radius: 4px
+    -webkit-animation-duration: 1.5s
+    animation-duration: 1.5s
+    -webkit-animation-iteration-count: infinite
+    animation-iteration-count: infinite
+    -webkit-animation-name: scroll
+    animation-name: scroll
+  width: 40px
+  height: 70px
+  margin-left: -20px
+  top: 50%
+  margin-top: -35px
+  box-shadow: inset 0 0 0 1px #fff
+  border-radius: 25px
+
+@-webkit-keyframes scroll
+  0%
+    opacity: 1
+
+  100%
+    opacity: 0
+    -webkit-transform: translateY(46px)
+    transform: translateY(46px)
+
+@keyframes scroll
+  0%
+    opacity: 1
+
+  100%
+    opacity: 0
+    -webkit-transform: translateY(46px)
+    transform: translateY(46px)
+
+.shortBoldHr
+	width: 100px
+	border-top: 8px solid #fff
+
 ////////////////////////////////////////
 //                                    //
 //            SINGLE ITEM             //

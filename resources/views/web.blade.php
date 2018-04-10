@@ -26,6 +26,9 @@
 					</div>
 				</div>
 			</div>
+			<div class="scroll-animation">
+				<div class="icon-scroll"></div>
+			</div>
 			<div class="swiper-wrapper">
 				<div class="swiper-slide"><img src="{{ asset('webimages/home/slider/banner1.jpg') }}" alt=""></div>
 				<div class="swiper-slide"><img src="{{ asset('webimages/home/slider/banner2.jpg') }}" alt=""></div>
@@ -337,12 +340,12 @@
 						<hr>
 						<div class="clearfix"></div>
 						<p>
-							Mejora de la calidad de vida <br>
-							Mejora de la satisfacción en el trabajo <br>
-							Bajar nivel de stress <br>
-							Disminución de lesiones <br>
-							Disminuye el riesgo de padecer enfermedades <br>
-							Mejora en las relaciones con los pares
+							&bull; Mejora de la calidad de vida <br>
+							&bull; Mejora de la satisfacción en el trabajo <br>
+							&bull; Bajar nivel de stress <br>
+							&bull; Disminución de lesiones <br>
+							&bull; Disminuye el riesgo de padecer enfermedades <br>
+							&bull; Mejora en las relaciones con los pares
 						</p>
 					</div>
 				</div>
@@ -352,13 +355,11 @@
 	</section>
 
 	
-	{{-- @include('layouts.web.partials.contact') --}}
+	@include('layouts.web.partials.contact')
 	@include('layouts.web.partials.foot')
 @endsection
 
 @section('scripts')
-	{{-- <script type="text/javascript" src="{{ asset('plugins/parallax/parallax.min.js') }}"></script> --}}
-	{{-- Slider --}}
 	<script type="text/javascript" src="{{ asset('plugins/swiper-slider/swiper.jquery.min.js') }}"></script>
 @endsection
 
@@ -392,6 +393,8 @@
 			loop: true,
 			speed: 1500,
 		}); 
+
+		
 
 		$(document).on('submit','#MainContactForm',function(e){
 			e.preventDefault();
