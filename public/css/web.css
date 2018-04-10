@@ -1463,7 +1463,7 @@ ul {
   margin-top: 0;
 }
 
-.home-big-menu .row1 .item .inner .btn {
+.home-big-menu .row1 .item .btn {
   border-radius: 0;
   font-family: "Zilla Slab", serif;
   font-size: 1.2rem;
@@ -1532,10 +1532,6 @@ ul {
   position: absolute;
   bottom: 50px;
   left: 50px;
-}
-
-.home-big-menu .row1 .item-3 .btnHollow {
-  border: 1px solid white;
 }
 
 .home-big-menu .row1 .item-4 {

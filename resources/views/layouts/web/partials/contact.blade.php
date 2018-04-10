@@ -27,7 +27,6 @@
 					<div class="text2">hola@unicfi.com</div>
 				</div>
 			</div>
-
 			<div class="row">
 				{!! Form::open(['id' => 'MainContactForm', 'method' => 'POST']) !!}
 					<div class="col-md-6 col1">

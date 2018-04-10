@@ -125,7 +125,7 @@
 								Contamos con las mejores marcas del mercado en <br>
 								equipamientos deportivos y recreativos.
 							</p>
-							<a class="HomeItemBtn btn btnHollow">Consultanos</a>
+							<a class="btn btnHollowWhite">Noticias</a>
 						</div>
 					</div>
 				</div>
