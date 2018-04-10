@@ -125,6 +125,18 @@
   color: #fff;
 }
 
+.btnWhite {
+  background-color: #fff;
+  border: 1px solid #fff;
+  color: #000;
+}
+
+.btnWhite:hover, .btnWhite:active, .btnWhite:focus {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
 .btnHollow {
   padding: 2px 5px;
   border-radius: 0;
@@ -153,6 +165,30 @@
 .btnHollowGreyTrans:hover {
   background-color: #fff;
   color: #383838;
+}
+
+.btnHollowOrange {
+  background-color: transparent;
+  border: 1px solid #ff5a19;
+  color: #fff;
+  border-radius: 0;
+}
+
+.btnHollowOrange:hover {
+  background-color: #ff5a19;
+  color: #fff;
+}
+
+.btnHollowWhite {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 0;
+}
+
+.btnHollowWhite:hover {
+  background-color: #fff;
+  color: #000;
 }
 
 .btnHollowGreyTransBlack {
@@ -810,7 +846,7 @@ html {
 
 body {
   height: 100%;
-  overflow-x: hidden;
+  overflow-y: hidden;
   font-size: 18px;
   background-color: #fff;
   color: #383838;
@@ -845,14 +881,13 @@ h1 {
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 700;
 }
 
 h3 {
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: #BDD9EB;
+  font-size: 2.5rem;
+  font-weight: 600;
 }
 
 h4 {
@@ -902,6 +937,18 @@ h4 {
   display: none !important;
 }
 
+.HideMe {
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+  height: 0;
+  overflow: hidden;
+}
+
+.ShowMe {
+  height: auto;
+  overflow: none;
+}
+
 .floatRight {
   float: right;
 }
@@ -939,17 +986,18 @@ ul {
   z-index: 998;
   padding-top: 150px;
   color: #ffffff;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 .main-menu .inner-menu {
-  width: 300px;
+  width: 350px;
 }
 
 .main-menu .inner-menu li {
-  padding: 15px 50px 15px 80px;
+  padding: 25px 50px 25px 80px;
   -webkit-transition: all 0.2s ease 0s;
   transition: all 0.2s ease 0s;
+  list-style: none;
 }
 
 .main-menu .inner-menu li:hover {
@@ -987,6 +1035,12 @@ ul {
 
 .main-menu .inner-text .icons img {
   width: 40px;
+}
+
+@media (min-width: 678px) {
+  .main-menu .inner-menu a:hover li {
+    padding-left: 110px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -1304,8 +1358,19 @@ ul {
 
 .home-big-menu .row1 .item {
   min-height: 100%;
-  padding: 60px 50px;
+  padding: 90px 50px;
   position: relative;
+}
+
+.home-big-menu .row1 .item .inner h2 {
+  margin-top: 0;
+}
+
+.home-big-menu .row1 .item .inner .btn {
+  border-radius: 0;
+  font-family: "Zilla Slab", serif;
+  font-size: 1.2rem;
+  padding: 0px 40px;
 }
 
 .home-big-menu .row1 .overlay {
@@ -1318,15 +1383,8 @@ ul {
   overflow: hidden;
 }
 
-.home-big-menu .row1 .overlay .btnClose {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  z-index: 8899;
-}
-
 .home-big-menu .row1 .overlay .overlay-color {
-  background-color: #383838;
+  background-color: #000;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -1341,7 +1399,12 @@ ul {
 }
 
 .home-big-menu .row1 .overlay .overlay-text p {
-  font-size: 1rem;
+  font-size: 1.2rem;
+}
+
+.home-big-menu .row1 .overlay .overlay-text hr {
+  width: 80%;
+  float: left;
 }
 
 .home-big-menu .row1 .item-1 {
@@ -1356,10 +1419,233 @@ ul {
   background-size: cover;
 }
 
+.home-big-menu .row1 .item-3 {
+  color: #fff;
+  background: url("../webimages/home/img3.jpg") no-repeat center center;
+  background-size: cover;
+  min-height: 860px;
+  position: relative;
+}
+
+.home-big-menu .row1 .item-3 .overlay-color {
+  background-color: #ff5a19;
+}
+
+.home-big-menu .row1 .item-3 .inner {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+}
+
+.home-big-menu .row1 .item-3 .btnHollow {
+  border: 1px solid white;
+}
+
 .home-big-menu .row1 .item-4 {
   color: #fff;
   background: url("../webimages/home/img4.jpg") no-repeat center center;
   background-size: cover;
+  height: 430px;
+  max-height: 430px;
+}
+
+.home-big-menu .row1 .item-4 .overlay-color {
+  background-color: #ff5a19;
+}
+
+.home-big-menu .row1 .item-4 h2 {
+  color: #383838;
+}
+
+.home-big-menu .row1 .item-4 .overlay-text p {
+  font-size: 1rem;
+}
+
+.home-big-menu .row1 .item-4 .overlay-text h2 {
+  color: #fff;
+}
+
+.home-big-menu .row1 .item-4 .btnHollow {
+  border: 1px solid white;
+}
+
+.home-big-menu .row1 .item-5 {
+  color: #fff;
+  background: url("../webimages/home/img5.jpg") no-repeat center center;
+  background-size: cover;
+  height: 430px;
+  max-height: 430px;
+}
+
+.home-big-menu .row1 .item-5 h2, .home-big-menu .row1 .item-5 p {
+  color: #000;
+}
+
+.home-big-menu .row1 .item-empresas-1 h2 {
+  color: #ff5a19;
+}
+
+.home-big-menu .row1 .item-empresas-1 p {
+  color: #000;
+}
+
+.home-big-menu .row1 .item-empresas-2 {
+  background-color: #ff5a19;
+}
+
+.home-big-menu .row1 .item-empresas-2 p, .home-big-menu .row1 .item-empresas-2 h2 {
+  color: #fff;
+}
+
+.home-big-menu .row1 .item-empresas-3 {
+  background-color: #000;
+}
+
+.home-big-menu .row1 .item-empresas-3 p, .home-big-menu .row1 .item-empresas-3 h2 {
+  color: #fff;
+}
+
+.home-big-menu .row1 .item-empresas-4 {
+  background-color: #fff;
+}
+
+.home-big-menu .row1 .item-empresas-4 h2 {
+  color: #ff5a19;
+}
+
+.home-big-menu .row1 .item-empresas-4 p {
+  color: #000;
+}
+
+.home-big-menu .row1 .item-empresas-5 {
+  background: #000;
+  background: url("../webimages/home/empresas/img1.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.home-big-menu .row1 .item-empresas-5 p, .home-big-menu .row1 .item-empresas-5 h2 {
+  color: #fff;
+}
+
+.home-big-menu .row1 .item-empresas-5 p {
+  font-size: 1.5rem;
+}
+
+.home-big-menu .row1 .item-empresas-6 {
+  background: #000;
+}
+
+.home-big-menu .row1 .item-empresas-6 h2 {
+  color: #ff5a19;
+}
+
+.home-big-menu .row1 .item-empresas-6 p {
+  color: #fff;
+}
+
+.home-big-menu .row1 .item-empresas-7 {
+  background: #000;
+  background: url("../webimages/home/empresas/img2.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.home-big-menu .row1 .item-empresas-7 p, .home-big-menu .row1 .item-empresas-7 h2 {
+  color: #fff;
+}
+
+.home-big-menu .row1 .item-empresas-7 p {
+  font-size: 1.5rem;
+}
+
+.home-big-menu .row1 .item-empresas-8 {
+  background: #ff5a19;
+}
+
+.home-big-menu .row1 .item-empresas-8 h2 {
+  color: #000;
+}
+
+.home-big-menu .row1 .item-empresas-9 {
+  background: #fff;
+}
+
+.home-big-menu .row1 .item-empresas-9 h2 {
+  color: #ff5a19;
+}
+
+.home-big-menu .row1 .item-empresas-9 .overlay-color {
+  background-color: #000;
+}
+
+@media (max-width: 520px) {
+  .home-big-menu .row1 .item-empresas-8, .home-big-menu .row1 .item-empresas-9 {
+    padding: 50px 50px;
+  }
+}
+
+@media (max-width: 865px) {
+  .home-big-menu .row-flex {
+    display: block;
+  }
+}
+
+@media (max-width: 660px) {
+  .home-big-menu .row1 .item-5, .home-big-menu .row1 .item-4 {
+    height: auto;
+    max-height: 100%;
+  }
+}
+
+#Empresas {
+  position: relative;
+}
+
+.close-section, .btn-Close {
+  font-family: "Zilla Slab", serif;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  z-index: 9989;
+  height: 60px;
+  width: 60px;
+  font-weight: 600;
+  font-size: 2.5rem;
+  background-color: white;
+  padding: 17px 19px;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+
+.close-section:hover, .btn-Close:hover {
+  cursor: pointer;
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
+}
+
+.close-section-small {
+  font-family: "Zilla Slab", serif;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  z-index: 9989;
+  height: 35px;
+  width: 35px;
+  font-weight: 600;
+  font-size: 2rem;
+  background-color: white;
+  padding: 4px 7px;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.close-section-small:hover {
+  cursor: pointer;
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
 }
 
 .contact-section {

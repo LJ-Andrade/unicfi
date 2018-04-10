@@ -7,12 +7,11 @@
 <div id="MainMenu" class="main-menu">
     <div class="inner-menu">
         <ul class="vertical-list">
-            <a href=""><li>Inicio</li></a>
-            <a href=""><li>Servicios</li></a>
-            <a href=""><li>Noticias</li></a>
-            <a href=""><li>Galería</li></a>
-            <a href=""><li>Director</li></a>
-            <a href=""><li>Contacto</li></a>
+            <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0s">Inicio</li></a>
+            <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.2s">Noticias</li></a>
+            <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.4s">Galería</li></a>
+            <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.6s">Director</li></a>
+            <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.8s">Contacto</li></a>
         </ul>
     </div>
     

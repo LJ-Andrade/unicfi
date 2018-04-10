@@ -5,6 +5,8 @@
 <script type="text/javascript" src="{{ asset('js/web.js') }} "></script>
 <script>
 
+    new WOW().init();
+
     /*
     |--------------------------------------------------------------------------
     | Contact Tab (WhatsApp)
@@ -31,7 +33,7 @@
     */
 
     // Hide Menu
-    $('#MainMenu').hide(0);
+    $('#MainMenu').hide();
 
     function openMenu(){
         $('#MainMenu').slideDown(100);
@@ -41,6 +43,7 @@
     function closeMenu(){
         $('#MainMenu').slideUp(100);
         $('html').css('overflow-y','scroll');
+        $('.MainMenuA').removeClass('wow slideInLeft');
     }
    
     $('.MainMenuBtn').click(function(){
@@ -49,6 +52,12 @@
             $(this).addClass('is-active');
         } else {
             closeMenu();
+
+            $('.OpenedItem').each(function(i, obj) {
+                var height = $(this).data('height');
+                $(this).animate({height: height}); 
+            });
+
             $(this).removeClass('is-active');
         }
     });
@@ -58,12 +67,24 @@
     | Home Big Menu
     |--------------------------------------------------------------------------
     */
+    
+    $('.HomeItem > .inner').each(function(){ 
+        var innerHeight = $(this).height();
+        $(this).data('height', innerHeight);
+    });
 
     $(document).ready(function(){
-
-
+               
         // Show Overlay
         $('.HomeItemBtn').click(function(){
+            // Reset open overlay
+            $(this).parent().addClass('OpenedItem');
+            var openedItems = $('.inner .OpenedItem');
+
+            $('.OpenedItem').each(function(i, obj) {
+                var height = $(this).data('height');
+                $(this).animate({height: height}); 
+            });
 
             var thisOverlay = $(this).parent().siblings('.Overlay');
             var thisOverlayText = $(this).parent().siblings('.Overlay').children('.Overlay-Text');
@@ -73,11 +94,8 @@
             $.when($('.Overlay-Color').animate({left:'100%'}, 400)).done(function() {
                 $('.Overlay').not(thisOverlay).addClass('Hidden');
             });        
-            // Reset Heights
-            $('.HomeItem').animate({height: 300});
-
+            
             // Show Overlay
-
             var text = $(this).parent().siblings('.Overlay').children('.Overlay-Text');
             
             $(this).parent().siblings('.Overlay').removeClass('Hidden');
@@ -89,26 +107,26 @@
                 });
 
             // This .Overlay-Text
-            var newHeight =  thisOverlayText.sandbox(function(){ return this.height(); });
-            $(this).parent().animate({height: newHeight });
-            if(newHeight > 300 ){
-                $('.HomeItem').animate({height: newHeight + 30 });
+            var overlayHeight =  thisOverlayText.getHeightFromHidden(function(){ return this.height()});
+            var parentHeight = $(this).parent().height();
+            if(overlayHeight > parentHeight){
+                $(this).parent().data('height', parentHeight);
+                $(this).parent().animate({height: overlayHeight}); 
             }
-        });
 
+        });
 
         // Close Overlays with X button
         $('.CloseOverlay').click(function(){
             $.when($('.Overlay-Text').fadeOut(150)).done(function() {
                 $('.Overlay-Text').addClass('Hidden')
             });
-
-
-            $('.HomeItem').animate({height: 300});
-            //$('.HomeItem').animate({height: 300});
-            //$('.HomeIrow1tem').children('.HomeItem').animate({height: 300});row1
             
-            $('.Overlay-Color').animate({left:'100%'}, 400, 
+            let parent = $(this).parent().parent().siblings('.inner');
+            let originalHeight = parent.data('height') || '';
+            parent.animate({height: originalHeight});           
+
+            $('.Overlay-Color').animate({left:'100%'}, 450, 
             function(){
                 $('.Overlay').addClass('Hidden');
             });
@@ -117,7 +135,7 @@
 
 
     // Obtain real height of a hidden elemment
-    $.fn.sandbox = function(fn) {
+    $.fn.getHeightFromHidden = function(fn) {
         var element = $(this).clone(), result;
         // make the element take space in the page but invisible
         element.css({visibility: 'hidden', display: 'block'}).insertAfter(this);
@@ -128,7 +146,36 @@
         return result;
     };
 
+    // Show and Hide Empresas Section
+    $('#Empresas').hide();
+    $('.BtnEmpresas').click(function(){
+        
+        if(screen.width > '800px'){
+            $('.Home-Mobile, .MainMenuBtn').hide(500);
+        } else {
+            $('.Home-Desktop, .MainMenuBtn').hide(500);
+            console.log('desk');
+        }
+        $('html, body').animate({ scrollTop: 0 }, '0');
+
+        $('#Main-Big-Menu').fadeOut(0, function () {
+            $('#Empresas').fadeIn(0);
+        });
+    });
 
 
-  
+    $('.Close-Empresas').click(function(){
+        if(screen.width > '800px'){
+            $('.Home-Mobile, .MainMenuBtn').show(200);
+        } else {
+            $('.Home-Desktop, .MainMenuBtn').show(200);
+        }
+        $('#Empresas').fadeOut(0, function () {
+            $('#Main-Big-Menu').fadeIn(0);
+        });
+    });
+
+    // For Test
+    //$('#Empresas').show();
+    //$('#Main-Big-Menu').hide();
 </script>

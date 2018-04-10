@@ -108,8 +108,16 @@
 		.item
 			// @include flex-center-left
 			min-height: 100%
-			padding: 60px 50px
+			padding: 90px 50px
 			position: relative
+			.inner
+				h2
+					margin-top: 0
+				.btn
+					border-radius: 0
+					font-family: $font2
+					font-size: 1.2rem
+					padding: 0px 40px
 		.overlay
 			position: absolute
 			min-height: 100%
@@ -118,13 +126,13 @@
 			left: 0
 			top: 0
 			overflow: hidden
-			.btnClose
-				position: absolute
-				right: 10px
-				top: 10px
-				z-index: 8899
+			// .btnClose
+			// 	position: absolute
+			// 	right: 10px
+			// 	top: 10px
+			// 	z-index: 8899
 			.overlay-color
-				background-color: #383838
+				background-color: #000
 				position: absolute
 				height: 100%
 				width: 100%
@@ -135,7 +143,10 @@
 				color: #fff
 				position: absolute
 				p
-					font-size: 1rem
+					font-size: 1.2rem
+				hr
+					width: 80%
+					float: left
 		.item-1
 			color: $main-color
 			background: url('../webimages/home/img1.jpg') no-repeat center center
@@ -150,6 +161,23 @@
 			-moz-background-size: cover
 			-o-background-size: cover
 			background-size: cover 
+		.item-3
+			color: #fff
+			background: url('../webimages/home/img3.jpg') no-repeat center center
+			-webkit-background-size: cover
+			-moz-background-size: cover
+			-o-background-size: cover
+			background-size: cover 
+			min-height: 860px
+			position: relative
+			.overlay-color
+				background-color: $main-color
+			.inner
+				position: absolute
+				bottom: 50px
+				left: 50px
+			.btnHollow
+				border: 1px solid white
 		.item-4
 			color: #fff
 			background: url('../webimages/home/img4.jpg') no-repeat center center
@@ -157,7 +185,147 @@
 			-moz-background-size: cover
 			-o-background-size: cover
 			background-size: cover 
+			height: 430px
+			max-height: 430px
+			.overlay-color
+				background-color: $main-color
+			h2
+				color: #383838
+			.overlay-text p
+				font-size: 1rem
+			.overlay-text h2
+				color: #fff
+			.btnHollow
+				border: 1px solid white
+		.item-5
+			color: #fff
+			background: url('../webimages/home/img5.jpg') no-repeat center center
+			-webkit-background-size: cover
+			-moz-background-size: cover
+			-o-background-size: cover
+			background-size: cover
+			height: 430px
+			max-height: 430px
+			h2,p
+				color: #000
+		.item-empresas-1
+			h2
+				color: $main-color
+			p
+				color: #000
+		.item-empresas-2
+			background-color: $main-color
+			p,h2
+				color: #fff
+		.item-empresas-3
+			background-color: #000
+			p,h2
+				color: #fff
+		.item-empresas-4
+			background-color: #fff
+			h2
+				color: $main-color
+			p
+				color: #000
+		.item-empresas-5
+			background: #000
+			background: url('../webimages/home/empresas/img1.jpg') no-repeat center center
+			-webkit-background-size: cover
+			-moz-background-size: cover
+			-o-background-size: cover
+			background-size: cover
+			p,h2
+				color: #fff
+			p
+				font-size: 1.5rem
+		.item-empresas-6
+			background: #000
+			h2
+				color: $main-color
+			p
+				color: #fff
+		.item-empresas-7
+			background: #000
+			background: url('../webimages/home/empresas/img2.jpg') no-repeat center center
+			-webkit-background-size: cover
+			-moz-background-size: cover
+			-o-background-size: cover
+			background-size: cover
+			p,h2
+				color: #fff
+			p
+				font-size: 1.5rem
+		.item-empresas-8
+			background: $main-color
+			h2
+				color: #000
+		.item-empresas-9
+			background: #fff
+			h2
+				color: $main-color
+			.overlay-color
+				background-color: #000
 
+@media (max-width: 520px)
+	.home-big-menu
+		.row1
+			.item-empresas-8,.item-empresas-9
+				padding: 50px 50px
+
+@media (max-width: 865px)
+	.home-big-menu
+		.row-flex
+			display: block
+
+@media (max-width: 660px)
+	.home-big-menu
+		.row1
+			.item-5,.item-4
+				height: auto
+				max-height: 100%
+
+#Empresas
+	position: relative
+
+.close-section,.btn-Close
+	font-family: $font2
+	position: absolute
+	right: 0px
+	top: 0px
+	z-index: 9989
+	height: 60px
+	width: 60px
+	font-weight: 600
+	font-size: 2.5rem
+	background-color: white
+	padding: 17px 19px
+	@include transition(0.2s)
+	&:hover
+		cursor: pointer
+		border: 1px solid #fff
+		color: #fff
+		background: transparent
+
+.close-section-small
+	font-family: $font2
+	position: absolute
+	right: -1px
+	top: -1px
+	z-index: 9989
+	height: 35px
+	width: 35px
+	font-weight: 600
+	font-size: 2rem
+	background-color: white
+	padding: 4px 7px
+	@include transition(0.2s)
+	color: #000
+	border: 1px solid #000
+	&:hover
+		cursor: pointer
+		border: 1px solid #fff
+		color: #fff
+		background: transparent
 
 
 ////////////////////////////////////////
