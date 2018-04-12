@@ -33,6 +33,8 @@
 				<div class="swiper-slide"><img src="{{ asset('webimages/home/slider/banner1.jpg') }}" alt=""></div>
 				<div class="swiper-slide"><img src="{{ asset('webimages/home/slider/banner2.jpg') }}" alt=""></div>
 				<div class="swiper-slide"><img src="{{ asset('webimages/home/slider/banner3.jpg') }}" alt=""></div>
+				<div class="swiper-slide"><img src="{{ asset('webimages/home/slider/banner4.jpg') }}" alt=""></div>
+				<div class="swiper-slide"><img src="{{ asset('webimages/home/slider/banner5.jpg') }}" alt=""></div>
 			</div>
 		</div>
 	</section>
@@ -81,8 +83,8 @@
 						<div class="clearfix"></div>
 						<p>
 							Contamos con profesionales especialistas en entrenamientos personalizados, grupales y a distancia que
-							podrán ayudarte a obtener tus metas más desafiantes. Estas propuestas están integradas por un equipo multi 
-							disciplinario de médicos, nutricionistas, psicólogos y kinesiólogos, brindándote apoyo permanente.
+							podrán ayudarte a obtener tus metas más desafiantes. Estas propuestas están integradas por un equipo multidisciplinario
+							 de médicos, nutricionistas, psicólogos y kinesiólogos, brindándote apoyo permanente.
 						</p>
 					</div>
 				</div>
@@ -163,10 +165,8 @@
 							Cursos, charlas y seminarios
 						</h2>
 						<p>
-							Ofrecemos capacitaciones para instituciones educativas públicas y
-							privadas relacionadas con el deporte y la salud. <br>
-							Tenemos un staff de profesionales altamente calificados y
-							preparados para los diferentes niveles
+							Ofrecemos charlas en diferentes temáticas relacionadas con la salud y el bienestar como Primeros Auxilios y RCP, Ergonomía, Nutrición, Adicciones, etc.
+
 						</p>
 						<a class="btn btnMain">Noticias</a>
 					</div>
@@ -205,12 +205,9 @@
 						Charlas Saludables
 					</h2>
 					<p>
-						Proponemos actividades deportivas y recreativas para edificios durante todo el año
-						aprovechando los espacios comunes y promoviendo el relacionamiento entre
-						vecinos.
-						Están basadas en diferentes actividades del fitness. tales como yoga, entrenamiento
-						funcional, relajación, GAP, abdominales, localizada, natación y gimnasia en el agua.
-						Además organizamos colonias de vacaciones y acciones lúdicas para niños.
+						Ofrecemos charlas en diferentes temáticas relacionadas con la salud y el bienestar <br>
+						 como Primeros Auxilios y RCP, Ergonomía, Nutrición, Adicciones, etc.
+
 					</p>
 				</div>
 			</div>
@@ -225,7 +222,7 @@
 					</h2>
 					<p>
 						Para aquellos que tengan objetivos específicos, planificamos
-						rutinas adaptadas a cada uno según sus necesidades
+						rutinas adaptadas a cada uno según sus necesidades.
 					</p>
 				</div>
 			</div>
@@ -254,7 +251,7 @@
 					<p>
 						Contamos con profesionales que orientarán a los colaboradores <br>
 						para alcanzar los objetivos deseados en las diferentes distancias <br>
-						del running realizando un seguimiento planificado de la <br>
+						del running, realizando un seguimiento planificado de la <br>
 						evolución de cada uno.
 					</p>
 					<a class="btn btnMain">Noticias</a>
@@ -298,7 +295,7 @@
 			<div class="col-md-6 col-xs-12 item HomeItem item-empresas-8">
 				<div class="inner" data-height="">
 					<h2>
-						Beneficios para <br> la empresa
+						Beneficios para <br> las empresa
 					</h2>
 					<a class="HomeItemBtn btn btnHollowWhite">Ver Más...</a>
 				</div>
@@ -307,7 +304,7 @@
 						<a class="CloseOverlay close-section-small">X</a>
 					</div>
 					<div class="Overlay-Text overlay-text Hidden">
-						<h3>Beneficios para la empresa</h3>
+						<h3>Beneficios para las empresa</h3>
 						<hr>
 						<div class="clearfix"></div>
 						<p>
@@ -317,7 +314,7 @@
 							&bull; Mejoras en las relaciones de los grupos humanos <br>
 							&bull; Ahorro para las empresas <br>
 							&bull; Aumento de la satisfacción de los trabajadores <br>
-							&bull; Visibilidad de la compañía en ámbitos vinculados a la Responsabilidad Social Corporativa (RSE)
+							&bull; Visibilidad de la compañía en ámbitos vinculados a la Responsabilidad Social Empresarial (RSE)
 
 						</p>
 					</div>
@@ -342,7 +339,7 @@
 						<p>
 							&bull; Mejora de la calidad de vida <br>
 							&bull; Mejora de la satisfacción en el trabajo <br>
-							&bull; Bajar nivel de stress <br>
+							&bull; Baja el nivel de stress <br>
 							&bull; Disminución de lesiones <br>
 							&bull; Disminuye el riesgo de padecer enfermedades <br>
 							&bull; Mejora en las relaciones con los pares

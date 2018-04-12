@@ -35,6 +35,9 @@
 		@include('layouts.web.partials.nav')
 
 		@yield('content')
+		<div class="goToTop go-to-top">
+			
+		</div>
 		@include('layouts.web.partials.scripts')
 		@yield('scripts')
 		@yield('custom_js')

@@ -12,12 +12,12 @@
 					<div class="text2">11-0058-2258</div>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-12">
-					<img src="{{ asset('webimages/icons/contact2.png') }}" alt="">
+					<img src="{{ asset('webimages/icons/contact3.png') }}" alt="">
 					<div class="text1">Teléfono</div>
 					<div class="text2">(011) 4545-4545 / 4545-4545</div>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-12">
-					<img src="{{ asset('webimages/icons/contact3.png') }}" alt="">
+					<img src="{{ asset('webimages/icons/contact2.png') }}" alt="">
 					<div class="text1">Encontranos</div>
 					<div class="text2">Calle 234 - C.A.B.A </div>
 				</div>
@@ -76,11 +76,11 @@
 	<div class="container social-icons">
 		<div class="row horizontal-list">
 			<ul>
-				<a href=""><li><i class="ion-social-facebook"></i></li></a>
-				<a href=""><li><i class="ion-social-googleplus"></i></li></a>
+				<a href="https://www.facebook.com/Únic-Fi-204735563635331/?modal=admin_todo_tour"><li><i class="ion-social-facebook"></i></li></a>
+				<a href="https://plus.google.com/u/1/116910659861858842386"><li><i class="ion-social-googleplus"></i></li></a>
 				<a href=""><li><i class="ion-social-twitter"></i></li></a>
-				<a href=""><li><i class="ion-social-instagram-outline"></i></li></a>
-				<a href=""><li><i class="ion-social-youtube"></i></li></a>
+				<a href="https://www.instagram.com/unicfi/"><li><i class="ion-social-instagram-outline"></i></li></a>
+				<a href="https://www.youtube.com/channel/UCt-BkbOs5IEo4TPaXcjdY2A?view_as=subscriber"><li><i class="ion-social-youtube"></i></li></a>
 			</ul>
 		</div>
 	</div>
