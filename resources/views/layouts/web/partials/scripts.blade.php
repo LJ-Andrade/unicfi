@@ -46,6 +46,10 @@
         $('.MainMenuA').removeClass('wow slideInLeft');
     }
    
+    $('#ContactNavBtn').click(function(){
+        closeMenu();
+    });
+
     $('.MainMenuBtn').click(function(){
         if(!$(this).hasClass('is-active')){
             openMenu();
@@ -154,7 +158,6 @@
             $('.Home-Mobile, .MainMenuBtn').hide(500);
         } else {
             $('.Home-Desktop, .MainMenuBtn').hide(500);
-            console.log('desk');
         }
         $('html, body').animate({ scrollTop: 0 }, '0');
 

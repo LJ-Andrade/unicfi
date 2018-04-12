@@ -330,7 +330,139 @@
 		color: #fff
 		background: transparent
 
+////////////////////////////////////////
+//                                    //
+//              DIRECTOR              //
+//                                    //
+////////////////////////////////////////
 
+.main-head-section
+	position: relative
+	.main-logo
+		position: absolute
+		left: 25px
+		top: 25px
+		z-index: 9999
+
+.director-head
+	hr
+		width: 70%
+		float: left
+		margin-top: 0
+	.right-head-image
+		background: url('../webimages/home/director/img1.jpg') no-repeat center center
+		-webkit-background-size: cover
+		-moz-background-size: cover
+		-o-background-size: cover
+		background-size: cover
+		height: 50vh
+	.right-head-text
+		height: 50vh
+		padding: 50px
+		h4
+		h1
+			color: $main-color	
+			margin: 0
+			margin-bottom: 10px
+
+@media (max-width: 1300px)
+	.director-head
+		.right-head-text
+			padding: 20px 30px
+			h1
+				font-size: 3.2rem
+
+@media (max-width: 1094px)
+	.director-head
+		.right-head-image
+			height: 40vh
+		.right-head-text
+			height: 60vh
+
+@media (max-width: 991px)
+	.director-slider
+		display: none
+	.director-head
+		.right-head-image,
+			height: 500px
+		.right-head-text
+			height: auto
+
+.director-valores-section
+	display: flex
+	.items-with-icons
+		padding: 80px 50px
+	.valores-text
+		@include flex-column
+		background: #000
+		text-align: center
+		h1
+			color: #fff
+		hr
+			width: 100px
+			border-top: 7px solid #fff
+	.valores-mobile
+		display: none
+
+
+@media (max-width: 1268px)
+	.director-valores-section
+		.items-with-icons
+			padding: 50px 25px
+			.item
+				img
+					height: 35px
+				span.text
+					font-size: 1.2rem
+
+@media (max-width: 1191px)
+	.director-valores-section
+		.items-with-icons
+			padding: 50px 2px
+
+@media (max-width: 735px)
+	.director-valores-section
+		display: block
+		.items-with-icons
+			display: flex
+			align-items: center
+			justify-content: center
+			flex-grow: 1
+			flex-direction: column
+		.col
+			.item
+				height: 90px
+				width: 326px
+		.valores-mobile
+			display: block
+		.valores-desktop
+			display: none
+
+@media (max-width: 330px)
+	.director-valores-section .items-with-icons
+		display: block
+		.col
+			.item
+				width: auto
+
+.director-last-section
+	display: flex
+	> div
+		padding: 80px
+		text-align: center
+		background: $main-color
+		h1,p
+			color: #fff
+		h1
+			font-size: 2.5rem
+		p
+			font-size: 1.3rem
+
+@media (max-width: 991px)
+	.director-last-section
+		display: block
+		> div
+			padding: 40px
 ////////////////////////////////////////
 //                                    //
 //              CONTACT               //

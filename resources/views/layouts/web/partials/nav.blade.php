@@ -7,11 +7,11 @@
 <div id="MainMenu" class="main-menu">
     <div class="inner-menu">
         <ul class="vertical-list">
-            <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0s">Inicio</li></a>
-            <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.2s">Noticias</li></a>
-            <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.4s">Galería</li></a>
-            <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.6s">Director</li></a>
-            <a href="#contact"><li class="MainMenuA wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.8s">Contacto</li></a>
+            <a href="{{ asset('/') }}"><li class="MainMenuA wow slideInLeft" data-wow-duration="0.2s" data-wow-delay="0.2s">Inicio</li></a>
+            <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="0.3s" data-wow-delay="0.3s">Noticias</li></a>
+            <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="0.4s" data-wow-delay="0.4s">Galería</li></a>
+            <a href="{{ asset('director') }}"><li class="MainMenuA wow slideInLeft" data-wow-duration="0.5s" data-wow-delay="0.6s">Director</li></a>
+            <a href="#contact" id="ContactNavBtn"><li class="MainMenuA wow slideInLeft" data-wow-duration="0.6" data-wow-delay="0.8s">Contacto</li></a>
         </ul>
     </div>
     

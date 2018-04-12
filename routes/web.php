@@ -8,6 +8,8 @@
 */
 
 Route::get('/', ['as' => 'web', 'uses' => 'WebController@home']);
+Route::get('director', function(){ return view('director'); });
+
 
 
 /*
