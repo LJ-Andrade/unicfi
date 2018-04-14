@@ -36,7 +36,7 @@
 
 		@yield('content')
 		<div class="goToTop go-to-top">
-			
+			<div class="item"><i class="ion-chevron-up"></i></div>
 		</div>
 		@include('layouts.web.partials.scripts')
 		@yield('scripts')

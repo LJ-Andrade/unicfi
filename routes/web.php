@@ -7,86 +7,34 @@
 |
 */
 
-Route::get('/', ['as' => 'web', 'uses' => 'WebController@home']);
-Route::get('director', function(){ return view('director'); });
-
+//Route::get('/', ['as' => 'web', 'uses' => 'WebController@home']);
+Route::get('/', function(){ return view('web/web'); });
+Route::get('director', function(){ return view('web/director'); });
+Route::get('galeria', function(){ return view('web/galeria'); });
+Route::get('wmail', function(){ return redirect('https://accounts.zoho.com/signin'); });
 
 
 /*
 |--------------------------------------------------------------------------
-| Web / Portfolio 
+| Web / Blog y Galería
 |--------------------------------------------------------------------------
 */
 
-Route::get('portfolio', ['as'   => 'web.portfolio',	'uses' => 'WebController@portfolio']);
+Route::get('noticias', ['as' => 'web.portfolio', 'uses' => 'WebController@portfolio']);
 // Show Article / Catalogue
 Route::get('article/{slug}', ['uses' => 'WebController@showWithSlug', 'as'   => 'web.portfolio.article'])->where('slug', '[\w\d\-\_]+');
 // Article Searcher
 Route::get('categories/{name}', ['uses' => 'WebController@searchCategory', 'as'   => 'web.search.category']);
 Route::get('tag/{name}', ['uses' => 'WebController@searchTag', 'as'   => 'web.search.tag']);
-Route::post('mail_sender', 'WebController@mail_sender');
+Route::post('main_contact_mailsender', 'WebController@mainContactMailSender');
+Route::post('suelos_mailsender', 'WebController@suelosMailSender');
+Route::post('hormigon_mailsender', 'WebController@hormigonMailSender');
 
-/*
-|--------------------------------------------------------------------------
-| Store
-|--------------------------------------------------------------------------
-*/
-Route::get('tienda', ['as' => 'store', 'uses' => 'Store\StoreController@index']);
+Route::get('galeria', ['as' => 'web.galeria', 'uses' => 'WebController@gallery']);
+Route::get('galeria/{slug}', ['uses' => 'WebController@showCatalogimgWithSlug', 'as'   => 'web.catalogoimg.item'])->where('slug', '[\w\d\-\_]+');
+Route::get('galeria_categorias/{name}', ['uses' => 'WebController@searchCatalogimgCategory', 'as'   => 'web.search.catalogimgcategory']);
+Route::get('galeria_etiqueta/{name}', ['uses' => 'WebController@searchCatalogimgTag', 'as'   => 'web.search.catalogimgtag']);
 
-Route::group(['prefix'=> 'tienda'], function() {        
-    // Customer Actions
-    Route::get('articulo/{id}', 'Store\StoreController@show');
-    
-    Route::group(['middleware'=> 'customer'], function() {
-        // Cart
-        // Route::post('/cart', 'Store\CartDetailController@store');
-        Route::post('addtocart', ['as' => 'store.addtocart', 'uses' => 'Store\CartDetailController@store']);
-        Route::post('removefromcart', ['as' => 'store.removefromcart', 'uses' => 'Store\CartDetailController@destroy']);
-        Route::get('checkout', ['as' => 'store.checkout', 'uses' => 'Store\StoreController@checkout']);
-        Route::post('envio', ['as' => 'store.checkoutCustomerData', 'uses' => 'Store\StoreController@checkoutCustomerData']);
-        Route::get('envio', ['as' => 'store.checkoutShippingGet', 'uses' => 'Store\StoreController@checkoutShippingGet']);
-        Route::post('pago', ['as' => 'store.checkoutShipping', 'uses' => 'Store\StoreController@checkoutShipping']);
-        Route::get('pago', ['as' => 'store.checkoutPaymentGet', 'uses' => 'Store\StoreController@checkoutPaymentGet']);
-        Route::post('resumen', ['as' => 'store.checkoutPayment', 'uses' => 'Store\StoreController@checkoutPayment']);
-        Route::get('resumen', ['as' => 'store.checkoutReview', 'uses' => 'Store\StoreController@checkoutReview']);
-        
-        //Route::post('mp-connect', ['as' => 'store.getCreatePreference', 'uses' => 'MercadoPagoController@getCreatePreference']);
-        Route::post('mp-connect', ['as' => 'store.getCreatePreference', 'uses' => 'Store\StoreController@mpConnect']);
-        
-        // Sections    
-        Route::get('cuenta', ['as' => 'store.customer-account', 'uses' => 'Store\StoreController@customerAccount']);
-        Route::get('favoritos', ['as' => 'store.customer-wishlist', 'uses' => 'Store\StoreController@customerWishlist']);
-        Route::get('pedidos', ['as' => 'store.customer-orders', 'uses' => 'Store\StoreController@customerOrders']);
-        Route::get('pedido', ['as' => 'store.cartdetail', 'uses' => 'Store\StoreController@customerCartDetail']);
-        Route::get('carroactivo', ['as' => 'store.activecart', 'uses' => 'Store\StoreController@customerActiveCartDetail']);
-
-        // Customers
-        Route::post('updateCustomer', ['as' => 'store.updateCustomer', 'uses' => 'Store\CustomerController@update']);
-        Route::get('updatePassword', ['as' => 'store.updatePassword', 'uses' => 'Store\StoreController@updatePassword']);
-        Route::post('updatePassword', ['as' => 'store.updatePassword', 'uses' => 'Store\CustomerController@updatePassword']);
-        
-    });
-
-    Route::post('addArticleToFavs', ['as' => 'customer.addArticleToFavs', 'uses' => 'Store\StoreController@addArticleToFavs']);
-    Route::post('removeArticleFromFavs', ['as' => 'customer.removeArticleFromFavs', 'uses' => 'Store\StoreController@removeArticleFromFavs']);
-    Route::post('removeAllArticlesFromFavs', ['as' => 'customer.removeAllArticlesFromFavs', 'uses' => 'Store\StoreController@removeAllArticlesFromFavs']);
-
-    // Store Login Routes...
-    Route::get('login', ['as' => 'customer.login', 'uses' => 'CustomerAuth\LoginController@showLoginForm']);
-    Route::post('login', ['uses' => 'CustomerAuth\LoginController@login']);
-    Route::post('logout', ['as' => 'customer.logout', 'uses' => 'CustomerAuth\LoginController@logout']);
-    
-    // Store Registration Routes...
-    Route::get('register', ['as' => 'customer.register', 'uses' => 'CustomerAuth\RegisterController@showRegistrationForm']);
-    Route::post('register', ['uses' => 'CustomerAuth\RegisterController@register']);
-    
-    // Store Password Reset Routes...
-    Route::get('password/reset', ['as' => 'customer.password.reset', 'uses' => 'CustomerAuth\ForgotPasswordController@showLinkRequestForm']);
-    Route::post('password/email', ['as' => 'customer.password.email', 'uses' => 'CustomerAuth\ForgotPasswordController@sendResetLinkEmail']);
-    Route::get('password/reset/{token}', ['as' => 'customer.password.reset.token', 'uses' => 'CustomerAuth\ResetPasswordController@showResetForm']);
-    Route::post('password/reset', ['uses' => 'CustomerAuth\ResetPasswordController@reset']);
-        
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -106,40 +54,42 @@ Route::group(['prefix'=> 'vadmin'], function() {
     Route::get('register', ['as' => 'vadmin.register', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
     Route::post('register', ['uses' => 'Auth\RegisterController@register']);
 
-    // Password Reset Routes...
+    // VADMIN Password Reset Routes...
     Route::get('password/reset', ['as' => 'vadmin.password.reset', 'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm']);
     Route::post('password/email', ['as' => 'vadmin.password.email', 'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail']);
     Route::get('password/reset/{token}', ['as' => 'vadmin.password.reset.token', 'uses' => 'Auth\ResetPasswordController@showResetForm']);
     Route::post('password/reset', ['uses' => 'Auth\ResetPasswordController@reset']);
 });
 
+// Route::get('/home', 'VadminController@index');
+// Route::get('/vadmin', 'VadminController@index');
+
 /*
 |--------------------------------------------------------------------------
 | Vadmin - Sections
 |--------------------------------------------------------------------------
 */
+
 Route::get('sendmail', 'VadminController@sendMail');
 
 // Functions that all users can access
 Route::group(['prefix' => 'vadmin'], function(){
-    Route::post('updateAvatar', 'UserController@updateAvatar');
     // -- SUPPORT --
     Route::get('docs', function(){ return view('vadmin.support.docs'); });
-    Route::get('help', function(){ return view('vadmin.support.help'); });
-    // Exports
+    Route::get('soporte', function(){ return view('vadmin.support.support'); });
+    Route::post('techSupport', ['as'=>'vadmin.soporte','uses'=>'VadminController@techSupport']);
+
+    // -- EXPORT --
     Route::get('exportViewPdf/{view}/{params}/{model}/{filename}', ['as' => 'vadmin.exportViewPdf', 'uses' => 'invoiceController@exportViewPdf']);
-    
+
     Route::get('exportUsersListPdf/{params}', ['as' => 'vadmin.exportUsersListPdf', 'uses' => 'UserController@exportPdf']);
     Route::get('exportUsersListXls/{params}', ['as' => 'vadmin.exportUsersListXls', 'uses' => 'UserController@exportXls']);
-    
+
     Route::get('exportCatalogListPdf/{params}', ['as' => 'vadmin.exportCatalogListPdf', 'uses' => 'Catalog\ArticlesController@exportPdf']);
     Route::get('exportCatalogListXls/{params}', ['as' => 'vadmin.exportCatalogListXls', 'uses' => 'Catalog\ArticlesController@exportExcel']);
-    Route::get('mailChecker', ['as' => 'vadmin.mailChecker', 'uses' => 'ToolsController@mailChecker']);
-    Route::get('configs', ['as' => 'vadmin.configs', 'uses' => 'VadminController@configs']);
-    Route::get('infophp', ['as' => 'vadmin.infophp', 'uses' => 'VadminController@infophp'])->middleware('admin');
-
 });
 
+// En un futuro debe restringirse estas operaciones a usuarios que no sean admin
 Route::group(['prefix' => 'vadmin', 'middleware' => 'admin'], function(){
 
     //Route::get('/home', 'VadminController@index');
@@ -147,6 +97,7 @@ Route::group(['prefix' => 'vadmin', 'middleware' => 'admin'], function(){
     
     // -- USERS --
     Route::resource('users', 'UserController');
+    Route::post('updateAvatar', 'UserController@updateAvatar');	
     Route::post('message_status/{id}', 'VadminController@updateMessageStatus');
 
     // -- MESSAGES --
@@ -171,7 +122,6 @@ Route::group(['prefix' => 'vadmin', 'middleware' => 'admin'], function(){
     Route::resource('cat_categorias', 'Catalog\CategoriesController');
     Route::resource('cat_tags', 'Catalog\TagsController');
     Route::post('cat_article_status/{id}', 'Catalog\ArticlesController@updateStatus');
-    Route::post('deleteArticleImg/{id}', 'Portfolio\ArticlesController@deleteArticleImg');
     // Atribute 1
     Route::resource('cat_atribute1', 'Catalog\CatalogAtribute1Controller');
     Route::post('catalog_make_thumb/{id}', 'Catalog\ArticlesController@makeThumb');
@@ -179,10 +129,16 @@ Route::group(['prefix' => 'vadmin', 'middleware' => 'admin'], function(){
     Route::resource('shippings', 'Catalog\ShippingsController');
     // Payments Methods
     Route::resource('payments', 'Catalog\PaymentsController');
-
-
-
+    
+    // -- IMAGE CATALOG--
+    Route::resource('catalogoimg', 'Catalogimg\ArticlesController');
+    
+    Route::resource('catimg_categorias', 'Catalogimg\CategoriesController');
+    Route::resource('catimg_tags', 'Catalogimg\TagsController');
+    Route::post('catimg_article_status/{id}', 'Catalogimg\ArticlesController@updateStatus');
+    
 });
+    
     
 /*
 |--------------------------------------------------------------------------
@@ -202,8 +158,12 @@ Route::prefix('vadmin')->middleware('admin')->group(function () {
     Route::post('destroy_cat_atribute1', 'Catalog\CatalogAtribute1Controller@destroy');
     Route::post('destroy_product_image', 'Catalog\ImagesController@destroy');
     Route::post('destroy_portfolio_image', 'Portfolio\ImagesController@destroy');
+    Route::post('destroy_catalogimg_image', 'Catalogimg\ImagesController@destroy');
     Route::post('destroy_shippings', 'Catalog\ShippingsController@destroy');
     Route::post('destroy_payments', 'Catalog\PaymentsController@destroy');
+    Route::post('destroy_catalogoimg', 'Catalogimg\ArticlesController@destroy');
+    Route::post('destroy_catimg_categorias', 'Catalogimg\CategoriesController@destroy');
+    Route::post('destroy_catimg_tags', 'Catalogimg\TagsController@destroy');
 });
 
 

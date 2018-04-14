@@ -4,7 +4,7 @@
     <div class="col-md-6">
         <div class="form-group">
             {!! Form::label('title', 'Título') !!}
-            {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Título del artículo', 'id' => 'TitleInput', 
+            {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Título de la noticia', 'id' => 'TitleInput', 
             'required' => '', 'maxlength' => '120', 'minlength' => '4']) !!}
         </div>
     </div>
@@ -12,7 +12,7 @@
     <div class="col-md-6">
         <div class="form-group">
             {!! Form::label('slug', 'Url Amigable - Dirección web') !!}
-            {!! Form::text('slug', null, ['class' => 'SlugInput form-control', 'placeholder' => 'Dirección visible (en explorador)', 'id' => 'SlugInput', 'required' => '']) !!}
+            {!! Form::text('slug', null, ['class' => 'SlugInput Disabled-Input-Modificable form-control disabled-input-modificable', 'placeholder' => 'Dirección visible (en explorador)', 'id' => 'SlugInput', 'required' => '']) !!}
             <div class="slug2"></div>
         </div>
     </div>

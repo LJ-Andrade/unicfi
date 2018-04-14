@@ -121,10 +121,10 @@
 				document.getElementById('LoadingText').innerHTML = "." + dots;
 			}, 1000);
 
-			// Check If Img Is Broken and replace with default img 
-			// Add ".CheckImg" ass Class in any Img to add this function
+			// Check if a image is broken and replace it with a default image
+			// Include ".CheckImg" class in any <img> tag to add this feature
 			$('.CheckImg').on('error', function(){
-				var defaultImg = "{{ asset('images/users/default.jpg') }}"
+				var defaultImg = "{{ asset('images/gen/default.jpg') }}"
 				$(this).attr('src', defaultImg);
 			});
 

@@ -34,6 +34,7 @@
 					{{--  <div class="results">{{ $items->total() }} resultados de búsqueda: </div>  --}}
 				@endif
 			</div>
+			
 		@endslot
 		@slot('searcher')
 			@include('vadmin.users.searcher')
@@ -76,6 +77,7 @@
 						@if(Auth::guard('user')->user()->role <= 2)
 						<th></th>
 						@endif
+						<th></th>
 						<th>Usuario</th>
 						<th>Nombre</th>
 						<th>Email</th>
@@ -93,14 +95,25 @@
 							<tr>
 								@if(Auth::guard('user')->user()->role <= 2)
 								<td>
+									@if($item->id == '1' || $item->id == '2')
+									@else
 									<label class="custom-control custom-checkbox list-checkbox">
 										<input type="checkbox" class="List-Checkbox custom-control-input row-checkbox" data-id="{{ $item->id }}">
 										<span class="custom-control-indicator"></span>
 										<span class="custom-control-description"></span>
 									</label>
+									@endif
 								</td>
 								@endif
+								<td class="thumb">
+									@if($item->avatar == '' || $item->avatar == null)
+										<img src="{{ asset('images/users/default.jpg') }}" class="CheckImg" alt="User Image">
+									@else
+										<img src="{{ asset('images/users/'.$item->avatar) }}" class="CheckImg" alt="User Image">
+									@endif
+								</td>
 								<td class="show-link"><a href="{{ url('vadmin/users/'.$item->id) }}">{{ $item->username }}</a></td>
+									
 								<td>{{ $item->name }}</td>
 								<td>{{ $item->email }}</td>
 								<td>{{ roleTrd($item->role) }}</td>
@@ -115,7 +128,10 @@
 					@endif
 				@endslot
 			@endcomponent
-			
+			<div id="Violation" class="violation Hidden">
+				<div id="ViolationMessage" class="message"></div>
+				<img src="{{ asset('images/gral/notallowed.jpg') }}" alt="">
+			</div>
 			@if(isset($_GET['name']))
 				{!! $items->appends(['name' => $name])->render(); !!}
 			@elseif(isset($_GET['role']) || isset($_GET['group']))
@@ -128,18 +144,7 @@
 	</div>
 @endsection
 
-
-
 {{-- SCRIPT INCLUDES --}}
 @section('scripts')
 	@include('vadmin.components.bladejs')
-@endsection
-
-{{-- CUSTOM JS SCRIPTS--}}
-@section('custom_js')
-	<script>
-		$('.AdminLi').addClass('open');
-		$('.UsersLi').addClass('open');
-		$('.UsersList').addClass('active');
-	</script>
 @endsection

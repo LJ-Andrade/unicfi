@@ -21,7 +21,8 @@
     });
 
     // Pause Item
-    
+
+
     /*
     |--------------------------------------------------------------------------
     | UPDATE MODIFICABLE INPUTS UI
@@ -156,6 +157,13 @@
     $(document).on('click', '.Delete-Porfolio-Img', function(e) {
         var id    = $(this).data('imgid');
         var route = "{{ url('vadmin') }}/destroy_portfolio_image";
+        // console.log(id + ' | ' + route);
+        deleteAndReload(id, route, "Atención","Desea eliminar esta imágen?");
+    });
+
+    $(document).on('click', '.Delete-Catalogimg-Img', function(e) {
+        var id    = $(this).data('imgid');
+        var route = "{{ url('vadmin') }}/destroy_catalogimg_image";
         // console.log(id + ' | ' + route);
         deleteAndReload(id, route, "Atención","Desea eliminar esta imágen?");
     });
@@ -383,5 +391,35 @@
             });
     }
 
+    
+    /*
+    |--------------------------------------------------------------------------
+    | ALERTS
+    |--------------------------------------------------------------------------
+    */
+
+    // Update User Avatar
+    $('#Avatar').click(function(){
+        $('#ImageInput').click();
+    });    
+       
+    $(document).ready(function() {
+    
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.Image-Container').attr('src', e.target.result);
+                    $('.ActionContainer').removeClass('Hidden');
+                }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#ImageInput").change(function(){
+            readURL(this);
+            $('.UpdateAvatarForm').removeClass('Hidden');
+        });
+    });
 
 </script>

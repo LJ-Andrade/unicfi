@@ -42,8 +42,7 @@
 					@slot('text')
 					Las <b>etiquetas</b> (o tags) son palabras claves que permiten agrupar artículos con una característica particular.
 					Estas pueden ser compartidas entre artículos que pertenezcan a distintas categorías.
-					Luego permitirá a los usuarios que filtren los items en los buscadores de la web según sus preferencias. <br><br>
-					<b>Ejemplos de etiquetas:</b> Rojo, Verde, Largo, Corto, Con Costuras, Sin Costuras, En Oferta, Liquidación, etc. 
+					Luego permitirá a los usuarios que filtren los items en los buscadores de la web según sus preferencias. <br>
 					@endslot
 				@endcomponent
 			</div>

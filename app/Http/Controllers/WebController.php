@@ -7,6 +7,9 @@ use App\Article;
 use App\Category;
 use App\Tag;
 use App\Contact;
+use App\CatalogimgArticle;
+use App\CatalogimgCategory;
+use App\CatalogimgTag;
 use Mail;
 use App\Mail\WebContactMail;
 
@@ -20,9 +23,103 @@ class WebController extends Controller
 
 	public function home()
     {
-        $categories = Category::all();
-        return view('web')->with('categories', $categories);
+        return view('web/web');
+	}
+
+	/*
+    |--------------------------------------------------------------------------
+    | Gallery
+    |--------------------------------------------------------------------------
+	*/
+
+	public function gallery(Request $request)
+	{
+		$articles = CatalogimgArticle::search($request->title)->orderBy('id', 'DESC')->where('status', '1')->paginate(12);
+		
+		$categories = CatalogimgCategory::all();
+		$tags = CatalogimgTag::all();
+		if($request->title != null){
+			$searchInfo = 'Término de búsqueda: '. $request->title;
+		} else {
+			$searchInfo = null;
+		}
+
+		return view('web.galeria.galeria')
+			->with('articles', $articles)
+			->with('categories', $categories)
+			->with('tags', $tags)
+			->with('searchInfo', $searchInfo);
+	}
+
+	
+	public function showCatalogimgWithSlug($slug)
+	{
+        $article = CatalogimgArticle::where('slug', '=', $slug)->first();
+		$categories = CatalogimgCategory::all();
+		$tags = CatalogimgTag::all();
+
+		return view('web.galeria.item')
+			->with('article', $article)
+			->with('categories', $categories)
+			->with('tags', $tags);
     }
+
+	public function searchCatalogimgCategory($name)
+	{
+		$category = CatalogimgCategory::SearchCategory($name)->first();
+		$articles = $category->articles()->paginate(12);
+		// $articles->each(function($articles){
+		// 		$articles->category;
+		// 		$articles->images;
+		// });
+		$searchInfo = 'Imágenes con la categoría: '. $name;
+		
+		$categories = CatalogimgCategory::all();
+		$tags = CatalogimgTag::all();
+		
+		return view('web.galeria.galeria')
+			->with('articles', $articles)
+			->with('categories', $categories)
+			->with('tags', $tags)
+			->with('searchInfo', $searchInfo);
+	}
+
+	public function searchCatalogimgTag($name)
+    {
+        $tag = CatalogimgTag::SearchTag($name)->first();
+        $articles = $tag->articles()->paginate(12);
+
+		$searchInfo = 'Imágenes con la etiqueta: '.$name;
+		
+		$categories = CatalogimgCategory::all();
+		$tags = CatalogimgTag::all();
+
+		return view('web.galeria.galeria')
+			->with('articles', $articles)
+			->with('categories', $categories)
+			->with('tags', $tags)
+			->with('searchInfo', $searchInfo);
+    }
+
+	
+    public function viewCatalogimgArticle($id)
+    {
+        $article = CatalogimgArticle::find($id);
+        $categories = CatalogimgCategory::all();
+		$tags = CatalogimgTag::all();
+
+		return view('web.galeria.galeria')
+			->with('articles', $articles)
+			->with('categories', $categories)
+			->with('tags', $tags);
+	}
+	
+
+	/*
+    |--------------------------------------------------------------------------
+    | BLOG
+    |--------------------------------------------------------------------------
+	*/
 
 	public function portfolio(Request $request)
 	{
@@ -31,8 +128,14 @@ class WebController extends Controller
             $articles->category;
             $articles->images;
 		}); 
-    	return view('web.portfolio.portfolio')
-    		->with('articles', $articles);
+
+		$categories = Category::all();
+		$tags = Tag::all();
+
+    	return view('web.blog.blog')
+			->with('articles', $articles)
+			->with('categories', $categories)
+			->with('tags', $tags);
     }
 
 	public function searchCategory($name)
@@ -43,7 +146,14 @@ class WebController extends Controller
 				$articles->category;
 				$articles->images;
 		});
-		return view('web.portfolio.portfolio')->with('articles', $articles);
+		
+		$categories = Category::all();
+		$tags = Tag::all();
+
+		return view('web.blog.blog')
+			->with('articles', $articles)
+			->with('categories', $categories)
+			->with('tags', $tags);
 	}
 
     public function searchTag($name)
@@ -54,7 +164,14 @@ class WebController extends Controller
                 $articles->category;
                 $articles->images;
         });
-        return view('web.portfolio.portfolio')->with('articles', $articles);
+		
+		$categories = Category::all();
+		$tags = Tag::all();
+
+		return view('web.blog.blog')
+			->with('articles', $articles)
+			->with('categories', $categories)
+			->with('tags', $tags);
     }
 
     public function viewArticle($id)
@@ -65,67 +182,53 @@ class WebController extends Controller
                 $article->images;
                 $article->tags;
                 $article->colors;
-        });
-        return view('web.portfolio.article')->with('article', $article);
+		});
+		
+        $categories = Category::all();
+		$tags = Tag::all();
+
+		return view('web.blog.blog')
+			->with('articles', $articles)
+			->with('categories', $categories)
+			->with('tags', $tags);
     }
 
     public function showWithSlug($slug) {
 
         $article = Article::where('slug', '=', $slug)->first();
-        // dd($article);
-        return view('web.portfolio.article')->with('article', $article);
+		$categories = Category::all();
+		$tags = Tag::all();
+
+		return view('web.blog.article')
+			->with('article', $article)
+			->with('categories', $categories)
+			->with('tags', $tags);
     }
+
+
+	/*
+    |--------------------------------------------------------------------------
+    | CONTACT
+    |--------------------------------------------------------------------------
+    */
 
     public function contact()
     {  
         return view('contacto');
     }
 
-	public function mail_sender(Request $request)
+	public function mainContactMailSender(Request $request)
     {
-
-		// $MailToAddress    = "info@studiovimana.com.ar";
-		// $MailSubject      = "Mensaje desde la web";
-
-		// if (!isset($MailFromAddress) ) {
-		// 	$MailFromAddress = "info@studiovimana.com.ar";
-		// }
-
-		// $Header = "Contacto desde la Web";
-		// $Message = $Footer = "";
-
-		// if (!is_array($_POST))
-		// 	return;
-		// 	reset($_POST);
-
-		// // Genera un mensaje personalizado.
-		// $Message  = "Nombre/Empresa: ".stripslashes($_POST['name'])." \n";
-		// $Message .= "Tel.: ".stripslashes($_POST['phone'])." \n";
-		// $Message .= "E-Mail: ".stripslashes($_POST['email'])." \n";
-		// $Message .= "Consulta/Mensaje: ".stripslashes($_POST['message'])." \n";
-
-		// if ($Header) {
-		// 	$Message = $Header."\n\n".$Message."\n\n";
-		// }
-
-		// // $REMOTE_USER = (isset($_SERVER["REMOTE_USER"]))?$_SERVER["REMOTE_USER"]:"";
-		// $REMOTE_ADDR = (isset($_SERVER["REMOTE_ADDR"]))?$_SERVER["REMOTE_ADDR"]:"";
-		// // $Message .= "REMOTE USER: ". $REMOTE_USER."\n";
-		// $Message .= "I.P del contacto: ". $REMOTE_ADDR."\n";
-
-		// if ($Footer) {
-		// 	$Message .= "\n\n".$Footer;
-		// }
-
 		try{
-			// Está deshabilitada la funcion envío vía mail hasta que sea permitido el uso de SMTP desde Digital Ocean
-			// mail("$MailToAddress", "$MailSubject", "$Message", "From: $MailFromAddress");
 			$contact = new Contact();
-            $contact->fill($request->all());
+			$contact->fill($request->all());
 			$contact->save();
 			$subject = 'Nuevo contacto desde la web';
 
-			Mail::to(APP_EMAIL_1)->send(new WebContactMail($subject, $contact));
+            $data = $request->all();
+            $view = 'vadmin.components.mailWebContact';
+
+            Mail::to(APP_EMAIL_1)->send(new WebContactMail($subject, $data, $view));
 			
 			return response()->json(['response' => 1,
 									 'error'    => '0']); 
@@ -133,30 +236,48 @@ class WebController extends Controller
 			return response()->json(['response' => 0,
 									 'error'    => $e]); 
 		}
+    }		
+    
+    public function suelosMailSender(Request $request)
+    {
+		try{
+			$contact = new Contact();
+			$contact->fill($request->all());
+			$contact->save();
+			$subject = 'Solicitud de presupuesto de suelos';
 
-		// function ValidarDatos($campo){
-		// 	//Array con las posibles cabeceras a utilizar por un spammer
-		// 	$badHeads = array("Content-Type:",
-		// 	"MIME-Version:",
-		// 	"Content-Transfer-Encoding:",
-		// 	"Return-path:",
-		// 	"Subject:",
-		// 	"From:",
-		// 	"Envelope-to:",
-		// 	"To:",
-		// 	"bcc:",
-		// 	"cc:");
+            $data = $request->all();
+            $view = 'vadmin.components.mailSuelosContact';
 
-		// 	foreach($badHeads as $valor){
-		// 		if(strpos(strtolower($campo), strtolower($valor)) !== false){
-		// 			header( "HTTP/1.0 403 Forbidden");
-		// 			exit;
-		// 		}
-		// 	}
-		// }
-		// ValidarDatos($_POST['name']);
-		// ValidarDatos($_POST['email']);
-		// ValidarDatos($_POST['phone']);
-		// ValidarDatos($_POST['message']);
-		}		
+			Mail::to([APP_EMAIL_1, APP_EMAIL_2])->send(new WebContactMail($subject, $data, $view));
+			
+			return response()->json(['response' => 1,
+									 'error'    => '0']); 
+		} catch(Exception $e) {
+			return response()->json(['response' => 0,
+									 'error'    => $e]); 
+		}
+    }		
+
+    public function hormigonMailSender(Request $request)
+    {
+		try{
+			$contact = new Contact();
+			$contact->fill($request->all());
+			$contact->save();
+			$subject = 'Solicitud de presupuesto de suelos';
+
+            $data = $request->all();
+            $view = 'vadmin.components.mailHormigonContact';
+
+			Mail::to([APP_EMAIL_1, APP_EMAIL_3])->send(new WebContactMail($subject, $data, $view));
+			
+			return response()->json(['response' => 1,
+									 'error'    => '0']); 
+		} catch(Exception $e) {
+			return response()->json(['response' => 0,
+									 'error'    => $e]); 
+		}
+    }		
+    
 }

@@ -6,11 +6,11 @@
         @endcomponent
     @endslot
 
-    Nombre: {{ $content->name }} <br />
-    Teléfono: {{ $content->phone }} <br />
-    E-Mail: {{ $content->email }} <br />
-    Mensaje: {{ $content->message }} <br />
-
+    Nombre: {{ $data['name'] }} <br />
+    Teléfono: {{ $data['phone'] }} <br />
+    E-Mail: {{ $data['email'] }} <br />
+    Mensaje: {{ $data['message'] }} <br />
+    
     @slot('subcopy')
         @component('mail::subcopy')
             <!-- subcopy here -->
@@ -21,7 +21,7 @@
     {{-- Footer --}}
     @slot('footer')
         @component('mail::footer')
-            Mensaje enviado desde el sistema Vadmin - <?php echo date('Y') ?>
+            Mensaje enviado desde el sistema Vadmin | Cimhe - <?php echo date('Y') ?>
         @endcomponent
     @endslot
 @endcomponent

@@ -294,6 +294,7 @@ $red1: rgb(235, 87, 87)
 //              LISTS               //
 //                                  //
 //////////////////////////////////////
+
 ///// Vertical List ///
 .vertical-list
 	ul
@@ -320,16 +321,21 @@ $red1: rgb(235, 87, 87)
 			list-style: none
 
 
-
-
 //////////// Section Banners //////////////////////
-.topSectionBanner
-	margin-top: -110px
-	height: 100px
-	img
-		min-width: 100%
-		max-width: 100%
-
+.top-banner
+	position: relative
+	height: 250px
+	.main-logo
+		position: absolute
+		left: 25px
+		top: 25px
+		z-index: 9999
+.banner-noticias
+	background: url('../webimages/home/noticias/noticias.jpg') no-repeat center center
+	-webkit-background-size: cover
+	-moz-background-size: cover
+	-o-background-size: cover
+	background-size: cover 
 
 
 ////////////// Filters //////////////////////////
@@ -383,6 +389,271 @@ $red1: rgb(235, 87, 87)
 		border: none
 		border-radius: 4px
 		cursor: pointer
+
+// Nav Filters
+// Search Input
+.search-bar
+    border: 1px solid #ccc
+    border-radius: 40px
+    padding: 0px 18px
+    min-height: 38px
+    input
+        border: 0
+        box-shadow: none
+        font-size: 1rem
+        background-color: transparent
+    .search-btn
+        background-color: transparent
+        color: #383838
+
+@media (max-width: 1200px) and (min-width: 768px)
+    .search-bar .search-btn
+        display: none
+    .search-input input
+        width: 100%
+
+// Filters Components
+.filter-container
+	@include flex-center
+	align-items: flex-start
+	background-color: #fff
+	margin-top: 5px
+	position: fixed
+	text-align: center
+	left: 0
+	top: 0
+	z-index: 9999
+	width: 100%
+	height: 100%
+	padding: 68px 10px 50px
+	.filter-inner
+		border: 1px solid #ccc
+		width: 500px
+		max-width: 100%
+		hr
+			margin-top: 10px
+			margin-bottom: 20px
+			border: 0
+			border-top: 1px solid #d4d4d4
+		.search-input
+			hr
+				margin-top: 20px
+			input
+				width: 70%
+				float: left
+				margin-right: 5px
+				border-radius: 0
+			button
+				color: #000
+				border-radius: 0
+		.search-buttons
+			.title
+				font-size: 1.2rem
+				margin-bottom: 10px
+				font-weight: 400
+			.filter-button
+				font-weight: 300
+				border-radius: 50px
+				background-color: transparent
+				border: 1px solid #dbdbdb
+				padding: 5px
+				margin-right: 5px
+				margin-bottom: 5px
+				color: #000
+				font-size: 1rem
+				&:hover
+					background-color: #f9f9f9
+	.close-this
+		position: absolute
+		top: 15px
+		right: 30px
+		font-size: 2.5rem
+		font-weight: 800
+		font-family: $font2
+		&:hover
+			cursor: pointer
+	
+
+		
+$nav_dark1: #31313A
+$nav_dark2: #3F3F4A
+$nav_dark3: #444450
+@media (min-width: 930px)
+	.portfolio-filter
+		background-color: #fff
+		border-bottom: 2px solid $main-color
+		.title
+			font-size: 2rem
+			border-bottom: 2px solid $main-color
+		.icons-menu
+			font-size: 1.2rem
+			margin-right: 5px
+		.container-fluid,.navbar-collapse
+			padding-left: 0
+			padding-right: 15px
+		.portfolio-filter-left
+			height: 50px
+			.title
+				padding: 20px 30px 15px 30px
+				background-color: #fff
+				border-right: 2px solid $main-color
+				color: $main-color
+				height: 57px
+				font-family: $font2
+				font-size: 1.6rem
+				font-weight: 800
+			li.filter-parent-link
+				height: 57px
+				border-right: 2px solid $main-color
+			li
+				@include transition(0.2s)
+				&:hover,&:focus,&:active
+					a
+						border: 0 !important
+				a
+					padding: 18px 35px 15px 35px
+					color: #000
+					font-size: 1rem
+					font-family: $font2
+					font-weight: 400
+				&:hover
+					background-color: $main-color
+					a
+						color: #fff
+				&:focus,&:active
+					background-color: $main-color
+					border: 0
+					color: #fff
+					a
+						color: #fff
+
+			.open > a, .open > a:focus, .open > a:hover
+				border: 0
+				background-color: rgba($main-color,.8)
+				color: #fff
+			.dropdown-items
+				background-color: #fff
+				border: 0
+				border-radius: 0
+				.badge
+					font-family: $font2
+					font-weight: 400
+					font-size: 0.8rem
+					margin-right: 5px
+					background-color: $light-green
+					width: 28px
+				li
+					a
+						color: #000
+					&:hover
+						background-color: #fff
+						color: #383838
+						a
+							color: #383838	
+		.portfolio-filter-right
+			.search-bar
+				border: 0
+				border-radius: 0
+				padding: 0px 18px
+				input
+					border: 0
+					box-shadow: none
+					font-size: 1rem
+				.search-btn
+					background-color: #fff
+					color: #383838
+
+
+@media (max-width: 930px)
+	.portfolio-filter
+		display: none
+
+
+.portfolio-filter-mobile
+	display: none
+
+@media (max-width: 930px)
+	.portfolio-filter-mobile
+		display: block
+		position: relative
+		padding: 0 15px
+		margin-top: 15px
+		.search-bar
+			border: 1px solid #ccc
+			border-radius: 40px
+			padding: 0px 18px
+			input
+				border: 0
+				box-shadow: none
+				font-size: 1rem
+			.search-btn
+				background-color: #fff
+				color: #383838
+		h2
+			color: #383838
+		.title
+			color: $main-color
+			font-family: $font2
+			font-size: 1.6rem
+			font-weight: 800
+		.filterMobileBtn
+			color: #383838
+			background-color: transparent
+			position: absolute
+			right: 0
+			top: -9px
+			border-radius: 0
+			padding: 5px 26px 0
+			margin-right: 20px
+			margin-bottom: 10px
+			font-family: "Josefin Slab", serif
+			font-weight: 400
+			font-size: 1.3rem
+			border: 1px solid #ccc
+			border-radius: 50px
+			&:hover
+				color: #383838
+				background-color: #ccc
+		// Filters
+		.filter-inner
+			text-align: center
+			background-color: #fff
+			padding: 10px
+			max-width: 400px
+			hr
+				margin-top: 10px
+				margin-bottom: 20px
+				border: 0
+				border-top: 1px solid #d4d4d4
+				// border-top: 1px solid rgb(84, 87, 116)
+			.search-input
+				hr
+					margin-top: 20px
+				input
+					width: 70%
+					float: left
+					margin-right: 5px
+					border-radius: 0
+				button
+					color: #000
+					border-radius: 0
+			.search-buttons
+				.title
+					font-size: 1.2rem
+					margin-bottom: 10px
+					font-weight: 400
+				.filter-button
+					font-weight: 300
+					border-radius: 50px
+					background-color: transparent
+					border: 1px solid #dbdbdb
+					padding: 5px
+					margin-right: 5px
+					margin-bottom: 5px
+					color: #000
+					font-size: 1rem
+					&:hover
+						background-color: #f9f9f9
 
 ////////// Checkboxes ///////////////////////////////////////////
 
@@ -632,7 +903,21 @@ $red1: rgb(235, 87, 87)
 	width: 100px
 	border-top: 8px solid #fff
 
-
+.go-to-top
+	position: fixed
+	right: 20px
+	bottom: 30px
+	.item
+		background-color: rgba($main-color, .7)
+		color: #ffffff
+		font-size: 2.2rem
+		width: 50px
+		height: 50px
+		padding: 7px 10px
+		@include transition(0.2s)
+		&:hover
+			background-color: $main-color
+			cursor: pointer
 	
 
 .items-with-icons
@@ -735,7 +1020,6 @@ $red1: rgb(235, 87, 87)
 //              SLIDER                //
 //                                    //
 ////////////////////////////////////////
-
 
 /////////// Home Slider ////////////////
 

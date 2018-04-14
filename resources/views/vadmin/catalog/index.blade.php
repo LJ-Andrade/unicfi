@@ -68,8 +68,6 @@
 					@if(!$articles->count() == '0')
 					@slot('tableTitles')
 						<th class="w-50">
-							@component('vadmin.components.checkAllCheckBox')
-							@endcomponent
 						<th></th>
 						<th>Cód.</th>
 						<th>Título</th>

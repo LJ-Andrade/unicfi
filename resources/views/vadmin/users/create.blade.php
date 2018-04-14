@@ -19,20 +19,35 @@
 		@component('vadmin.components.container')
 			@slot('title', 'Creación de Usuario')
 			@slot('content')
-			<form class="form" method="POST" action="{{ route('users.store') }}">
-				{{ csrf_field() }}
-				@include('vadmin.users.form')
-				<div class="form-actions right">
-					<a href="{{ route('users.index')}}">
-						<button type="button" class="btn btnRed">
-							<i class="icon-cross2"></i> Cancelar
+			<div class="form-body">
+				{!! Form::open(['route' => 'users.store', 'method' => 'POST', 'files' => true]) !!}
+					{{ csrf_field() }}
+					<div class="row">
+						@include('vadmin.users.form')
+						<div class="col-lg-4 col-md-4">
+							<div class="form-group">
+								{!! Form::label('password', 'Contraseña') !!}
+								{!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Ingrese la contraseña', 'required' => '']) !!}
+							</div>
+
+							<div class="form-group">
+								{!! Form::label('password_confirmation', 'Confirme la contraseña') !!}
+								{!! Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'Confirme la contraseña', 'required' => '']) !!}
+							</div>
+						</div>
+					</div>
+					<div class="form-actions right">
+						<a href="{{ route('users.index')}}">
+							<button type="button" class="btn btnRed">
+								<i class="icon-cross2"></i> Cancelar
+							</button>
+						</a>
+						<button type="submit" class="btn btnGreen">
+							<i class="icon-check2"></i> Guardar
 						</button>
-					</a>
-					<button type="submit" class="btn btnGreen">
-						<i class="icon-check2"></i> Guardar
-					</button>
-				</div>
-            </form>
+					</div>
+            	{!! Form::close() !!}    
+			</div>
 			@endslot
 		@endcomponent
 	</div>
@@ -41,11 +56,5 @@
 @section('scripts')
 	<script type="text/javascript" src="{{ asset('plugins/validation/parsley.min.js') }}" ></script>
 	<script type="text/javascript" src="{{ asset('plugins/validation/es/parsley-es.min.js') }}" ></script>
-@endsection
-
-@section('custom_js')
-	<script>
-		$('.UsersLi').addClass('open');
-		$('.UsersNew').addClass('active');
-	</script>
+		@include('vadmin.components.bladejs')
 @endsection

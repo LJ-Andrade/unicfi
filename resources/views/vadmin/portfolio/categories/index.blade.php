@@ -1,5 +1,5 @@
 @extends('layouts.vadmin.main')
-@section('title', 'Vadmin | Categorías')
+@section('title', 'Listo de categorías')
 {{-- STYLE INCLUDES --}}
 @section('styles')
 @endsection
@@ -9,12 +9,12 @@
 	@component('vadmin.components.headerfixed')
 		@slot('breadcrums')
 		    <li class="breadcrumb-item"><a href="{{ url('vadmin')}}">Inicio</a></li>
-            <li class="breadcrumb-item active">Listado de Categorías</li>
+            <li class="breadcrumb-item active">Listado de categorías</li>
 		@endslot
 		@slot('actions')
 			{{-- Actions --}}
 			<div class="list-actions">
-				<a href="{{ route('categories.create') }}" class="btn btnBlue"><i class="icon-plus-round"></i>  Nueva Categoría</a>
+				<a href="{{ route('categories.create') }}" class="btn btnBlue"><i class="icon-plus-round"></i>  Nueva categoría</a>
 				<button id="SearchFiltersBtn" class="btn btnBlue"><i class="icon-ios-search-strong"></i></button>
 				{{-- Edit --}}
 				<a href="#" id="EditBtn" class="btn btnGreen Hidden"><i class="icon-pencil2"></i> Editar</a>
@@ -26,8 +26,8 @@
 				<input id="RowsToDeletion" type="hidden" name="rowstodeletion[]" value="">
 				{{-- If Search --}}
 				@if(isset($_GET['name']))
-				<a href="{{ url('vadmin/categories') }}"><button type="button" class="btn btnGrey">Mostrar Todos</button></a>
-				<div class="results">{{ $categories->total() }} resultados de búsqueda</div>
+				<a href="{{ url('vadmin/categories') }}"><button type="button" class="btn btnGrey">Mostrar todos</button></a>
+				<div class="results">{{ $categories->total() }} Resultados de búsqueda</div>
 				@endif
 			</div>
 		@endslot
@@ -58,11 +58,8 @@
 		<div class="row">
 			@component('vadmin.components.list')
 				@slot('actions', '')
-				@slot('title', 'Listado de Categorías')
-					@if($categories->count() == '0')
-						@slot('tableTitles', '')
-						@slot('tableContent', '')
-					@else
+				@slot('title', 'Listado de categorías')
+					@if(!$categories->count() == '0')
 					@slot('tableTitles')
 						<th></th>
 						<th>Nombre</th>
@@ -83,7 +80,16 @@
 								<td class="w-200">{{ transDateT($item->created_at) }}</td>
 							</tr>						
 						@endforeach
-					@endif
+						@else 
+							@slot('tableTitles')
+								<th></th>
+							@endslot
+							@slot('tableContent')
+								<tr>
+									<td class="w-200">No se han encontrado categorías</td>
+								</tr>
+							@endslot
+						@endif
 				@endslot
 			@endcomponent
 			

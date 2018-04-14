@@ -40,10 +40,10 @@
 			<div class="col-md-7">
 				@component('vadmin.components.infoContainer')
 					@slot('text')
-					Las <b>categorías</b> siven para organizar el contenido del portfolio. Permiten una mejor segmentación del contenido.
-					Se utilizan palabras o frases para agrupar artículos de igual temática.
-					Esto permitirá luego que los usuarios filtren los items en los buscadores de la web según sus preferencias. <br><br>
-					<b>Ejemplos de categorías:</b> Vestidos, Pantalones, Remeras, Medias, Camperas, etc. 
+					Las <b>categorías</b> siven para organizar el contenido de la sección "Noticias".  <br> 
+					Permiten una mejor segmentación del contenido.
+					Se utilizan palabras o frases para agrupar artículos de igual temática. <br> 
+					Esto permitirá que los usuarios filtren los artículos en los buscadores según sus preferencias. <br>
 					@endslot
 				@endcomponent
 			</div>

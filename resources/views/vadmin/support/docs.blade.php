@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    <div class="content-body"><section class="card">
+    <div class="content-body">
         <div class="card">
             <div class="card-block">
                 <div class="documentation">
@@ -55,7 +55,7 @@
                         - Secciones para utilizar como herramienta de trabajo. <br>
                         - Secciones para recoger estadísticas. <br>
                         - Secciones de administración interna. <br>
-                        - etc. <br><br>
+                        y más. <br><br>
                         
                         <b>Estas secciones a su vez admiten funcionalidades especiales</b><br>
                         - Calcular precios según cotización de distintas monedas <br>
@@ -63,13 +63,12 @@
                         - Realizar cálculos complejos. <br>
                         - Realizar fórmulas. <br>
                         - Buscadores y filtrado de datos. <br>
-                        - etc.
+                        y más.
                     </p>
                 </div>
             </div>
         </div>
     </div>
-</section>
 @endsection
 
 @section('custom_js')

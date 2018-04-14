@@ -92,33 +92,38 @@
 		<li class="navigation-header"><span data-i18n="nav.category.support">Gestión de Contenido</span>
 			<i data-toggle="tooltip" data-placement="right" data-original-title="Support" class="icon-ellipsis icon-ellipsis"></i>
 		</li>
-		{{--  Tienda  --}}
-		<li class="nav-item has-sub {{ Menu::activeMenu('vadmin-tienda') }}"><a href="#"><i class="icon-cart4"></i><span data-i18n="nav.menu_levels.main" class="menu-title">Tienda</span></a>
+		
+		{{-- Img Catalog --}}
+		<li class="nav-item has-sub {{ Menu::activeMenu('catalogoimg') }}"><a href="#"><i class="icon-image"></i>
+			<span data-i18n="nav.menu_levels.main" class="menu-title">Galería</span></a>
 			<ul class="menu-content" style="">
-				<li class="{{ Menu::activeMenu('panel-de-control') }}"><a href="{{ route('storeControlPanel') }}" class="menu-item"> Control de Tienda</a></li>
-				<li class="has-sub is-shown"><a href="#" data-i18n="nav.menu_levels.second_level_child.main" class="menu-item">
-						<i class="icon-coin-dollar"></i>Métodos de Pago</a>
-						<ul class="menu-content" style="">
-							<li class="is-shown {{ Menu::activeMenu('payments') }}"><a href="{{ route('payments.index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">
-								<i class="icon-list"></i> Listado</a></li>
-							<li class="is-shown {{ Menu::activeMenu('payments') }}"><a href="{{ route('payments.create') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">
-								<i class="icon-plus-round"></i> Nuevo</a></li>
-						</ul>
-					</li>
-				<li class="has-sub is-shown"><a href="#" data-i18n="nav.menu_levels.second_level_child.main" class="menu-item">
-					<i class="icon-rocket"></i>Métodos de Envío</a>
+				<li class="{{ Menu::activeMenu('catalogoimg') }}"><a href="{{ route('catalogoimg.index') }}" class="menu-item">
+					<i class="icon-list"></i> Listado</a></li>
+				<li class="{{ Menu::activeMenu('catalogoimg') }}"><a href="{{ route('catalogoimg.create') }}" class="menu-item">
+					<i class="icon-plus-round"></i> Nuevo Item</a></li>
+				<li class="has-sub is-shown"><a href="#" data-i18n="nav.menu_levels.second_level_child.main" class="menu-item">Categorías</a>
 					<ul class="menu-content" style="">
-						<li class="is-shown {{ Menu::activeMenu('shippings') }}" ><a href="{{ route('shippings.index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">
-							<i class="icon-list"></i> Listado</a></li>
-						<li class="is-shown {{ Menu::activeMenu('shippings') }}"><a href="{{ route('shippings.create') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">
-							<i class="icon-plus-round"></i> Nuevo</a></li>
+						<li class="is-shown {{ Menu::activeMenu('catimg_categorias') }}">
+							<a href="{{ route('catimg_categorias.index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">
+								<i class="icon-list"></i> Listado</a></li>
+						<li class="is-shown {{ Menu::activeMenu('catimg_categorias') }}">
+							<a href="{{ route('catimg_categorias.create') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">
+								<i class="icon-plus-round"></i> Nueva Categoría</a></li>
 					</ul>
 				</li>
-			</ul>
+				<li class="has-sub is-shown {{ Menu::activeMenu('catimg_tags') }}"><a href="#" data-i18n="nav.menu_levels.second_level_child.main" class="menu-item">
+					Etiquetas</a>
+					<ul class="menu-content" style="">
+						<li class="is-shown {{ Menu::activeMenu('catimg_tags') }}"><a href="{{ route('catimg_tags.index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">
+							<i class="icon-list"></i> Listado</a></li>
+						<li class="is-shown {{ Menu::activeMenu('catimg_tags') }}"><a href="{{ route('catimg_tags.create') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item">
+							<i class="icon-plus-round"></i> Nueva Etiqueta</a></li>
+					</ul>
+				</li>
+			</ul> 
 		</li>
-
 		{{--  CATALOGO  --}}
-		<li class="nav-item has-sub {{ Menu::activeMenu('catalogo') }}"><a href="#"><i class="icon-clipboard"></i>
+		{{-- <li class="nav-item has-sub {{ Menu::activeMenu('catalogo') }}"><a href="#"><i class="icon-clipboard"></i>
 			<span data-i18n="nav.menu_levels.main" class="menu-title">Catálogo</span></a>
 			<ul class="menu-content" style="">
 				<li class="{{ Menu::activeMenu('catalogo') }}"><a href="{{ route('catalogo.index') }}" class="menu-item">
@@ -153,13 +158,13 @@
 							<i class="icon-plus-round"></i> Nuevo Atributo</a></li>
 					</ul>
 				</li>
-			</ul>
-		</li>
+			</ul> 
+		</li>--}}
 
-		<li class="nav-item has-sub PortfolioLi"><a href="#"><i class="icon-briefcase2"></i><span data-i18n="nav.menu_levels.main" class="menu-title">Portfolio</span></a>
+		<li class="nav-item has-sub {{ Menu::activeMenu('portfolio') }}"><a href="#"><i class="icon-briefcase2"></i><span data-i18n="nav.menu_levels.main" class="menu-title">Noticias</span></a>
 			<ul class="menu-content" style="">
-				<li class="PortfolioList"><a href="{{ route('portfolio.index') }}" class="menu-item"><i class="icon-list"></i> Listado</a></li>
-				<li class="PortfolioNew"><a href="{{ route('portfolio.create') }}" class="menu-item"><i class="icon-plus-round"></i> Nuevo Artículo</a></li>
+				<li class="{{ Menu::activeMenu('portfolio') }}"><a href="{{ route('portfolio.index') }}" class="menu-item"><i class="icon-list"></i> Listado</a></li>
+				<li class="{{ Menu::activeMenu('portfolio') }}"><a href="{{ route('portfolio.create') }}" class="menu-item"><i class="icon-plus-round"></i> Nueva Noticia</a></li>
 				<li class="has-sub is-shown PortfolioCategoriesLi"><a href="#" data-i18n="nav.menu_levels.second_level_child.main" class="menu-item">Categorías</a>
 					<ul class="menu-content" style="">
 						<li class="is-shown PortfolioCategoriesList"><a href="{{ route('categories.index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item"><i class="icon-list"></i> Listado</a></li>
@@ -174,7 +179,7 @@
 				</li>
 			</ul>
 		</li>
-		{{--  
+{{--  
 		<li class="nav-item"><a href="#"><i class="icon-cog"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Administración</span></a>
 			<ul class="menu-content" style="">
 			</ul>
@@ -182,10 +187,10 @@
 		<li class="navigation-header"><span data-i18n="nav.category.support">Administración</span>
 			<i data-toggle="tooltip" data-placement="right" data-original-title="Support" class="icon-ellipsis icon-ellipsis"></i>
 		</li>
-		<li class="has-sub is-shown UsersLi"><a href="#" data-i18n="nav.menu_levels.second_level_child.main" class="menu-item"><i class="icon-users2"></i>	Usuarios</a>
+		<li class="has-sub is-shown {{ Menu::activeMenu('users') }}"><a href="#" data-i18n="nav.menu_levels.second_level_child.main" class="menu-item"><i class="icon-users2"></i>	Usuarios</a>
 			<ul class="menu-content" style="">
-				<li class="is-shown UsersList"><a href="{{ route('users.index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item"><i class="icon-list"></i> Listado</a></li>
-				<li class="is-shown UsersNew"><a href="{{ route('users.create') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item"><i class="icon-plus-round"></i> Nuevo Usuario</a></li>
+				<li class="is-shown {{ Menu::activeMenu('users') }}"><a href="{{ route('users.index') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item"><i class="icon-list"></i> Listado</a></li>
+				<li class="is-shown {{ Menu::activeMenu('users') }}"><a href="{{ route('users.create') }}" data-i18n="nav.menu_levels.second_level_child.third_level" class="menu-item"><i class="icon-plus-round"></i> Nuevo Usuario</a></li>
 			</ul>
 		</li>
 		<li class="{{ Menu::activeMenu('mensajes_recibidos') }}"><a href="{{ url('vadmin/mensajes_recibidos') }}" class="menu-item"><i class="icon-envelop"></i> Mensajes 
@@ -194,23 +199,17 @@
 			@endif
 		</a></li>
 
-		{{-- Tools --}}
-		<li class="navigation-header"><span data-i18n="nav.category.support">Herramientas</span>
-			<i data-toggle="tooltip" data-placement="right" data-original-title="Support" class="icon-ellipsis icon-ellipsis"></i>
-		</li>
-		<li class="nav-item"><a href="{{ route('vadmin.mailChecker') }}" target="_blank"><i class="icon-feed"></i><span class="menu-title">MailChecker</span></a></li>
-		<li class="nav-item"><a href="{{ route('vadmin.configs') }}" target="_blank"><i class="icon-feed"></i><span class="menu-title">Configuraciones</span></a></li>
-		{{-- Public sections --}}
 		<li class="navigation-header"><span data-i18n="nav.category.support">Secciones Públicas</span>
 			<i data-toggle="tooltip" data-placement="right" data-original-title="Support" class="icon-ellipsis icon-ellipsis"></i>
 		</li>
 		<li class="nav-item"><a href="{{ url('/') }}" target="_blank"><i class="icon-feed"></i><span class="menu-title">Web</span></a></li>
-		<li class="nav-item"><a href="{{ url('/tienda') }}" target="_blank"><i class="icon-cart4"></i><span class="menu-title">Catálogo</span></a></li>
-
+		{{-- <li class="nav-item"><a href="{{ url('/tienda') }}" target="_blank"><i class="icon-cart4"></i><span class="menu-title">Catálogo</span></a></li> --}}
+		<li class="nav-item"><a href="{{ url('/noticias') }}" target="_blank"><i class="icon-newspaper"></i><span class="menu-title">Blog | Noticias</span></a></li>
+		<li class="nav-item"><a href="{{ url('/galeria') }}" target="_blank"><i class="icon-image"></i><span class="menu-title">Galeria</span></a></li>
 		<li class="navigation-header"><span data-i18n="nav.category.support">Ayuda</span>
 			<i data-toggle="tooltip" data-placement="right" data-original-title="Support" class="icon-ellipsis icon-ellipsis"></i>
 		</li>
-		<li class="nav-item {{ Menu::activeMenu('help') }}"><a href="{{ url('vadmin/help') }}">
+		<li class="nav-item {{ Menu::activeMenu('soporte') }}"><a href="{{ url('vadmin/soporte') }}">
 			<i class="icon-support"></i><span class="menu-title">Soporte</span></a>
 		</li>
 		<li class="nav-item {{ Menu::activeMenu('docs') }}"><a href="{{ url('vadmin/docs') }}">
