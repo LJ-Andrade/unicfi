@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid top-banner banner-noticias">
+    <div class="container-fluid top-banner banner-galeria">
         <div class="main-logo">
             <img src="{{ asset('webimages/logos/logo.png') }}" alt="">
         </div>

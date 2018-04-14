@@ -49,29 +49,14 @@
 				</div>
 				@yield('top-space')
 				<div class="container">
-					{{-- Errors --}}
-					@if(count($errors) > 0)
-						<div class="alert alert-error"> 
-							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> 
-							<ul>
-							@foreach($errors->all() as $error)
-								<li>{{ $error }}</li>
-							@endforeach		
-							</ul>
-						</div>
-					@endif
-					{{-- Messages --}}
-					@if(Session::has('message'))
-						<div class="alert alert-success"> 
-							<i class="fa fa-star"></i> {{ Session::get('message') }}
-							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> 
-						</div> 
-					@endif
+					@include('layouts.vadmin.partials.messages')
 					{{-- Content --}}
 					@yield('content')
 				</div>	
 			</div>
 		</div>
+
+
 		
 		<div class="main-copyright">
 			<div class="inner pull-right">

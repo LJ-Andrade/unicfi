@@ -1,12 +1,12 @@
 @extends('layouts.web.main')
-@section('title', 'Cimhe | Galería de Fotos')
+@section('title', config('app.name'). " | Galeria")
 
 @section('styles')
 @endsection
 
 @section('content')
 
-    <div class="container-fluid top-banner banner-noticias">
+    <div class="container-fluid top-banner banner-galeria">
         <div class="main-logo">
             <img src="{{ asset('webimages/logos/logo.png') }}" alt="">
         </div>

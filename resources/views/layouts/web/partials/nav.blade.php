@@ -8,8 +8,8 @@
     <div class="inner-menu">
         <ul class="vertical-list">
             <a href="{{ url('/') }}"><li class="MainMenuA wow slideInLeft" data-wow-duration="0.2s" data-wow-delay="0.2s">Inicio</li></a>
-            <a href=""><li class="MainMenuA wow slideInLeft" data-wow-duration="0.3s" data-wow-delay="0.3s">Noticias</li></a>
-            <a href="{{ url('galeria')}}"><li class="MainMenuA wow slideInLeft" data-wow-duration="0.4s" data-wow-delay="0.4s">Galería</li></a>
+            <a href="{{ url('noticias') }}"><li class="MainMenuA wow slideInLeft" data-wow-duration="0.3s" data-wow-delay="0.3s">Noticias</li></a>
+            <a href="{{ url('galeria') }}"><li class="MainMenuA wow slideInLeft" data-wow-duration="0.4s" data-wow-delay="0.4s">Galería</li></a>
             <a href="{{ url('director') }}"><li class="MainMenuA wow slideInLeft" data-wow-duration="0.5s" data-wow-delay="0.6s">Director</li></a>
             <a href="#contact" id="ContactNavBtn"><li class="MainMenuA wow slideInLeft" data-wow-duration="0.6" data-wow-delay="0.8s">Contacto</li></a>
         </ul>

@@ -269,11 +269,6 @@
 			.overlay-color
 				background-color: #000
 
-@media (max-width: 520px)
-	.home-big-menu
-		.row1
-			.item-empresas-8,.item-empresas-9
-				padding: 50px 50px
 
 @media (max-width: 865px)
 	.home-big-menu
@@ -286,6 +281,31 @@
 			.item-5,.item-4
 				height: auto
 				max-height: 100%
+
+@media (max-width: 520px)
+	.home-big-menu
+		.row1
+			.item-empresas-8,.item-empresas-9
+				padding: 50px 50px
+
+@media (max-width: 500px)
+	.home-big-menu
+		.row1
+			.item
+				padding: 50px 25px
+				border: 1px solid red
+				.inner
+					h2
+						font-size: 2.5rem
+						-ms-word-break: break-all
+						word-break: break-all
+						word-break: break-word
+						-webkit-hyphens: auto
+						-moz-hyphens: auto
+						hyphens: auto
+			.item-3 .inner
+				left: 30px
+
 
 #Empresas
 	position: relative
@@ -313,7 +333,7 @@
 	font-family: $font2
 	position: absolute
 	right: -1px
-	top: -1px
+	top: 0px
 	z-index: 9989
 	height: 35px
 	width: 35px
@@ -323,7 +343,7 @@
 	padding: 4px 7px
 	@include transition(0.2s)
 	color: #000
-	border: 1px solid #000
+	//border: 1px solid #000
 	&:hover
 		cursor: pointer
 		border: 1px solid #fff
@@ -585,6 +605,9 @@ $ph-weight: 400
 		.col2
 			padding-left: 5px
 
+@media (max-width: 560px)
+	.contact-section .inner .contact-form
+		padding: 20px
 
 @media (max-width: 1200px)
 	.contact-section
@@ -609,6 +632,16 @@ $ph-weight: 400
 		&:hover
 			background: $main-color
 			cursor: pointer
+
+	
+@media (max-width: 460px)
+	.social-networks li
+		height: 40px
+		width: 40px
+		font-size: 1.4rem
+		padding: 9px
+	
+
 
 .whatsapp-call
 	padding: 10px

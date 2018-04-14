@@ -155,6 +155,13 @@ class ArticlesController extends Controller
         $images            = $request->file('images');
         $thumbnail         = $request->file('thumbnail');
         $imgPath           = public_path("webimages/catalogo/"); 
+        // If directory dosn't existe, create it and give write persmissions.
+        if (!file_exists($imgPath)) {
+            $oldmask = umask(0);
+            mkdir($imgPath, 0777);
+            umask($oldmask);
+        }
+
         $extension         = '.jpg';
         
         $number = '2';

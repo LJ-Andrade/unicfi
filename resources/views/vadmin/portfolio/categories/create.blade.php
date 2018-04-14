@@ -8,12 +8,12 @@
 	@component('vadmin.components.header')
 		@slot('breadcrums')
 			<li class="breadcrumb-item"><a href="{{ url('vadmin')}}">Inicio</a></li>
-			<li class="breadcrumb-item"><a href="{{ route('categories.index')}}">Listado de Categorías</a></li>
-			<li class="breadcrumb-item active">Nueva Categoría</li>
+			<li class="breadcrumb-item"><a href="{{ route('categories.index')}}">Listado de categorías de noticias</a></li>
+			<li class="breadcrumb-item active">Creación</li>
 		@endslot
 		@slot('actions')
 			<div class="list-actions">
-				<h1>Creación de Nueva Categoría</h1>
+				<h1>Nueva categoría de noticia</h1>
 			</div>
 		@endslot
 	@endcomponent

@@ -851,6 +851,32 @@ hr {
   color: #000;
 }
 
+.btnWhite {
+  background-color: #fff;
+  color: #000;
+}
+
+.btnWhite:hover {
+  background-color: #f9f9f9;
+}
+
+.btnWhite:active, .btnWhite:focus {
+  color: #000;
+}
+
+.btnGrey {
+  background-color: #ccc;
+  color: #000;
+}
+
+.btnGrey:hover {
+  background-color: #f9f9f9;
+}
+
+.btnGrey:active, .btnGrey:focus {
+  color: #000;
+}
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -1332,6 +1358,7 @@ ul.pagination li.disabled {
 
 .content-wrapper {
   padding-top: 0 !important;
+  margin-bottom: 100px;
 }
 
 .top-space {

@@ -60,7 +60,7 @@ class ArticlesController extends Controller
 
     public function create(Request $request)
     {
-    
+            
         $categories = Category::orderBy('name', 'ASC')->pluck('name', 'id');
         $tags = Tag::orderBy('name', 'ASC')->pluck('name', 'id');
         $articles = Article::orderBy('id', 'DESCC')->paginate(15);
@@ -106,30 +106,39 @@ class ArticlesController extends Controller
             'content.required'     => 'Debe ingresar contenido',
             'image'                => 'El archivo adjuntado no es soportado',
         ]);
-
+        
         $path = public_path("webimages/portfolio/"); 
+        // If directory dosn't existe, create it and give write persmissions.
+        if (!file_exists($path)) {
+            $oldmask = umask(0);
+            mkdir($path, 0777);
+            umask($oldmask);
+        }
+
         $article = new Article($request->all());
         $validSlug = slug_maker($article->slug);
         $article->slug = $validSlug;
         $article->user_id = auth()->guard('user')->user()->id;
         $article->save();
-
+        
         // Sync() fills pivote table. Gets un array.
         $article->tags()->sync($request->tags);
-
+        
         $images = $request->file('images');
 
-        if ($article->save() && $images)
+        // if ($article->save() && $images)
+        if ($images)
         {
             foreach($images as $phisic_image)
             {
-                $name     = md5($phisic_image->getFilename().time()).'.'.$phisic_image->getClientOriginalExtension();
-                $img      = \Image::make($phisic_image->path());
+                $name = md5($phisic_image->getFilename().time()).'.'.$phisic_image->getClientOriginalExtension();
+                
+                $img = \Image::make($phisic_image->path());
                 
                 $img->fit(600)->save($path.'/'.$name);
 
-                $image            = new Image();
-                $image->name      = $name;
+                $image = new Image();
+                $image->name = $name;
                 $image->article()->associate($article);
                 $image->save();
             }
@@ -218,11 +227,17 @@ class ArticlesController extends Controller
     public function destroy(Request $request)
     {   
         $ids = json_decode('['.str_replace("'",'"',$request->id).']', true);
-        
+        $path     = 'webimages/portfolio/';
+
         if(is_array($ids)) {
             try {
                 foreach ($ids as $id) {
                     $record = Article::find($id);
+                    $record->images()->delete();
+                    foreach ($record->images as $image) {
+                        File::Delete(public_path($path . $image->name));
+                    }
+
                     $record->delete();
                 }
                 return response()->json([
@@ -237,16 +252,21 @@ class ArticlesController extends Controller
         } else {
             try {
                 $record = Article::find($id);
-                $record->delete();
-                    return response()->json([
-                        'success'   => true,
-                    ]);
-                } catch (\Exception $e) {
-                    return response()->json([
-                        'success'   => false,
-                        'error'    => 'Error: '.$e
-                    ]);    
+                $record->images()->delete();
+                foreach ($record->images as $image) {
+                    File::Delete(public_path($path . $image->name));
                 }
+                $record->delete();
+                
+                return response()->json([
+                    'success'   => true,
+                ]);
+            } catch (\Exception $e) {
+                return response()->json([
+                    'success'   => false,
+                    'error'    => 'Error: '.$e
+                ]);    
+            }
         }
     }
 

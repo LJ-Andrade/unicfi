@@ -101,8 +101,8 @@
             <img src="{{ asset('webimages/home/director/icon8.png') }}" alt="">
             <h1>VISIÓN</h1>
             <p>
-                Ser líderesen el mercado de servicios de <br>
-                bienestar y salud, estando a la vanguardiade <br>
+                Ser líderes en el mercado de servicios de <br>
+                bienestar y salud, estando a la vanguardia de <br>
                 las actividades y mejores prácticas
                 profesionales
             </p>

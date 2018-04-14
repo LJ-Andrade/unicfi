@@ -68,10 +68,7 @@ class WebController extends Controller
 	{
 		$category = CatalogimgCategory::SearchCategory($name)->first();
 		$articles = $category->articles()->paginate(12);
-		// $articles->each(function($articles){
-		// 		$articles->category;
-		// 		$articles->images;
-		// });
+
 		$searchInfo = 'Imágenes con la categoría: '. $name;
 		
 		$categories = CatalogimgCategory::all();
@@ -129,13 +126,19 @@ class WebController extends Controller
             $articles->images;
 		}); 
 
+		if($request->title != null){
+			$searchInfo = 'Término de búsqueda: '. $request->title;
+		} else {
+			$searchInfo = null;
+		}
 		$categories = Category::all();
 		$tags = Tag::all();
 
     	return view('web.blog.blog')
 			->with('articles', $articles)
 			->with('categories', $categories)
-			->with('tags', $tags);
+			->with('tags', $tags)
+			->with('searchInfo', $searchInfo);
     }
 
 	public function searchCategory($name)
@@ -147,13 +150,16 @@ class WebController extends Controller
 				$articles->images;
 		});
 		
+		$searchInfo = 'Imágenes con la categoría: '. $name;
+
 		$categories = Category::all();
 		$tags = Tag::all();
 
 		return view('web.blog.blog')
 			->with('articles', $articles)
 			->with('categories', $categories)
-			->with('tags', $tags);
+			->with('tags', $tags)
+			->with('searchInfo', $searchInfo);
 	}
 
     public function searchTag($name)

@@ -9,7 +9,7 @@
 	@component('vadmin.components.headerfixed')
 		@slot('breadcrums')
 		    <li class="breadcrumb-item"><a href="{{ url('vadmin')}}">Inicio</a></li>
-            <li class="breadcrumb-item active">Etiquetas del Portfolio</li>
+            <li class="breadcrumb-item active">Etiquetas de noticias</li>
 		@endslot
 		@slot('actions')
 			{{-- Actions --}}
@@ -58,11 +58,8 @@
 		<div class="row">
 			@component('vadmin.components.list')
 				@slot('actions', '')
-				@slot('title', 'Etiquetas del Portfolio')
-					@if($tags->count() == '0')
-						@slot('tableTitles', '')
-						@slot('tableContent', '')
-					@else
+				@slot('title', 'Etiquetas')
+					@if(!$tags->count() == '0')
 					@slot('tableTitles')
 						<th></th>
 						<th>Nombre</th>
@@ -83,6 +80,15 @@
 								<td class="w-200">{{ transDateT($item->created_at) }}</td>
 							</tr>						
 						@endforeach
+					@else 
+						@slot('tableTitles')
+							<th></th>
+						@endslot
+						@slot('tableContent')
+							<tr>
+								<td class="w-200">No se han encontrado etiquetas</td>
+							</tr>
+						@endslot
 					@endif
 				@endslot
 			@endcomponent

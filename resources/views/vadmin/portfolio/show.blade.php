@@ -31,7 +31,7 @@
 						@if(!$article->images->isEmpty())
 							@foreach($article->images as $image)
 								<li id="Img{{ $image->id }}">
-									<img src="{{ asset('webimages/portfolio/'.$image->name ) }}" class="img-responsive img-article" style="max-width: 200px">
+									<img src="{{ asset('webimages/portfolio/'.$image->name ) }}" class="CheckImg img-responsive img-article" style="max-width: 200px">
 									<div class="overlayItemCenter">
 										<i class="Delete-Porfolio-Img icon-ios-trash-outline delete-img" data-imgid="{{ $image->id }}"></i>
 									</div>

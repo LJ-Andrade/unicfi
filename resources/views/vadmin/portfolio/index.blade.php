@@ -82,9 +82,9 @@
 								</td>
 								<td class="thumb">
 									@if(count($item->images))
-										<img src="{{ asset('webimages/portfolio/'. $item->images->first()->name ) }}">
+										<img class="CheckImg" src="{{ asset('webimages/portfolio/'. $item->images->first()->name ) }}">
 									@else
-										<img src="{{ asset('images/gen/default.jpg') }}">
+										<img class="CheckImg" src="{{ asset('images/gen/default.jpg') }}">
 									@endif
 								</td>
 								<td class="show-link max-text"><a href="{{ url('vadmin/portfolio/'.$item->id) }}">{{ $item->title }}</a></td>

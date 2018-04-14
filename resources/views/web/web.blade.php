@@ -314,7 +314,7 @@
 							&bull; Mejoras en las relaciones de los grupos humanos <br>
 							&bull; Ahorro para las empresas <br>
 							&bull; Aumento de la satisfacción de los trabajadores <br>
-							&bull; Visibilidad de la compañía en ámbitos vinculados a la Responsabilidad Social Empresarial (RSE)
+							&bull; Visibilidad de la compañía en ámbitos vinculados a la Responsabilidad Social Empresaria (RSE)
 
 						</p>
 					</div>
@@ -340,18 +340,16 @@
 							&bull; Mejora de la calidad de vida <br>
 							&bull; Mejora de la satisfacción en el trabajo <br>
 							&bull; Baja el nivel de stress <br>
-							&bull; Disminución de lesiones <br>
+							&bull; Disminuye la probabilidad de lesiones <br>
 							&bull; Disminuye el riesgo de padecer enfermedades <br>
 							&bull; Mejora en las relaciones con los pares
 						</p>
 					</div>
 				</div>
 			</div>
-			
 		</div> {{-- /Row 1 --}}
 	</section>
 
-	
 	@include('layouts.web.partials.contact')
 	@include('layouts.web.partials.social')
 	@include('layouts.web.partials.foot')
