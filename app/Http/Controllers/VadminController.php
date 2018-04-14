@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Contact;
 use App\Cart;
 use App\CatalogimgArticle;
+use App\Article;
 use App\User;
 use Mail;
 use App\Mail\SendMail;
