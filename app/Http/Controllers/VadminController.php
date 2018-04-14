@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Contact;
 use App\Cart;
+use App\CatalogimgArticle;
 use App\User;
 use Mail;
 use App\Mail\SendMail;
