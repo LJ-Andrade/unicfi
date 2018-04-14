@@ -18,8 +18,13 @@ class VadminController extends Controller
     
     public function index(Request $request)
     {
-        return view('vadmin.vadmin');
+        $catalogimgAmmount = CatalogimgArticle::all()->count(); 
+        $portfolioAmmount =  Article::all()->count();
+        return view('vadmin.vadmin')
+            ->with('articlesAmmount', $catalogimgAmmount)
+            ->with('portfolioAmmount', $portfolioAmmount);
     }
+
 
     public function storeControlPanel(Request $request)
     {
