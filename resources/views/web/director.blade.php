@@ -9,17 +9,17 @@
 @section('content')
     <section class="main-head-section">
         <div class="main-logo">
-		    <img src="{{ asset('webimages/logos/logo.png') }}" alt="">
+		    <a href="{{ url('/') }}"><img src="{{ asset('webimages/logos/logo.png') }}" alt="UnicFi Logo"></a>
         </div>
         <div class="container-fluid director-head">
             <div class="row">
                 <div class="col-md-6 pad0 director-slider">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('webimages/home/director/slider1.jpg') }}" alt=""></div>
-                            <div class="swiper-slide"><img src="{{ asset('webimages/home/director/slider2.jpg') }}" alt=""></div>
-                            <div class="swiper-slide"><img src="{{ asset('webimages/home/director/slider3.jpg') }}" alt=""></div>
-                            <div class="swiper-slide"><img src="{{ asset('webimages/home/director/slider4.jpg') }}" alt=""></div>
+                            <div class="swiper-slide"><img src="{{ asset('webimages/home/director/slider1.jpg') }}" alt="UnicFi Slider"></div>
+                            <div class="swiper-slide"><img src="{{ asset('webimages/home/director/slider2.jpg') }}" alt="UnicFi Slider"></div>
+                            <div class="swiper-slide"><img src="{{ asset('webimages/home/director/slider3.jpg') }}" alt="UnicFi Slider"></div>
+                            <div class="swiper-slide"><img src="{{ asset('webimages/home/director/slider4.jpg') }}" alt="UnicFi Slider"></div>
                         </div>
                     </div>
                 </div>

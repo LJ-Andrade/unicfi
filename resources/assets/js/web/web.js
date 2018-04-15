@@ -212,6 +212,8 @@ $('.Close-Empresas').click(function(){
 //$('#Main-Big-Menu').hide();
 
 // Go To Top Arrow
+$('.goToTop').css('display','none');
+
 $(window).scroll(function() {
 	if ($(window).scrollTop() > 800) {
 		$('.goToTop').fadeIn(500);

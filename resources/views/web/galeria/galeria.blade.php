@@ -8,7 +8,7 @@
 
     <div class="container-fluid top-banner banner-galeria">
         <div class="main-logo">
-            <img src="{{ asset('webimages/logos/logo.png') }}" alt="">
+            <a href="{{ url('/') }}"><img src="{{ asset('webimages/logos/logo.png') }}" alt="UnicFi Logo"></a>
         </div>
     </div>
     @include('web.galeria.partials.filters')
