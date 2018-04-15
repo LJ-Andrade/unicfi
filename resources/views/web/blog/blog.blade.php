@@ -2,6 +2,8 @@
 @section('title', config('app.name'). " | Noticias")
 
 @section('styles')
+    <style>
+    body{ background-color: #f9f9f9 !important}</style>
 @endsection
 
 @section('content')
@@ -23,7 +25,7 @@
                 <div class="container not-found">
                     <h3>No se encontraron noticias</h3>
                     <hr>
-                    <h4>Puede realizar una nueva búsqueda o  <a href="{{ route('web.portfolio') }}"></i> <span class="all">verlas todas</span> </a></h4>
+                    <h4>Puede realizar una nueva búsqueda o haga click aquí para <a href="{{ route('web.portfolio') }}"></i> <span class="all">verlas todas</span> </a></h4>
                 </div>
             @endif
         
