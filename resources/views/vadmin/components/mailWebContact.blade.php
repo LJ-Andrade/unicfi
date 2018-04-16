@@ -21,7 +21,7 @@
     {{-- Footer --}}
     @slot('footer')
         @component('mail::footer')
-            Mensaje enviado desde el sistema Vadmin | Cimhe - <?php echo date('Y') ?>
+            Mensaje enviado desde el sistema Vadmin | {{ config('app.name') }}- <?php echo date('Y') ?>
         @endcomponent
     @endslot
 @endcomponent

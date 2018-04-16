@@ -1,5 +1,5 @@
 @extends('layouts.web.main')
-@section('title', 'UnicFi | Inicio')
+@section('title', config('app.name'). ' | Inicio')
 
 @section('styles')
 	{{-- Slider --}}
