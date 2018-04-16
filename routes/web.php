@@ -26,8 +26,6 @@ Route::get('article/{slug}', ['uses' => 'WebController@showWithSlug', 'as'   => 
 Route::get('categories/{name}', ['uses' => 'WebController@searchCategory', 'as'   => 'web.search.category']);
 Route::get('tag/{name}', ['uses' => 'WebController@searchTag', 'as'   => 'web.search.tag']);
 Route::post('main_contact_mailsender', 'WebController@mainContactMailSender');
-Route::post('suelos_mailsender', 'WebController@suelosMailSender');
-Route::post('hormigon_mailsender', 'WebController@hormigonMailSender');
 
 Route::get('galeria', ['as' => 'web.galeria', 'uses' => 'WebController@gallery']);
 Route::get('galeria/{slug}', ['uses' => 'WebController@showCatalogimgWithSlug', 'as'   => 'web.catalogoimg.item'])->where('slug', '[\w\d\-\_]+');

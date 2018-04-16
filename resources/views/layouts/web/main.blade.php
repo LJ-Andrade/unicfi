@@ -32,6 +32,9 @@
 
 	</head>
 	<body>
+		<div id="MainLoader">
+			<div class="inner"></div>
+		</div>
 		@include('layouts.web.partials.nav')
 
 		@yield('content')

@@ -1110,3 +1110,25 @@ $nav_dark3: #444450
 .error-page
 	padding-top: 180px
 	text-align: center
+
+//////////////////////////////////////
+//                                  //
+//              LOADER              //
+//                                  //
+//////////////////////////////////////
+
+#MainLoader
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background: #000
+	z-index: 9999
+	@include flex-center
+	.inner
+		width: 300px
+		height: 100px
+		position: absolute
+		background: url(../webimages/loaders/loader.gif) no-repeat center 0
+		margin: -50px 0 0 -50px
