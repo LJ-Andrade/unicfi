@@ -169,6 +169,7 @@ class UserController extends Controller
         return redirect('vadmin/users')->with('Message', 'Usuario '. $user->name .'editado correctamente');
     }
 
+
     // ---------- Update Avatar --------------- //
     public function updateAvatar(Request $request)
     {
@@ -182,8 +183,8 @@ class UserController extends Controller
                 Image::make($avatar)->encode('jpg', 80)->fit(300, 300)->save(public_path('images/users/'.$filename));
                 if ($user->avatar != "default.jpg") {
                     $path     = public_path('images/users/');
-                    $lastpath = $user->avatar;
-                    File::Delete($path . $lastpath);   
+                    //$lastpath = $user->avatar;
+                    //File::Delete($path . $lastpath);   
                 }
                 $user->avatar = $filename;
                 $user->save();

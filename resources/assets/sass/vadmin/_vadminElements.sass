@@ -46,7 +46,7 @@
 	margin-bottom: 20px
 	.inner
 		border: 2px solid #f9f9f9
-		.image
+		.update-image
 			position: relative
 			padding: 25px 5px
 			background-color: #f9f9f9
@@ -65,7 +65,13 @@
 				.over-text
 					opacity: 1
 					pointer-events: none
-			img
+		.image
+			padding: 25px 5px
+			background-color: #f9f9f9
+			text-align: center
+			.over-text
+				display: none
+		.update-image img, .image img
 				border-radius: 50%
 				width: 230px
 				height: 230px
@@ -75,13 +81,17 @@
 				&:hover
 					cursor: pointer
 					opacity: 0.9
-					
+		.image img
+			&:hover
+					opacity: 1
+					cursor: default
+		button, html [type="button"], [type="reset"], [type="submit"]
+			-webkit-appearance: none
 		.card-content
 			border: 1px solid #f9f9f9
 			border-top: 0
 			padding: 15px
 			width: 100%
-
 // CONTENT-HEADER
 
 .content-header-fixed
