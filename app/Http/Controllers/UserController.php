@@ -221,7 +221,7 @@ class UserController extends Controller
             try{
                 $avatar = \Image::make($avatar);
                 $avatar->encode('jpg', 80)->fit(300, 300)->save($path.$filename);
-                $user->avatar = $filename.'.jpg';
+                $user->avatar = $filename;
                 $user->save();
                 return redirect('vadmin/users/'.$user->id)->with('message', 'Avatar actualizado');
             }   catch(\Exception $e){
