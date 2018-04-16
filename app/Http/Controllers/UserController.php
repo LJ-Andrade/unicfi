@@ -117,13 +117,26 @@ class UserController extends Controller
         $this->validate($request,[
             'name'           => 'required',
             'email'          => 'min:3|max:250|required|unique:users,email',
-            'password'       => 'min:4|max:12listado-usuarios0|required|',
+            'password'       => 'min:4|max:12|required|',
             
         ],[
             'email.required' => 'Debe ingresar un email',
             'email.unique'   => 'El email ya existe',
             'password'       => 'Debe ingresar una contraseña',
         ]);
+
+        if($request->file('avatar') != null){
+            $avatar   = $request->file('avatar');
+            $filename = $user->username.'.jpg';
+            $path = public_path('images/users/');
+            if (!file_exists($path)) {
+                $oldmask = umask(0);
+                mkdir($path, 0777);
+                umask($oldmask);
+            }
+            Image::make($avatar)->encode('jpg', 80)->fit(300, 300)->save($path.$filename);
+            $user->avatar = $filename;
+        }
 
         $user->password = bcrypt($request->password);
         $user->save();
@@ -149,20 +162,41 @@ class UserController extends Controller
             'name' => 'required|max:255',
             'username' => 'required|max:20|unique:users,username,'.$user->id,
             'email' => 'required|email|max:255|unique:users,email,'.$user->id,
-            'password' => 'required|min:6|confirmed',
-            
+            'role' => 'required',
+            'group' => 'required'
         ],[
             'name.required' => 'Debe ingresar un nombre',
             'username.required' => 'Debe ingresar un nombre de usuario',
             'username.unique' => 'El nombre de usuario ya está siendo utilizado',
             'email.required' => 'Debe ingresar un email',
             'email.unique' => 'El email ya existe',
-            'password.min' => 'El password debe tener al menos :min caracteres',
-            'password.required' => 'Debe ingresar una contraseña',
-            'password.confirmed' => 'Las contraseñas no coinciden',
+            'role.required' => 'Debe ingresar un rol',
+            'role.group' => 'Debe pertenecer a un grupo'
         ]);
 
+        //$user->password = bcrypt($request->password);
+        $filename = $user->username.'.jpg';
+        $path = public_path('images/users/');
+        
+        if($request->file('avatar') != null){
+            $avatar   = $request->file('avatar');
+            if (!file_exists($path)) {
+                $oldmask = umask(0);
+                mkdir($path, 0777);
+                umask($oldmask);
+            }
+            Image::make($avatar)->encode('jpg', 80)->fit(300, 300)->save($path.$filename);
+        }
+        
+        //if($request->file('avatar') != null){
+            //    $avatar   = $request->file('avatar');
+            //    $filename = $user->username.'.jpg';-
+            //    Image::make($avatar)->encode('jpg', 80)->fit(300, 300)->save(public_path('images/users/'.$filename));
+            //    $user->avatar = $filename.'.jpg';
+            //}
+            
         $user->fill($request->all());
+        $user->avatar = $filename;
         $user->password = bcrypt($request->password);
         $user->save();
 
@@ -175,22 +209,23 @@ class UserController extends Controller
     {
         
         if ($request->hasFile('avatar')) {
-
             $user     = User::findOrFail($request->id);
             $avatar   = $request->file('avatar');
             $filename = $user->id.'.jpg';
+            $path     = public_path('images/users/');
+            if (!file_exists($path)) {
+                $oldmask = umask(0);
+                mkdir($path, 0777);
+                umask($oldmask);
+            }
             try{
-                Image::make($avatar)->encode('jpg', 80)->fit(300, 300)->save(public_path('images/users/'.$filename));
-                if ($user->avatar != "default.jpg") {
-                    $path     = public_path('images/users/');
-                    //$lastpath = $user->avatar;
-                    //File::Delete($path . $lastpath);   
-                }
-                $user->avatar = $filename;
+                $avatar = \Image::make($avatar);
+                $avatar->encode('jpg', 80)->fit(300, 300)->save($path.$filename);
+                $user->avatar = $filename.'.jpg';
                 $user->save();
                 return redirect('vadmin/users/'.$user->id)->with('message', 'Avatar actualizado');
             }   catch(\Exception $e){
-                dd($e);
+                dd('Ha ocurrido un error: '. $e);
             }
         }
     }
@@ -207,11 +242,13 @@ class UserController extends Controller
     {   
         
         $ids = json_decode('['.str_replace("'",'"',$request->id).']', true);
-        
+        $path     = 'images/users/';
+       
         if(is_array($ids)) {
             try {
                 foreach ($ids as $id) {
                     $record = User::find($id);
+                    File::Delete(public_path($path . $record->username.'.jpg'));
                     $record->delete();
                 }
                 return response()->json([
@@ -225,6 +262,7 @@ class UserController extends Controller
             }
         } else {
             try {
+                dd('2');
                 $record = User::find($id);
                 $record->delete();
                     return response()->json([

@@ -1,9 +1,6 @@
 @extends('layouts.vadmin.main')
 
-
 @section('title', 'Vadmin | Editar Usuario')
-
-@section('title', 'Vadmin | Creación de Usuario')
 
 @section('header')
 	@component('vadmin.components.header')
