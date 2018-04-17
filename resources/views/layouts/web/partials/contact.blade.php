@@ -14,12 +14,12 @@
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<img src="{{ asset('webimages/icons/contact3.png') }}" alt="">
 					<div class="text1">Teléfono</div>
-					<div class="text2">(011) 4555-7672</div>
+					<div class="text2">(011) 4555-6379</div>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<img src="{{ asset('webimages/icons/contact2.png') }}" alt="">
 					<div class="text1">Encontranos</div>
-					<div class="text2">Av.Elcano 3167- 6to 18</div>
+					<div class="text2">Av. de Los Incas 3295 1° 11</div>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<img src="{{ asset('webimages/icons/contact4.png') }}" alt="">
