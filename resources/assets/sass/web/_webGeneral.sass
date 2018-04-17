@@ -15,9 +15,11 @@ body
 	margin: 0
 a
 	text-decoration: none
-	color: rgb(187, 183, 242)
+	color: $main-color
+	@include transition(0.2s)
 	&:hover
 		text-decoration: none
+		color: #ccc
 
 p
 	font-size: 1.2rem

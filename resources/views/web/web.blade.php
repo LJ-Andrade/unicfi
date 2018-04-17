@@ -21,8 +21,8 @@
 						juntos poder lograrlo.
 					</p>
 					<div class="buttons">
-						<button class="btn btnMain">CONTACTO</button>
-						<button class="btn btnMain">NOTICIAS</button>
+						<a href="#contact"><button class="btn btnMain">CONTACTO</button></a>
+						<a href="{{ url('noticias') }}"><button class="btn btnMain">NOTICIAS</button></a>
 					</div>
 				</div>
 			</div>
@@ -127,7 +127,7 @@
 								Contamos con las mejores marcas del mercado en <br>
 								equipamientos deportivos y recreativos.
 							</p>
-							<a class="btn btnHollowWhite">Noticias</a>
+							<a href="http://unicfi.com/categories/Espacios%20Deportivos" class="btn btnHollowWhite">Noticias</a>
 						</div>
 					</div>
 				</div>
@@ -168,7 +168,7 @@
 							Ofrecemos charlas en diferentes temáticas relacionadas con la salud y el bienestar como Primeros Auxilios y RCP, Ergonomía, Nutrición, Adicciones, etc.
 
 						</p>
-						<a class="btn btnMain">Noticias</a>
+						<a href="http://unicfi.com/categories/Cursos%20y%20Seminarios" class="btn btnMain">Noticias</a>
 					</div>
 				</div>
 				
@@ -195,7 +195,7 @@
 						colchonetas, entrenamiento funcional, yoga, abdominales,
 						estiramientos y muchas más en función de los requerimientos.
 					</p>
-					<a class="btn btnMain">Noticias</a>
+					<a href="http://unicfi.com/categories/Clases%20grupales" class="btn btnMain">Noticias</a>
 				</div>
 			</div>
 			{{-- COL 2 --}}
@@ -254,7 +254,7 @@
 						del running, realizando un seguimiento planificado de la <br>
 						evolución de cada uno.
 					</p>
-					<a class="btn btnMain">Noticias</a>
+					<a href="http://unicfi.com/categories/Running" class="btn btnMain">Noticias</a>
 				</div>
 			</div>
 		</div> {{-- /Row 1 --}}
@@ -284,7 +284,7 @@
 						Promovemos eventos deportivos internos <br>
 						y entre empresas.
 					</p>
-					<a class="btn btnWhite">Noticias</a>
+					<a href="http://unicfi.com/categories/Torneos" class="btn btnWhite">Noticias</a>
 				</div>
 			</div>	
 		</div> {{-- /Row 1 --}}

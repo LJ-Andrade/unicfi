@@ -11,56 +11,64 @@
             <a href="{{ url('/') }}"><img src="{{ asset('webimages/logos/logo.png') }}" alt="UnicFi Logo"></a>
         </div>
     </div>
-    @include('web.galeria.partials.filters')
+    @include('web.blog.partials.filters')
     {{-- Content --}}
-    <div class="container-fluid gallery-list">
+    <div class="container blog-article">
         <div class="row">
-            <div class="search-info">
-                @if(isset($searchInfo))
-                    {{ $searchInfo }}
-                @endif
-            </div>
-            
-            @if(!count($articles))
-                <div class="container not-found">
-                    <h3>No se encontraron imágenes</h3>
-                    <hr>
-                    <h4>Puede realizar una nueva búsqueda o  <a href="{{ route('web.galeria') }}"></i> <span class="all">verlas todas</span> </a></h4>
-                </div>
-            @endif
-            
-            <div class="col-md-12">
-                <div class="row gallery-list">
-                @foreach($articles as $article)
-                    <a href="{{ route('web.catalogoimg.item',$article->slug ) }}">
-                        <div class="col-md-3 col-sm-3 col-xs-12 item">
-                            <div class="image">
-                                @if (count($article->images) >= 1)
-                                    @if($article->thumb == null)
-                                        <img src="{{ asset('webimages/main/gen/catalog-gen.jpg') }}" class="img-responsive" alt="">
-                                    @else
-                                        <img src="{{ asset('webimages/catalogoimg/'.$article->thumb) }}" class="img-responsive" alt="">
-                                    @endif
-                                @else
-                                    <img src="{{ asset('webimages/main/gen/catalog-gen.jpg') }}" class="img-responsive" alt="">
-                                @endif
-                                <div class="overlay">
-                                    <button class="btn"> Ver más...</button>
-                                </div>
-                            </div>
-                            @if(strlen(strip_tags($article->name)) > 140)
-                                <div class="title"> {{ substr(strip_tags($article->name), 0 , 140) }} ...</div>
-                            @else
-                                <div class="title"> {{ $article->name }} </div>
-                            @endif
-                        </div>
-                    </a>
-                @endforeach
-                </div>
+            <div class="inner">
+				<div class="date">
+					<span><i class="ion-ios-clock-outline"></i> {{ $article->created_at->diffForHumans() }}</span>
+				</div>
+				<h2>{{ $article->title }}</h2>
+				<div class="image">
+					@if (count($article->images) >= 1)
+						<img src="{{ asset('webimages/portfolio/'. $article->images->first()->name ) }}" class="img-responsive" alt="{{ $article->title }}" data-toggle="modal" data-target="#ModalImage">
+					@else
+						<img src="{{ asset('webimages/main/default.jpg') }}" class="img-responsive" alt="">
+					@endif
+				</div>
+				<p>
+					{{ strip_tags($article->content) }}
+				</p>
+				<div class="search pull-right">
+					<span>Categoría: 
+					<a href="{{ route('web.search.category', $article->category->name ) }}">
+						<span>{{ $article->category->name }}</span>
+					</a> | 
+					</span>Etiquetas: 
+					@foreach($article->tags as $tag)
+						<a href="{{ route('web.search.tag', $tag->name ) }}">
+							<span>{!! $tag->name !!}</span>
+						</a>
+					@endforeach
+				</div>
             </div>
         </div>
-        {!! $articles->render(); !!}
     </div>
+
+
+    <!-- The Modal -->
+    <div class="modal fade modal-image-view" id="ModalImage">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div  data-dismiss="modal" class="close-modal">X</div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="image">
+                        @if (count($article->images) >= 1)
+                            <img src="{{ asset('webimages/portfolio/'. $article->images->first()->name ) }}" class="img-responsive" alt="">
+                        @else
+                            <img src="{{ asset('webimages/main/default.jpg') }}" class="img-responsive" alt="">
+                        @endif
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
     @include('layouts.web.partials.social')
     @include('layouts.web.partials.foot')
 @endsection

@@ -28,7 +28,6 @@
                     <h4>Puede realizar una nueva búsqueda o haga click aquí para <a href="{{ route('web.portfolio') }}"></i> <span class="all">verlas todas</span> </a></h4>
                 </div>
             @endif
-        
             @foreach($articles as $article)
                 <div class="row blog-item">
                     <div class="top"><i class="ion-ios-clock-outline"></i> {{ $article->created_at->diffForHumans() }}</div>
@@ -76,7 +75,6 @@
                     </div>
                 </div>
             @endforeach
-
         {!! $articles->render(); !!}
     </div>
     @include('layouts.web.partials.social')
