@@ -14,7 +14,7 @@
 
 		<div class="collapse navbar-collapse" id="portfolio-navbar">
 			<ul class="nav navbar-nav portfolio-filter-left">
-				<span class="navbar-brand title">Noticias</span>
+				<span class="navbar-brand title"><a href="{{ url('noticias') }}">Noticias</a></span>
 				<li class="dropdown filter-parent-link">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 					<i class="icons-menu"></i> Categorías 

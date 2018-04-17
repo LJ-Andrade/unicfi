@@ -48,7 +48,7 @@ class VadminController extends Controller
 
     public function storedContacts(Request $request)
     {
-        $items = Contact::orderBy('id','ASC')->paginate(10);
+        $items = Contact::where('status', '!=', '3')->orderBy('id','DESC')->paginate(10);
         return view('vadmin.contact.index')
             ->with('items', $items);
     }

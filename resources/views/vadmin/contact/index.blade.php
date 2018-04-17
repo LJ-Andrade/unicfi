@@ -21,6 +21,7 @@
 				<input id="EditId" type="hidden">
 				{{-- Delete --}}
 				{{--  THIS VALUE MUST BE THE NAME OF THE SECTION CONTROLLER  --}}
+				<button class="btn btnBlue">Mostrar finalizados</button>
 				<input id="ModelName" type="hidden" value="stored_contacts">
 				<button id="DeleteBtn" class="btn btnRed Hidden"><i class="icon-bin2"></i> Eliminar</button>
 				<input id="RowsToDeletion" type="hidden" name="rowstodeletion[]" value="">
@@ -78,7 +79,7 @@
 							<td>{{ $item->phone }}</td>
 							<td class="max-text">{{ $item->message }}</td>
 							<td>
-								{!! Form::select('category_id', ['0' => 'No Leído', '1' => 'Leído', '2' => 'Pasado', '3' => 'Respondido'] , $item->status, ['class' => 'form-control Select-Chosen ChangeMessageStatus', 'data-id' => $item->id]) !!}
+								{!! Form::select('category_id', ['0' => 'No Leído', '1' => 'Leído', '2' => 'En proceso', '3' => 'Finalizado'] , $item->status, ['class' => 'form-control Select-Chosen ChangeMessageStatus', 'data-id' => $item->id]) !!}
 							</td>
 							<td>{{ $item->user }}</td>
 							<td>{{ transDateAndTime($item->created_at) }}</td>

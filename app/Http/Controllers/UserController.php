@@ -59,7 +59,6 @@ class UserController extends Controller
     public function exportPdf($params)
     {   
         $items = $this->getData($params);
-        dd($items);
         $pdf = PDF::loadView('vadmin.users.invoice', array('items' => $items));
         $pdf->setPaper('A4', 'landscape');
         return $pdf->download('listado-de-usuarios.pdf');
@@ -77,7 +76,6 @@ class UserController extends Controller
         })->export('xls');         
     }
 
-
     public function getData($params)
     {
         if($params == 'all'){
@@ -90,15 +88,17 @@ class UserController extends Controller
             return $items = User::searchname($query['name'])->orderBy('id', 'ASC')->get(); 
         }
 
-        if(isset($query['role']) || isset($query['group']) ){
+        if(isset($query['role']) && isset($query['group']) ){
             return $items = User::searchRoleGroup($query['role'], $query['group'])->orderBy('id', 'ASC')->get();
+        } elseif(isset($query['group'])){
+            return $items = User::searchRoleGroup($query['group'])->orderBy('id', 'ASC')->get();
+        } elseif(isset($query['role'])){
+            return $items = User::searchRoleGroup($query['role'])->orderBy('id', 'ASC')->get();
         } 
 
         $items = User::orderBy('id', 'ASC')->get(); 
         return $items;
     }
-
-
 
     /*
     |--------------------------------------------------------------------------
@@ -188,13 +188,6 @@ class UserController extends Controller
             Image::make($avatar)->encode('jpg', 80)->fit(300, 300)->save($path.$filename);
         }
         
-        //if($request->file('avatar') != null){
-            //    $avatar   = $request->file('avatar');
-            //    $filename = $user->username.'.jpg';-
-            //    Image::make($avatar)->encode('jpg', 80)->fit(300, 300)->save(public_path('images/users/'.$filename));
-            //    $user->avatar = $filename.'.jpg';
-            //}
-            
         $user->fill($request->all());
         $user->avatar = $filename;
         $user->password = bcrypt($request->password);
@@ -262,8 +255,8 @@ class UserController extends Controller
             }
         } else {
             try {
-                dd('2');
                 $record = User::find($id);
+                File::Delete(public_path($path . $record->username.'.jpg'));
                 $record->delete();
                     return response()->json([
                         'success'   => true,
