@@ -28,8 +28,6 @@
                 <option value="0" selected disabled>Seleccione un Grupo</option>
                 <option value="*">Todos</option>
                 <option value="1">Miembro</option>
-                <option value="2">Cliente</option>
-                <option value="3">Matorísta</option>
             </select>
         </div>
         <div class="form-group">

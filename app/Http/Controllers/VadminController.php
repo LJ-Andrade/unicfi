@@ -46,9 +46,31 @@ class VadminController extends Controller
     |--------------------------------------------------------------------------
     */
 
-    public function storedContacts(Request $request)
-    {
-        $items = Contact::where('status', '!=', '3')->orderBy('id','DESC')->paginate(10);
+    public function storedContacts($status)
+    {   
+        
+        switch($status){
+            case '*':
+                $items = Contact::where('status', '!=', '3')->orderBy('id','DESC')->paginate(10);
+                break;
+            case '3':
+                $items = Contact::where('status', '3')->orderBy('id','DESC')->paginate(10);
+                break;
+            default;
+                $items = Contact::where('status', '!=', '3')->orderBy('id','DESC')->paginate(10);
+        }
+                
+        return view('vadmin.contact.index')
+            ->with('items', $items);
+    }
+
+    public function searchStoredContact(Request $request)
+    {   
+        $items = Contact::where('name', 'LIKE', "%$request->searchTerm%")
+            ->orWhere('email', 'LIKE', "%$request->searchTerm%")
+            ->orderBy('id','DESC')
+            ->paginate(10);
+
         return view('vadmin.contact.index')
             ->with('items', $items);
     }
@@ -168,9 +190,8 @@ class VadminController extends Controller
 
     public function sendMail()
     {
-        //dd('Ok, estoy en mail');
         $subject = 'Asunto de la notificación';
-        $content = 'Pruebita';
+        $content = 'Test';
 
         try {
             Mail::to(APP_EMAIL_1)->send(new SendMail($subject, $content));
