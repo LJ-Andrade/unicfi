@@ -11,17 +11,16 @@
             <a href="{{ url('noticias') }}"><li class="MainMenuA wow slideInLeft" data-wow-duration="0.3s" data-wow-delay="0.3s">Noticias</li></a>
             <a href="{{ url('galeria') }}"><li class="MainMenuA wow slideInLeft" data-wow-duration="0.4s" data-wow-delay="0.4s">Galería</li></a>
             <a href="{{ url('director') }}"><li class="MainMenuA wow slideInLeft" data-wow-duration="0.5s" data-wow-delay="0.6s">Director</li></a>
-            <a href="#contact" id="ContactNavBtn"><li class="MainMenuA wow slideInLeft" data-wow-duration="0.6" data-wow-delay="0.8s">Contacto</li></a>
+            <a href="{{ url('/?#contact') }}" id="ContactNavBtn"><li class="MainMenuA wow slideInLeft" data-wow-duration="0.6" data-wow-delay="0.8s">Contacto</li></a>
         </ul>
     </div>
     
     <div class="inner-text">
         <img class="logo" src="{{ asset('webimages/logos/logomenu.png') }}" alt=""> <br>
-        <div class="text">Quienes Somos</div>
+        {{-- <div class="text">Quienes Somos</div> --}}
         <div class="short-divisor-right"></div>
         <div class="clearfix"></div>
-        <div class="text">Contactanos</div>
-        <br>
+        <div class="text">Seguinos en las redes</div>
         <div class="social-icons">
             <div class="row horizontal-list">
                 <ul>
@@ -30,6 +29,7 @@
                     <a href="https://twitter.com/unicfi" target="_blank"><li><i class="ion-social-twitter"></i></li></a> 
                     <a href="https://www.instagram.com/unicfi/" target="_blank"><li><i class="ion-social-instagram-outline"></i></li></a> 
                     <a href="https://www.youtube.com/channel/UCt-BkbOs5IEo4TPaXcjdY2A?view_as=subscriber" target="_blank"><li><i class="ion-social-youtube"></i></li></a> 
+                    <a href="https://www.linkedin.com/in/matías-agustín-arla-088320149/" target="_blank"><li><i class="ion-social-linkedin"></i></li></a>
                 </ul>
             </div>
         </div>

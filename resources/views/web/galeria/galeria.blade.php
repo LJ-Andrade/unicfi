@@ -11,7 +11,7 @@
             <a href="{{ url('/') }}"><img src="{{ asset('webimages/logos/logo.png') }}" alt="UnicFi Logo"></a>
         </div>
     </div>
-    @include('web.galeria.partials.filters')
+    {{-- @include('web.galeria.partials.filters') --}}
     {{-- Content --}}
     <div class="container-fluid gallery-list">
         <div class="row">
@@ -44,9 +44,9 @@
                                 @else
                                     <img src="{{ asset('webimages/main/gen/catalog-gen.jpg') }}" class="img-responsive" alt="">
                                 @endif
-                                <div class="overlay">
+                                {{-- <div class="overlay">
                                     <button class="btn"> Ver más...</button>
-                                </div>
+                                </div> --}}
                             </div>
                             @if(strlen(strip_tags($article->name)) > 140)
                                 <div class="title"> {{ substr(strip_tags($article->name), 0 , 140) }} ...</div>

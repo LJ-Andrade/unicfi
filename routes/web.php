@@ -75,7 +75,7 @@ Route::group(['prefix' => 'vadmin'], function(){
     // -- SUPPORT --
     Route::get('docs', function(){ return view('vadmin.support.docs'); });
     Route::get('soporte', function(){ return view('vadmin.support.support'); });
-    Route::post('techSupport', ['as'=>'vadmin.soporte','uses'=>'VadminController@techSupport']);
+    Route::post('techSupport', ['as' => 'vadmin.soporte', 'uses' => 'VadminController@techSupport']);
 
     // -- EXPORT --
     Route::get('exportViewPdf/{view}/{params}/{model}/{filename}', ['as' => 'vadmin.exportViewPdf', 'uses' => 'invoiceController@exportViewPdf']);

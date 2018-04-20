@@ -58,13 +58,13 @@
 			<div id="FormResponse"></div>
 			<div id="FormSuccess" class="row form-responses animated fadeIn Hidden">
 				<i class="success ion-checkmark-round"></i>
-				<h2>Mensaje Enviado !</h2> 
+				<h2>¡ Mensaje enviado !</h2> 
 				<p>Gracias por contactarse con nosotros. <br>
 				Nos estaremos comunicando a la brevedad.</p>
 			</div>
-			<div id="FormError" class="row form-responses animated fadeIn slideInUp Hidden">
+			<div id="FormError" class="row form-responses animated fadeIn Hidden">
 				<i class="error ion-close-round"></i>
-				<h2>Ha ocurrido un error !</h2> 
+				<h2>¡ Ha ocurrido un error !</h2> 
 				<p>Intente comunicarse directamente por mail o teléfono <br>
 				Gracias.</p>
 			</div>

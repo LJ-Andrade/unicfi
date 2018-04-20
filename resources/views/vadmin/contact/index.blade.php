@@ -106,7 +106,9 @@
 		</div>
 		<div id="Error"></div>	
 	</div>
+	
 @endsection
+
 
 {{-- SCRIPT INCLUDES --}}
 @section('scripts')
