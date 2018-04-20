@@ -10,7 +10,7 @@
 //Route::get('/', ['as' => 'web', 'uses' => 'WebController@home']);
 Route::get('/', function(){ return view('web/web'); });
 Route::get('director', function(){ return view('web/director'); });
-Route::get('wmail', function(){ return redirect('https://accounts.zoho.com/signin'); });
+Route::get('wmail', function(){ return redirect('https://accounts.zoho.com/signin?servicename=VirtualOffice&signupurl=https://mail.zoho.com'); });
 
 
 /*
