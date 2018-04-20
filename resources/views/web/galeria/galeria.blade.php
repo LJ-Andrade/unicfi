@@ -31,7 +31,7 @@
             <div class="col-md-12">
                 <div class="row gallery-list">
                 @foreach($articles as $article)
-                    <a href="{{ route('web.catalogoimg.item',$article->slug ) }}">
+                    <a href="javascript:void(0)">
                         <div class="col-md-3 col-sm-3 col-xs-12 item">
                             <div class="image">
                                 @if (count($article->images) >= 1)
