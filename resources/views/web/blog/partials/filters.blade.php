@@ -31,7 +31,7 @@
 					</ul>
 				</li>
 
-				<li class="dropdown filter-parent-link">
+			{{-- <	<li class="dropdown filter-parent-link">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 					<i class="icons-menu"></i> Tags 
 					<span class="caret"></span></a>
@@ -42,10 +42,10 @@
 							</a>
 						</li>
 						@endforeach
-					</ul>
+					</ul> --}}
 				</li>
 				@if(isset($searchInfo))
-					<li class="filter-parent-link"><a href="{{ route('web.galeria') }}"><i class="icons-menu"></i> Mostrar todos</a></li>
+					<li class="filter-parent-link"><a href="{{ url('noticias') }}"><i class="icons-menu"></i> Mostrar todos</a></li>
                 @endif
 			</ul>
 
@@ -92,7 +92,7 @@
 					</a>
 				@endforeach
 			</div>
-			<div class="search-buttons">
+			{{-- <div class="search-buttons">
 			<hr>
 				<div class="title">Tags</div>
 				@foreach($tags as $tag)
@@ -101,7 +101,7 @@
 						{{ $tag->name }}</button>
 					</a>
 				@endforeach
-			</div>
+			</div> --}}
 		</div>
 	</div>
 </div>

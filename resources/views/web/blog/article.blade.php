@@ -14,34 +14,39 @@
     @include('web.blog.partials.filters')
     {{-- Content --}}
     <div class="container blog-article">
-        <div class="row">
-            <div class="inner">
-				<div class="date">
-					<span><i class="ion-ios-clock-outline"></i> {{ $article->created_at->diffForHumans() }}</span>
-				</div>
-				<h2>{{ $article->title }}</h2>
-				<div class="image">
-					@if (count($article->images) >= 1)
-						<img src="{{ asset('webimages/portfolio/'. $article->images->first()->name ) }}" class="img-responsive" alt="{{ $article->title }}" data-toggle="modal" data-target="#ModalImage">
-					@else
-						<img src="{{ asset('webimages/main/default.jpg') }}" class="img-responsive" alt="">
-					@endif
-				</div>
-				<p>
-					{!! $article->content !!}
-				</p>
-				<div class="search pull-right">
-					<span>Categoría: 
-					<a href="{{ route('web.search.category', $article->category->name ) }}">
-						<span>{{ $article->category->name }}</span>
-					</a> | 
-					</span>Etiquetas: 
-					@foreach($article->tags as $tag)
-						<a href="{{ route('web.search.tag', $tag->name ) }}">
-							<span>{!! $tag->name !!}</span>
-						</a>
-					@endforeach
-				</div>
+        <div class="row inner">
+            <div class="row">
+                <div class="col-md-3 col-xs-12 image">
+                    @if (count($article->images) >= 1)
+                        <img src="{{ asset('webimages/portfolio/'. $article->images->first()->name ) }}" class="img-responsive" alt="{{ $article->title }}" data-toggle="modal" data-target="#ModalImage">
+                    @else
+                        <img src="{{ asset('webimages/main/default.jpg') }}" class="img-responsive" alt="">
+                    @endif
+                    <div class="date">
+                        <span><i class="ion-ios-clock-outline"></i> {{ $article->created_at->diffForHumans() }}</span>
+                    </div>
+                    <div class="search">
+                        <div class="category">Categoría <br>
+                            <a href="{{ route('web.search.category', $article->category->name ) }}">
+                                <span>{{ $article->category->name }}</span>
+                            </a>
+                        </div>
+                        <div class="tags">
+                            Etiquetas <br>
+                            @foreach($article->tags as $tag)
+                                <a href="{{ route('web.search.tag', $tag->name ) }}">
+                                    <span class="badge grey-tag">{!! $tag->name !!}</span>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 col-xs-12 content">
+                    <h2>{{ $article->title }}</h2>
+                    <p>
+                        {!! $article->content !!}
+                    </p>
+                </div>
             </div>
         </div>
     </div>

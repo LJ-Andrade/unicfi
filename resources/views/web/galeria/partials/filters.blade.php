@@ -14,8 +14,8 @@
 
 		<div class="collapse navbar-collapse" id="portfolio-navbar">
 			<ul class="nav navbar-nav portfolio-filter-left">
-				<span class="navbar-brand title"><a href="{{ url('galeria') }}">Galería</a></span>
-				<li class="dropdown filter-parent-link">
+				 <span class="navbar-brand title"><a href="{{ url('galeria') }}">Galería</a></span>
+			{{--	<li class="dropdown filter-parent-link">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 					<i class="icons-menu"></i> Categorías 
 					<span class="caret"></span></a>
@@ -43,7 +43,7 @@
 						</li>
 						@endforeach
 					</ul>
-				</li>
+				</li> --}}
 				@if(isset($searchInfo))
 					<li class="filter-parent-link"><a href="{{ route('web.galeria') }}"><i class="icons-menu"></i> Mostrar todos</a></li>
                 @endif
@@ -82,7 +82,7 @@
 					</div>
 				{!! Form::close() !!}
 			</div>
-			<div class="search-buttons">
+			{{-- <div class="search-buttons">
 			<hr>
 				<div class="title">Categoría</div>
 				@foreach($categories as $category)
@@ -91,7 +91,7 @@
 						{{ $category->name }} ({{ $category->articles->count() }})</button>
 					</a>
 				@endforeach
-			</div>
+			</div> 
 			<div class="search-buttons">
 			<hr>
 				<div class="title">Tags</div>
@@ -101,7 +101,7 @@
 						{{ $tag->name }}</button>
 					</a>
 				@endforeach
-			</div>
+			</div> --}}
 		</div>
 	</div>
 </div>

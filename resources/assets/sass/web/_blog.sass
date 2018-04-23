@@ -57,26 +57,23 @@
     margin-bottom: 150px
     padding-top: 50px
     .inner
-        margin-top: 20px
-    .image 
-        float: left
-        margin-right: 20px
-        margin-bottom: 15px
-        img
-            width: 340px
-            &:hover
-                cursor: pointer
-    p
-        text-align: justify
-        // padding-bottom: 50px
-    .search
-        position: absolute
-        bottom: 5px
-        right: 0
-    .date
-        position: absolute
-        right: 16px
-        top: 40px
+        .image 
+            img
+                &:hover
+                    cursor: pointer
+        .content
+            h2
+                margin-top: 0
+        p
+            text-align: justify
+            // padding-bottom: 50px
+        .search
+            margin-top: 5px
+            .category
+                margin-bottom: 20px
+
+        .date
+            margin-top: 5px
 
 .modal-image-view
     .modal-body
@@ -137,8 +134,6 @@
 
 @media (max-width: 1200px) and (min-width: 580px)
     .blog-article .inner 
-        p
-            min-height: 390px
         .search
             right: 20px
 

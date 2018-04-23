@@ -11,6 +11,7 @@
             <a href="{{ url('/') }}"><img src="{{ asset('webimages/logos/logo.png') }}" alt="UnicFi Logo"></a>
         </div>
     </div>
+    @include('web.galeria.partials.filters')
     {{-- Content --}}
     <div class="container-fluid gallery-list">
         <div class="row">
