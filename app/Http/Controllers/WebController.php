@@ -131,6 +131,7 @@ class WebController extends Controller
 		} else {
 			$searchInfo = null;
 		}
+
 		$categories = Category::all();
 		$tags = Tag::all();
 
@@ -169,7 +170,9 @@ class WebController extends Controller
         $articles->each(function($articles){
                 $articles->category;
                 $articles->images;
-        });
+		});
+		
+		$searchInfo = 'Entradas con la etiqueta: '. $name;
 		
 		$categories = Category::all();
 		$tags = Tag::all();
@@ -177,7 +180,8 @@ class WebController extends Controller
 		return view('web.blog.blog')
 			->with('articles', $articles)
 			->with('categories', $categories)
-			->with('tags', $tags);
+			->with('tags', $tags)
+			->with('searchInfo', $searchInfo);
     }
 
     public function viewArticle($id)
