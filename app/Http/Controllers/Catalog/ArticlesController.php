@@ -163,7 +163,6 @@ class ArticlesController extends Controller
         }
 
         $extension         = '.jpg';
-        
         $number = '2';
 
         $article->save();
@@ -240,8 +239,7 @@ class ArticlesController extends Controller
             'code'                 => 'unique:catalog_articles,code,'.$article->id,
             'category_id'          => 'required',
             'slug'                 => 'required|alpha_dash|min:4|max:255|unique:catalog_articles,slug,'.$article->id,
-            'image'                => 'image',
-
+            'image'                => 'image'
         ],[
             'name.required'        => 'Debe ingresar un nombre',
             'name.min'             => 'El título debe tener al menos 4 caracteress',
@@ -254,7 +252,7 @@ class ArticlesController extends Controller
             'slug.max'             => 'El slug debe tener 255 caracteres como máximo',
             'slug.max'             => 'El slug debe tener guiones bajos en vez de espacios',
             'slug.unique'          => 'El slug debe ser único, algún otro artículo lo está usando',
-            'image'                => 'El archivo adjunto no es soportado',
+            'image'                => 'El archivo adjunto no es soportado'
         ]);
 
         $article->fill($request->all());

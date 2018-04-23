@@ -107,6 +107,10 @@ $('.MainMenuBtn').click(function(){
 });
 
 
+$('#DeportivosRecreativosBtn').click(function(){
+	var anchor = $('#DeportivosRecreativos');
+	goToAnchor(anchor);
+});
 
 
 /*
@@ -212,13 +216,20 @@ $('.BtnEmpresas').click(function(){
 
 $('.Close-Empresas').click(function(){
 	if(screen.width > '800'){
-		$('.Home-Desktop, .MainMenuBtn').show(200);
+		
+	// Show menu and go to anchor
+	$.when( $('.Home-Desktop, .MainMenuBtn').show(0) ).then(function( x ) {
+		var anchor = $('#PrupuestaParaEmpresas');
+		goToAnchor(anchor);
+	});
+
 	} else {
 		$('.Home-Mobile, .MainMenuBtn').show(200);
 	}
 	$('#Empresas').fadeOut(0, function () {
 		$('#Main-Big-Menu').fadeIn(0);
 	});
+
 });
 
 // For Test
@@ -240,3 +251,20 @@ $(window).scroll(function() {
 $('.goToTop').click(function(){
 	$('html, body').animate({ scrollTop: 0 }, 'fast');
 });
+
+
+// $('#CerrarPropuestaParaEmpresas').click(function(){
+// 	var anchor = $('#PrupuestaParaEmpresas');
+// 	anchor.css('background', 'red');
+// 	//goToAnchor(anchor);
+	
+// });
+
+
+
+function goToAnchor(anchor) {
+	anchor.css('background', 'red');
+	var new_position = anchor.offset();
+	window.scrollTo(new_position.left, new_position.top);
+	return false;
+}

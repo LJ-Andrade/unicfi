@@ -21,8 +21,8 @@
 						juntos poder lograrlo.
 					</p>
 					<div class="buttons">
-						<a href="#contact"><button class="btn btnMain">CONTACTO</button></a>
-						<a href="{{ url('noticias') }}"><button class="btn btnMain">NOTICIAS</button></a>
+						<a href="#contact" style="cursor: pointer"><button class="btn btnMain">CONTACTO</button></a>
+						<a href="{{ url('noticias') }}" style="cursor: pointer"><button class="btn btnMain">NOTICIAS</button></a>
 					</div>
 				</div>
 			</div>
@@ -62,7 +62,7 @@
 	
 	{{-- Home Big Menu --}}
 	<section id="Main-Big-Menu" class="container-fluid home-big-menu">
-
+		<div class="anchor" id="PrupuestaParaEmpresas"></div>
 		{{-- ROW 1 --}}
 		<div class="row row1 row-flex">
 			{{-- COL 1 --}}
@@ -99,8 +99,9 @@
 				</div>
 			</div>
 		</div> {{-- /Row 1 --}}
-
+		
 		{{-- Row 2 --}}
+		<div class="anchor" id="DeportivosRecreativos"></div>
 		<div class="row row1">
 			{{-- Col 1 --}}
 			<div class="col-md-6 pad0">
@@ -109,7 +110,7 @@
 						<h2>
 							Diseño y gestión <br>de espacios<br> deportivos y recreativos
 						</h2>
-						<a class="HomeItemBtn btn btnMain">Ver Más...</a>
+						<a id="DeportivosRecreativosBtn" class="HomeItemBtn btn btnMain">Ver Más...</a>
 					</div>
 					<div class="Overlay overlay Hidden">
 						<div class="Overlay-Color overlay-color">
@@ -180,10 +181,12 @@
 			
 	</section>
 	<div class="clearfix"></div>
-
+	
+	
+	{{-- SECTION EMPRESAS --}}
 	<div class="anchor" id="EmpresasAnchor"></div>
 	<section id="Empresas" class="container-fluid home-big-menu">
-		<div class="Close-Empresas close-section">X</div>
+		<div id="CerrarPropuestaParaEmpresas" class="Close-Empresas close-section">X</div>
 		<div class="row row1 row-flex">
 			{{-- COL 1 --}}
 			<div class="col-md-6 col-xs-12 item HomeItem item-empresas-1">

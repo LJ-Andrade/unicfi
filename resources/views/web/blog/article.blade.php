@@ -28,7 +28,7 @@
 					@endif
 				</div>
 				<p>
-					{{ strip_tags($article->content) }}
+					{!! $article->content !!}
 				</p>
 				<div class="search pull-right">
 					<span>Categoría: 
