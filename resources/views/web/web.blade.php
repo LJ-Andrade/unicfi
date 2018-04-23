@@ -156,6 +156,8 @@
 								funcional, relajación, GAP, abdominales, localizada, natación y gimnasia en el agua.
 								Además organizamos colonias de vacaciones y acciones lúdicas para niños.
 							</p>
+							
+							<a href="https://unicfi.com/categories/Consorcios" class="btn btnMain">Noticias</a>
 						</div>
 					</div>
 				</div>
@@ -205,7 +207,7 @@
 						Charlas Saludables
 					</h2>
 					<p>
-						Ofrecemos charlas en diferentes temáticas relacionadas con la salud y el bienestar <br>
+						Ofrecemos charlas en diferentes temáticas relacionadas con la salud y el bienestar 
 						 como Primeros Auxilios y RCP, Ergonomía, Nutrición, Adicciones, etc.
 
 					</p>
@@ -236,7 +238,7 @@
 						Organizamos pequeños espacios de relajación y <br>
 						estiramientos dentro del horario laboral.
 					</p>
-					<a class="btn btnMain">Noticias</a>
+					<a href="https://unicfi.com/categories/Pausas%20de%20trabajo" class="btn btnMain">Noticias</a>
 				</div>
 			</div>
 			
@@ -271,7 +273,7 @@
 						con seguimientos continuos realizados por <br>
 						profesionales del área.
 					</p>
-					<a class="btn btnHollowOrange">Noticias</a>
+					<a href="https://unicfi.com/categories/Planes%20alimentarios" class="btn btnHollowOrange">Noticias</a>
 				</div>
 			</div>
 			{{-- COL 2 --}}
@@ -342,7 +344,7 @@
 							&bull; Baja el nivel de stress <br>
 							&bull; Disminuye la probabilidad de lesiones <br>
 							&bull; Disminuye el riesgo de padecer enfermedades <br>
-							&bull; Mejora en las relaciones con los pares
+							&bull; Mejora las relaciones con los pares
 						</p>
 					</div>
 				</div>
