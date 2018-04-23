@@ -31,14 +31,14 @@
                                 <span>{{ $article->category->name }}</span>
                             </a>
                         </div>
-                        <div class="tags">
+                        {{-- <div class="tags">
                             Etiquetas <br>
                             @foreach($article->tags as $tag)
                                 <a href="{{ route('web.search.tag', $tag->name ) }}">
                                     <span class="badge grey-tag">{!! $tag->name !!}</span>
                                 </a>
                             @endforeach
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-md-9 col-xs-12 content">
