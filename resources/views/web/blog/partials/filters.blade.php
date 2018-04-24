@@ -68,7 +68,7 @@
 
 
 <div class="portfolio-filter-mobile">
-	<span class="title">Galería</span>
+	<span class="title"><a href="{{ url('noticias') }}">Noticias</a></span>
 	<button class="Show-Mobile-Filter btn filterMobileBtn"> <b><i class="ion-android-search"></i></b></button>
 	<div class="Fiter-Container filter-container Hidden">
 		<div class="Close-Mobile-Filters close-this">X</div>
