@@ -21,8 +21,8 @@
 						juntos poder lograrlo.
 					</p>
 					<div class="buttons">
-						<a href="#contact" style="cursor: pointer"><button class="btn btnMain">CONTACTO</button></a>
-						<a href="{{ url('noticias') }}" style="cursor: pointer"><button class="btn btnMain">NOTICIAS</button></a>
+						<a href="#contact"><button class="btn btnMain">CONTACTO</button></a>
+						<a href="{{ url('noticias') }}"><button class="btn btnMain">NOTICIAS</button></a>
 					</div>
 				</div>
 			</div>
@@ -53,8 +53,8 @@
 					juntos poder lograrlo.
 				</p>
 				<div class="buttons">
-					<button class="btn btnMain">CONTACTO</button>
-					<button class="btn btnMain">NOTICIAS</button>
+					<a href="#contact"><button class="btn btnMain">CONTACTO</button></a>
+					<a href="{{ url('noticias') }}"><button class="btn btnMain">NOTICIAS</button></a>
 				</div>
 			</div>
 		</div>
@@ -158,7 +158,7 @@
 								Además organizamos colonias de vacaciones y acciones lúdicas para niños.
 							</p>
 							
-							<a href="https://unicfi.com/categories/Consorcios" class="btn btnMain">Noticias</a>
+							<a href="https://unicfi.com/categories/Consorcios" class="btn btnWhite">Noticias</a>
 						</div>
 					</div>
 				</div>

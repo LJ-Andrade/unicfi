@@ -48,11 +48,11 @@
                                     <button class="btn"> Ver más...</button>
                                 </div> --}}
                             </div>
-                            @if(strlen(strip_tags($article->name)) > 140)
+                            {{-- @if(strlen(strip_tags($article->name)) > 140)
                                 <div class="title"> {{ substr(strip_tags($article->name), 0 , 140) }} ...</div>
                             @else
                                 <div class="title"> {{ $article->name }} </div>
-                            @endif
+                            @endif --}}
                         </div>
                     </a>
                 @endforeach

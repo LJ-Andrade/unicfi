@@ -26,7 +26,7 @@
                         <span><i class="ion-ios-clock-outline"></i> {{ $article->created_at->diffForHumans() }}</span>
                     </div>
                     <div class="search">
-                        <div class="category">Categoría <br>
+                        <div class="category">Categoría:
                             <a href="{{ route('web.search.category', $article->category->name ) }}">
                                 <span>{{ $article->category->name }}</span>
                             </a>

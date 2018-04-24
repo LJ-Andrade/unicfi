@@ -58,7 +58,7 @@
 			<div id="FormResponse"></div>
 			<div id="FormSuccess" class="row form-responses animated fadeIn Hidden">
 				<i class="success ion-checkmark-round"></i>
-				<h2>¡ Mensaje enviado !</h2> 
+				<h2>¡Mensaje enviado!</h2> 
 				<p>Gracias por contactarse con nosotros. <br>
 				Nos estaremos comunicando a la brevedad.</p>
 			</div>

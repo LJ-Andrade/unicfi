@@ -40,6 +40,7 @@
                 overflow: hidden
                 text-overflow: ellipsis
                 padding-bottom: 25px
+
             @include transition(0.2s)
         .top
             position: absolute
@@ -49,6 +50,84 @@
             position: absolute
             bottom: 4px
             right: 11px
+
+
+
+@media (max-width: 991px)
+    .blog-list 
+        h1
+            display: none
+        .blog-item 
+            .inner
+                p
+                    font-size: .9rem
+                .date
+                    bottom: 4px
+                    right: 20px
+                .search
+                    bottom: 4px
+            .image img
+                max-width: 240px
+            .bottom
+                position: relative
+                top: auto
+                right: auto
+                padding: 0 12px
+                margin-top: 10px
+
+
+@media (max-width: 768px)
+    .blog-list 
+        .blog-item 
+            .image 
+                @include flex-center
+                img
+                    width: 768px
+                    max-width: 100%
+            .bottom
+                margin: 0
+
+@media (max-width: 768px) and (min-width: 330px)
+    .blog-list 
+        .blog-item
+            .image 
+                max-height: 250px
+                overflow: hidden
+                img
+                    max-width: 100%
+
+@media (max-width: 500px)
+    .blog-list 
+        .blog-item
+            margin-bottom: 60px
+            .inner
+                min-height: 0
+                p
+                    white-space: nowrap
+                    overflow: hidden !important
+                    text-overflow: ellipsis
+                    margin-bottom: 20px
+                .date,.search
+                    position: relative
+                    bottom: 0
+                    left: 0
+                .date
+                    margin-top: 10px
+                    border-bottom: 1px solid #ccc
+
+@media (max-width: 1200px) and (min-width: 991px)
+    .blog-list .blog-item .inner
+        min-height: 192px
+        p
+            font-size: 0.8rem
+        
+@media (max-width: 991px) and (min-width: 768px)
+    .blog-list .blog-item .inner
+        min-height: 240px
+
+@media (max-width: 350px)
+    .blog-list .inner p
+        display: none
 
 
 
@@ -75,6 +154,28 @@
         .date
             margin-top: 5px
 
+
+@media (max-width: 1200px) and (min-width: 580px)
+    .blog-article .inner 
+        .search
+            right: 20px
+
+@media (max-width: 580px)
+    .blog-article
+        .inner
+            h2
+                font-size: 2.8rem
+            .image
+                float: none
+                margin: 0
+                margin-bottom: 20px
+                margin-top: 20px
+                img
+                    width: 100%
+            .search 
+                bottom: -20px
+                left: 10px
+
 .modal-image-view
     .modal-body
         padding: 0
@@ -98,100 +199,19 @@
             padding: 5px
 
 @media (max-width: 991px)
-    .blog-list 
-        h1
-            display: none
-        .blog-item 
-            .inner
-                p
-                    font-size: .9rem
-                .date
-                    bottom: 4px
-                    right: 20px
-                .search
-                    bottom: 4px
-            .image img
-                max-width: 240px
     .blog-article
         padding: 30px
         padding-top: 0
         h1
             display: none
-        .date
-            position: relative
-            margin-left: 20px
-            top: 15px
-
-
-@media (max-width: 768px)
-    .blog-list 
-        .blog-item 
-            .image 
-                @include flex-center
-                img
-                    width: 768px
-                    max-width: 100%
-
-@media (max-width: 1200px) and (min-width: 580px)
-    .blog-article .inner 
-        .search
-            right: 20px
-
-
-@media (max-width: 768px) and (min-width: 330px)
-    .blog-list 
-        .blog-item
-            .image 
-                max-height: 250px
-                overflow: hidden
-                img
-                    max-width: 100%
-
-@media (max-width: 580px)
-    .blog-article
-        .inner
-            h2
-            .image
-                float: none
-                margin: 0
-                margin-bottom: 20px
+        .image
+            .date
+                position: relative
+                top: 15px
+            .search
                 margin-top: 20px
-                img
-                    width: 100%
-            .search 
-                bottom: -20px
-                left: 10px
-            p
-                padding-bottom: 10px
+                padding: 0
 
-@media (max-width: 500px)
-    .blog-list 
-        .blog-item
-            margin-bottom: 50px
-            .inner
-                min-height: 0
-                p
-                    white-space: nowrap
-                    overflow: hidden !important
-                    text-overflow: ellipsis
-                    margin-bottom: 20px
-                .date,.search
-                    position: relative
-                    bottom: 0
-                    left: 0
-                .date
-                    margin-top: 10px
-                    border-bottom: 1px solid #ccc
-
-@media (max-width: 1200px) and (min-width: 991px)
-    .blog-list .blog-item .inner
-        min-height: 192px
-        p
-            font-size: 0.8rem
-        
-@media (max-width: 991px) and (min-width: 768px)
-    .blog-list .blog-item .inner
-        min-height: 240px
 
 .search-input
     hr

@@ -49,18 +49,15 @@
                 @endif
 			</ul>
 
-			<ul class="nav navbar-nav navbar-right portfolio-filter-right">
-				{{-- Search --}}
+			{{-- <ul class="nav navbar-nav navbar-right portfolio-filter-right">
 				{!! Form::open(['route' => 'web.galeria', 'method' => 'GET', 'class' => 'navbar-form navbar-left']) !!}
 					<div class="form-group search-bar">
 						{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Buscar por título', 'aria-describedby' => 'search']) !!}
 						<button type="submit" class="btn search-btn"><i class="ion-ios-search"></i></button>
 					</div>
 				{!! Form::close() !!}
-				{{-- /Search --}}
-
 				</form> 
-			</ul>
+			</ul> --}}
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
 </nav>

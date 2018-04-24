@@ -47,16 +47,17 @@
                             @else
                                 <h3 class="title"> {{ $article->title }} </h3>
                             @endif
-                        <p>
-                            @if(strlen(strip_tags($article->content)) > 450)
-                                {{ substr(strip_tags($article->content), 0 , 450) }} ...<b> Ver más...</b>
-                                {{-- {{ strip_tags(substr($article->content, 0, 300)) }} --}}
-                            @else
-                                {{ strip_tags($article->content) }}
-                            @endif
-                        </p>
+                            <p>
+                                @if(strlen(strip_tags($article->content)) > 450)
+                                    {{ substr(strip_tags($article->content), 0 , 450) }} ...<b> Ver más...</b>
+                                    {{-- {{ strip_tags(substr($article->content, 0, 300)) }} --}}
+                                @else
+                                    {{ strip_tags($article->content) }}
+                                @endif
+                            </p>
                         </a>
                     </div>
+                    <div class="clearfix"></div>
                     <div class="bottom">
                         @if(!$categories->isEmpty())
                         <span>Categoría: 
