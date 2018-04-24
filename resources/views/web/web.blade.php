@@ -110,14 +110,14 @@
 						<h2>
 							Diseño y gestión <br>de espacios<br> deportivos y recreativos
 						</h2>
-						<a id="DeportivosRecreativosBtn" class="HomeItemBtn btn btnMain">Ver Más...</a>
+						<a id="DeportivosRecreativosBtn" class="HomeItemBtn btn btnMain" data-action="avoid">Ver Más...</a>
 					</div>
 					<div class="Overlay overlay Hidden">
 						<div class="Overlay-Color overlay-color">
-							<a class="CloseOverlay close-section-small">X</a>
+							<a class="CloseOverlay close-section-small" data-action="avoid">X</a>
 						</div>
 						<div class="Overlay-Text overlay-text Hidden">
-							<h2>Diseño y gestión de espacios deportivos y recreativos</h2>	
+							<h2 class="inner-title">Diseño y gestión de espacios deportivos y recreativos</h2>	
 							<hr>
 							<div class="clearfix"></div>
 							<p>

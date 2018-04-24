@@ -146,6 +146,7 @@ $(document).ready(function(){
 			$('.Overlay').not(thisOverlay).addClass('Hidden');
 		});        
 		
+
 		// Show Overlay
 		var text = $(this).parent().siblings('.Overlay').children('.Overlay-Text');
 		
@@ -160,27 +161,35 @@ $(document).ready(function(){
 		// This .Overlay-Text
 		var overlayHeight =  thisOverlayText.getHeightFromHidden(function(){ return this.height()});
 		var parentHeight = $(this).parent().height();
+		if($(this).data('action') == 'avoid'){
+			return;
+		} 
 		if(overlayHeight > parentHeight){
 			$(this).parent().data('height', parentHeight);
 			$(this).parent().animate({height: overlayHeight}); 
 		}
-
 	});
+
 
 	// Close Overlays with X button
 	$('.CloseOverlay').click(function(){
+
 		$.when($('.Overlay-Text').fadeOut(150)).done(function() {
 			$('.Overlay-Text').addClass('Hidden')
 		});
 		
-		let parent = $(this).parent().parent().siblings('.inner');
-		let originalHeight = parent.data('height') || '';
-		parent.animate({height: originalHeight});           
-
 		$('.Overlay-Color').animate({left:'100%'}, 450, 
 		function(){
 			$('.Overlay').addClass('Hidden');
 		});
+
+		let parent = $(this).parent().parent().siblings('.inner');
+		if($(this).data('action') == 'avoid'){
+			return;
+		} 
+
+		let originalHeight = parent.data('height') || '';
+		parent.animate({height: originalHeight});           
 	});
 });
 
@@ -253,18 +262,11 @@ $('.goToTop').click(function(){
 });
 
 
-// $('#CerrarPropuestaParaEmpresas').click(function(){
-// 	var anchor = $('#PrupuestaParaEmpresas');
-// 	anchor.css('background', 'red');
-// 	//goToAnchor(anchor);
-	
-// });
-
-
-
 function goToAnchor(anchor) {
 	anchor.css('background', 'red');
 	var new_position = anchor.offset();
 	window.scrollTo(new_position.left, new_position.top);
 	return false;
 }
+
+
