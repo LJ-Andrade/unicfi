@@ -151,7 +151,7 @@ class WebController extends Controller
 				$articles->images;
 		});
 		
-		$searchInfo = 'Imágenes con la categoría: '. $name;
+		$searchInfo = 'Noticias con la categoría: '. $name;
 
 		$categories = Category::all();
 		$tags = Tag::all();
@@ -172,7 +172,7 @@ class WebController extends Controller
                 $articles->images;
 		});
 		
-		$searchInfo = 'Entradas con la etiqueta: '. $name;
+		$searchInfo = 'Noticias con la etiqueta: '. $name;
 		
 		$categories = Category::all();
 		$tags = Tag::all();
