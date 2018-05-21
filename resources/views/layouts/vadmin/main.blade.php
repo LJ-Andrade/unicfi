@@ -31,13 +31,10 @@
 		<link rel="stylesheet" type="text/css" href="{{ asset('vadmin-ui/app-assets/css/core/colors/palette-gradient.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('plugins/sweetalert/sweetalert2.min.css') }}">
 		<!-- END VENDOR CSS-->
-		<!-- BEGIN Custom CSS-->
-		<!-- END Custom CSS-->
 		@yield('styles')
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/vadmin.css') }}">
 	</head>
   	<body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns fixed-navbar">
-
 		@include('layouts.vadmin.partials.nav')
 		@include('vadmin.components.fullLoader')
 		<div class="app-content content container-fluid">
@@ -55,9 +52,6 @@
 				</div>	
 			</div>
 		</div>
-
-
-		
 		<div class="main-copyright">
 			<div class="inner pull-right">
 				<div class="text">Desarrollado por <a href="https://vimana.studio">Vimana Studio</a></div>
@@ -76,21 +70,12 @@
 		<script src="{{ asset('vadmin-ui/app-assets/vendors/js/ui/jquery.matchHeight-min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('vadmin-ui/app-assets/vendors/js/ui/screenfull.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('vadmin-ui/app-assets/vendors/js/extensions/pace.min.js') }}" type="text/javascript"></script>
-		<!-- BEGIN VENDOR JS-->
-		<!-- BEGIN PAGE VENDOR JS-->
-		{{--  <script src="{{ asset('vadmin-ui/app-assets/vendors/js/charts/chart.min.js') }}" type="text/javascript"></script>  --}}
-		<!-- END PAGE VENDOR JS-->
-		<!-- BEGIN ROBUST JS-->
 		<script src="{{ asset('vadmin-ui/app-assets/js/core/app-menu.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('vadmin-ui/app-assets/js/core/app.js') }}" type="text/javascript"></script>
-		<!-- END ROBUST JS-->
-		<!-- BEGIN PAGE LEVEL JS-->
-		{{-- <script src="{{ asset('vadmin-ui/app-assets/js/scripts/pages/dashboard-lite.js') }}" type="text/javascript"></script> --}}
 		<script src="{{ asset('plugins/sweetalert/sweetalert2.min.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('js/vadmin-ui.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('js/vadmin-functions.js') }}" type="text/javascript"></script>
 		@include('vadmin.components.appjs')
-		<!-- END PAGE LEVEL JS-->
 		@yield('scripts')
 		@yield('custom_js')
 		<script>
@@ -118,7 +103,6 @@
 				var svg  = "<img src='{{ asset('images/gral/loader-sm.svg') }}'>";
 				$(this).html(svg + ' ' + loadertext);
 			});
-
 
 		</script>
 	</body>

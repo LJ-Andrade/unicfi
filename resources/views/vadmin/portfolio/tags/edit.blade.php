@@ -8,12 +8,12 @@
 	@component('vadmin.components.header')
 		@slot('breadcrums')
 			<li class="breadcrumb-item"><a href="{{ url('vadmin')}}">Inicio</a></li>
-			<li class="breadcrumb-item"><a href="{{ route('tags.index')}}">Etiquetas del Portfolio</a></li>
+			<li class="breadcrumb-item"><a href="{{ route('tags.index')}}">Etiquetas del catálogo</a></li>
 			<li class="breadcrumb-item active">Edición de Etiqueta</li>
 		@endslot
 		@slot('actions')
 			<div class="list-actions">
-				<h2>Editando etiqueta del Portfolio: " {{ $tag->name }} "</h2>
+				<h2>Editando etiqueta del catálogo: " {{ $tag->name }} "</h2>
 				{{-- Edit --}}
 				<a href="#" id="EditBtn" class="btn btnGreen Hidden"><i class="icon-pencil2"></i> Editar</a>
 			</div>

@@ -1,5 +1,5 @@
 @extends('layouts.vadmin.main')
-@section('title', 'Vadmin | Portfolio')
+@section('title', 'Vadmin | UnicFi')
 {{-- STYLE INCLUDES --}}
 @section('styles')
 @endsection

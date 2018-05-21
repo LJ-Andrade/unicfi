@@ -1,5 +1,5 @@
 @extends('layouts.web.main')
-@section('title', 'Cimhe | Foto')
+@section('title', config('app.name'). " | Imágen")
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/owlcarousel2/owl.carousel.min.css') }}">
