@@ -9,12 +9,12 @@
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<img src="{{ asset('webimages/icons/contact1.png') }}" alt="">
 					<div class="text1">Celular</div>
-					<div class="text2">011-2720-6422</div>
+					<div class="text2">+54 9 15-2720-6422</div>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<img src="{{ asset('webimages/icons/contact3.png') }}" alt="">
 					<div class="text1">Teléfono</div>
-					<div class="text2">(011) 4555-6379</div>
+					<div class="text2">+54 9 011 4555-6379</div>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<img src="{{ asset('webimages/icons/contact2.png') }}" alt="">
