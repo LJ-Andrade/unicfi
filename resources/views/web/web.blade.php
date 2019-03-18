@@ -380,8 +380,8 @@
 			delay: 0,
 			loop: true,
 			speed: 1500,
-		}); 
-		
+		});
+
 		var mySwiper2 = new Swiper('.swiper-container-services', {
 			grabCursor: true,
 			autoplay: true,
@@ -392,7 +392,13 @@
 			},
 			loop: true,
 			speed: 2000
-		});	
+		});
+
+		// Fix columns in Contacta/Data section
+		if ($(window).width() < 1630 && $(window).width() > 1200  ) {
+			$('.contact-section .inner .contact-form .contact-data > div').removeClass('col-sm-4').addClass('col-sm-6');
+			$('.contact-section .inner .contact-form .contact-data > div').last().removeClass('col-sm-6').addClass('col-sm-12');
+		}
 
 	</script>
 @endsection
