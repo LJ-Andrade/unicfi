@@ -239,7 +239,7 @@ class WebController extends Controller
 			
             $view = 'vadmin.components.mailWebContact';
 
-            Mail::to(APP_EMAIL_1)->send(new WebContactMail($subject, $data, $view));
+            Mail::to(env('APP_EMAIL_1'))->send(new WebContactMail($subject, $data, $view));
 			
 			return response()->json(['response' => 1,
 									 'error'    => '0']); 
