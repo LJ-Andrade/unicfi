@@ -54,7 +54,7 @@ class WebController extends Controller
 	
 	public function showCatalogimgWithSlug($slug)
 	{
-        $article = CatalogimgArticle::where('slug', '=', $slug)->first();
+        $article = CatalogimgArticle::where('slug', '=', $slug)->firstOrFail();
 		$categories = CatalogimgCategory::all();
 		$tags = CatalogimgTag::all();
 
@@ -203,9 +203,87 @@ class WebController extends Controller
 			->with('tags', $tags);
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | SITEMAP (para buscadores)
+    |--------------------------------------------------------------------------
+    */
+
+    public function sitemap()
+    {
+        $urls = [
+            ['loc' => url('/'), 'lastmod' => null, 'priority' => '1.0'],
+            ['loc' => url('noticias'), 'lastmod' => null, 'priority' => '0.8'],
+            ['loc' => url('galeria'), 'lastmod' => null, 'priority' => '0.6'],
+            ['loc' => url('director'), 'lastmod' => null, 'priority' => '0.6'],
+        ];
+
+        foreach (Article::where('status', '1')->orderBy('id', 'DESC')->get(['slug', 'updated_at', 'created_at']) as $article) {
+            $urls[] = [
+                'loc' => route('web.portfolio.article', $article->slug),
+                'lastmod' => optional($article->updated_at ?: $article->created_at)->toAtomString(),
+                'priority' => '0.7',
+            ];
+        }
+
+        foreach (CatalogimgArticle::where('status', '1')->orderBy('id', 'DESC')->get(['slug', 'updated_at', 'created_at']) as $item) {
+            $urls[] = [
+                'loc' => route('web.catalogoimg.item', $item->slug),
+                'lastmod' => optional($item->updated_at ?: $item->created_at)->toAtomString(),
+                'priority' => '0.4',
+            ];
+        }
+
+        $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+        foreach ($urls as $u) {
+            $xml .= '  <url><loc>' . e($u['loc']) . '</loc>'
+                . ($u['lastmod'] ? '<lastmod>' . $u['lastmod'] . '</lastmod>' : '')
+                . '<priority>' . $u['priority'] . '</priority></url>' . "\n";
+        }
+        $xml .= '</urlset>';
+
+        return response($xml, 200)->header('Content-Type', 'application/xml; charset=UTF-8');
+    }
+
+    /**
+     * llms-full.txt: versión extendida de llms.txt para agentes de IA,
+     * con el resumen del sitio y el texto completo de las noticias publicadas.
+     */
+    public function llmsFull()
+    {
+        $clean = function ($html) {
+            $text = html_entity_decode(strip_tags(str_replace(['<br>', '<br/>', '<br />', '</p>'], "\n", $html)), ENT_QUOTES, 'UTF-8');
+            $text = preg_replace("/[ \t]+/u", ' ', $text);
+            return trim(preg_replace("/\n\s*\n+/u", "\n\n", $text));
+        };
+
+        $out = trim(file_get_contents(public_path('llms.txt'))) . "\n\n";
+        $out .= "## Noticias y artículos\n\n";
+        $out .= "Texto completo de las noticias publicadas en " . url('noticias') . ".\n\n";
+
+        $articles = Article::with('category', 'tags')->where('status', '1')->orderBy('id', 'DESC')->get();
+        foreach ($articles as $article) {
+            $out .= '### ' . trim(strip_tags($article->title)) . "\n\n";
+            $out .= '- URL: ' . route('web.portfolio.article', $article->slug) . "\n";
+            $out .= '- Fecha: ' . optional($article->created_at)->format('Y-m-d') . "\n";
+            if ($article->category) {
+                $out .= '- Categoría: ' . $article->category->name . "\n";
+            }
+            if ($article->tags->count()) {
+                $out .= '- Etiquetas: ' . $article->tags->pluck('name')->implode(', ') . "\n";
+            }
+            $out .= "\n" . \Illuminate\Support\Str::limit($clean($article->content), 4000) . "\n\n";
+        }
+
+        return response($out, 200)
+            ->header('Content-Type', 'text/plain; charset=UTF-8')
+            ->header('X-Robots-Tag', 'noindex');
+    }
+
     public function showWithSlug($slug) {
 
-        $article = Article::where('slug', '=', $slug)->first();
+        $article = Article::where('slug', '=', $slug)->where('status', '1')->firstOrFail();
 		$categories = Category::all();
 		$tags = Tag::all();
 

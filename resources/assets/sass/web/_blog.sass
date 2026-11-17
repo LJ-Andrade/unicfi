@@ -4,131 +4,261 @@
 //                                    //
 ////////////////////////////////////////
 
-.blog-list
-    margin-top: 30px
-    margin-bottom: 100px
-    background-color: #f9f9f9
-    .search-info
-        margin-bottom: 50px
-        margin-top: -10px
-    .not-found
-        margin-bottom: 250px
-        margin-top: 50px
-        text-align: center
-        .all
+// ---------- Listado de noticias (grilla de cards) ----------
+.news-list
+    max-width: 1320px
+    margin: 0 auto
+    padding: clamp(32px, 1.5rem + 2vw, 64px) clamp(16px, .5rem + 3vw, 48px) clamp(56px, 2.5rem + 3vw, 96px)
+
+.news-search-info
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: space-between
+    gap: 8px 16px
+    margin-bottom: 24px
+    padding: 14px 18px
+    background-color: #fff
+    border-radius: $radius
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.06)
+    color: #404040
+    font-size: .9375rem
+    a
+        font-weight: 600
+        color: $main-color
+
+.news-empty
+    text-align: center
+    padding: 64px 24px
+    background-color: #fff
+    border-radius: $radius
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.06)
+    h3
+        color: #171717
+    p
+        color: #525252
+        margin: 0
+
+.news-grid
+    display: grid
+    grid-template-columns: repeat(4, minmax(0, 1fr))
+    gap: clamp(16px, .5rem + 1vw, 28px)
+
+.news-card
+    position: relative
+    display: flex
+    flex-direction: column
+    background-color: #fff
+    border-radius: $radius
+    overflow: hidden
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05), inset 0 0 0 1px rgba(0,0,0,.06)
+    transition: transform .2s ease, box-shadow .2s ease
+    &:hover,&:focus-within
+        transform: translateY(-4px)
+        box-shadow: 0 20px 25px -5px rgba(0,0,0,.08), 0 8px 10px -6px rgba(0,0,0,.08)
+        .news-card-media img
+            transform: scale(1.04)
+        .news-card-title a
             color: $main-color
-    .blog-item
-        background-color: #ffff
-        margin-bottom: 80px
-        @include transition(0.2s)
-        position: relative
-        img
-            opacity: 1
-        .inner
-            min-height: 220px
-            position: relative
-            .image
-                float: left
-                img
-                    max-width: 100%
-            h3,p
-                color: #383838
-            h3
-                margin-top: 5px
-            p
-                font-size: 1rem
-                overflow: hidden
-                text-overflow: ellipsis
-                padding-bottom: 25px
+        .news-card-more .icon
+            transform: translateX(4px)
 
-            @include transition(0.2s)
-        .top
+.news-card-media
+    aspect-ratio: 1 / 1
+    overflow: hidden
+    background-color: #e5e5e5
+    img
+        width: 100%
+        height: 100%
+        object-fit: cover
+        display: block
+        transition: transform .4s ease
+
+.news-card-body
+    flex: 1
+    display: flex
+    flex-direction: column
+    padding: 20px 20px 18px
+
+.news-card-meta
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    gap: 8px 10px
+    margin-bottom: 12px
+    font-size: .8125rem
+    color: #737373
+    time
+        white-space: nowrap
+
+.news-card-category
+    position: relative
+    z-index: 2
+    display: inline-flex
+    align-items: center
+    padding: 3px 10px
+    border-radius: $radius
+    background-color: rgba($main-color, .1)
+    color: darken($main-color, 8%)
+    font-weight: 600
+    font-size: .75rem
+    letter-spacing: .02em
+    &:hover,&:focus
+        background-color: $main-color
+        color: #fff
+
+.news-card-title
+    font-size: 1.25rem
+    line-height: 1.25
+    margin: 0 0 10px
+    display: -webkit-box
+    -webkit-line-clamp: 3
+    -webkit-box-orient: vertical
+    overflow: hidden
+    a
+        color: #171717
+        transition: color .15s ease
+        // Toda la card es clickeable
+        &:after
+            content: ''
             position: absolute
-            right: 11px
-            top: -25px
-        .bottom
-            position: absolute
-            bottom: 4px
-            right: 11px
+            inset: 0
+            z-index: 1
 
+.news-card-excerpt
+    font-size: .9375rem
+    line-height: 1.6
+    color: #525252
+    margin: 0 0 16px
+    display: -webkit-box
+    -webkit-line-clamp: 3
+    -webkit-box-orient: vertical
+    overflow: hidden
 
+.news-card-footer
+    margin-top: auto
+    padding-top: 14px
+    border-top: 1px solid #f0f0f0
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 8px
 
-@media (max-width: 991px)
-    .blog-list 
-        h1
-            display: none
-        .blog-item 
-            .inner
-                p
-                    font-size: .9rem
-                .date
-                    bottom: 4px
-                    right: 20px
-                .search
-                    bottom: 4px
-            .image img
-                max-width: 240px
-            .bottom
-                position: relative
-                top: auto
-                right: auto
-                padding: 0 12px
-                margin-top: 10px
+.news-card-more
+    display: inline-flex
+    flex-shrink: 0
+    white-space: nowrap
+    align-items: center
+    gap: 6px
+    font-size: .875rem
+    font-weight: 600
+    color: $main-color
+    .icon
+        width: 16px
+        height: 16px
+        transition: transform .2s ease
 
+.news-card-tags
+    position: relative
+    z-index: 2
+    display: flex
+    gap: 8px
+    min-width: 0
+    a
+        font-size: .75rem
+        color: #a3a3a3
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+        &:hover
+            color: $main-color
 
-@media (max-width: 768px)
-    .blog-list 
-        .blog-item 
-            .image 
-                @include flex-center
-                img
-                    width: 768px
-                    max-width: 100%
-            .bottom
-                margin: 0
+@media (max-width: 1100px)
+    .news-grid
+        grid-template-columns: repeat(3, minmax(0, 1fr))
 
-@media (max-width: 768px) and (min-width: 330px)
-    .blog-list 
-        .blog-item
-            .image 
-                max-height: 250px
-                overflow: hidden
-                img
-                    max-width: 100%
+@media (max-width: 820px)
+    .news-grid
+        grid-template-columns: repeat(2, minmax(0, 1fr))
 
-@media (max-width: 500px)
-    .blog-list 
-        .blog-item
-            margin-bottom: 60px
-            .inner
-                min-height: 0
-                p
-                    white-space: nowrap
-                    overflow: hidden !important
-                    text-overflow: ellipsis
-                    margin-bottom: 20px
-                .date,.search
-                    position: relative
-                    bottom: 0
-                    left: 0
-                .date
-                    margin-top: 10px
-                    border-bottom: 1px solid #ccc
+@media (max-width: 520px)
+    .news-grid
+        grid-template-columns: 1fr
+    .news-card-media
+        aspect-ratio: 4 / 3
 
-@media (max-width: 1200px) and (min-width: 991px)
-    .blog-list .blog-item .inner
-        min-height: 192px
-        p
-            font-size: 0.8rem
-        
-@media (max-width: 991px) and (min-width: 768px)
-    .blog-list .blog-item .inner
-        min-height: 240px
+// ---------- Paginador ----------
+.news-pagination
+    margin-top: clamp(40px, 2rem + 2vw, 64px)
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: space-between
+    gap: 16px
+    .icon
+        width: 18px
+        height: 18px
 
-@media (max-width: 350px)
-    .blog-list .inner p
+.news-pagination-info
+    margin: 0
+    font-size: .875rem
+    color: #737373
+    strong
+        color: #171717
+        font-weight: 600
+
+.news-pagination-list
+    list-style: none
+    margin: 0
+    padding: 0
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    gap: 6px
+
+.page-num,.page-btn
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    gap: 8px
+    min-width: 44px
+    height: 44px
+    padding: 0 14px
+    border-radius: $radius
+    background-color: #fff
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.08)
+    color: #404040
+    font-size: .9375rem
+    font-weight: 500
+    transition: background-color .15s ease, color .15s ease, box-shadow .15s ease
+    &:hover,&:focus
+        color: $main-color
+        box-shadow: inset 0 0 0 1px $main-color
+.page-num.is-active
+    background-color: $main-color
+    box-shadow: none
+    color: #fff
+.page-num.is-dots
+    background: transparent
+    box-shadow: none
+    min-width: 24px
+    padding: 0
+.page-btn.is-disabled
+    opacity: .45
+    pointer-events: none
+
+@media (max-width: 600px)
+    .news-pagination
+        flex-direction: column-reverse
+        align-items: stretch
+        text-align: center
+    .news-pagination-list
+        justify-content: center
+    .page-btn .page-btn-label
         display: none
-
+    .page-btn
+        padding: 0
+        min-width: 44px
 
 
 .blog-article
@@ -141,8 +271,11 @@
                 &:hover
                     cursor: pointer
         .content
-            h2
+            h2,.article-title
                 margin-top: 0
+            .article-title
+                font-size: $fs-h2
+                margin-bottom: .6em
         p
             text-align: justify
             // padding-bottom: 50px
@@ -226,59 +359,4 @@
         border-radius: 0
 
 // FIlters Desktop
-@media (min-width: 768px)
-    .blog-filters-desktop
-        padding: 15px
-        background-color: rgba(#f9f9f9,0.42)
-        span.badge
-            padding: 2px 6px
-            margin-top: -2px
-    
-@media (max-width: 991px)
-	.blog-filters-desktop
-		display: none
-
-
 // FIlters Mobile
-.blog-filters-mobile
-	display: none
-
-@media (max-width: 991px)
-	.blog-filters-mobile
-		display: block
-		position: relative
-		padding: 0
-		margin-top: 20px
-		h2
-			color: #383838
-		.inner-main
-			position: relative
-			height: 40px
-			padding-left: 15px
-			.title
-				font-family: $font2
-				font-size: 1.5rem
-				font-weight: 600
-				color: $main-color
-			.filterMobileBtn
-				color: #383838
-				background-color: transparent
-				position: absolute
-				right: 0
-				top: 2px
-				border-radius: 0
-				padding: 5px 26px 0
-				margin-right: 20px
-				margin-bottom: 10px
-				font-weight: 400
-				font-size: 1.3rem
-				border: 1px solid #ccc
-				border-radius: 50px
-				&:hover
-					color: #383838
-					background-color: #ccc
-
-@media (max-width: 768px)
-    .blog-filters-mobile
-        margin-top: 94px
-        

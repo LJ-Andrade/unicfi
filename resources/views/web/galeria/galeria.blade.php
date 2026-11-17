@@ -1,5 +1,6 @@
 @extends('layouts.web.main')
-@section('title', config('app.name'). " | Galeria")
+@section('title', 'Galería | UnicFi')
+@section('description', 'Galería de fotos de UnicFi: entrenamientos, clases grupales, eventos y actividades deportivas para personas, empresas y consorcios.')
 
 @section('styles')
 @endsection
@@ -8,12 +9,13 @@
 
     <div class="container-fluid top-banner banner-galeria">
         <div class="main-logo">
-            <a href="{{ url('/') }}"><img src="{{ asset('webimages/logos/logo.png') }}" alt="UnicFi Logo"></a>
+            <a href="{{ url('/') }}"><img src="{{ asset('webimages/logos/logo.png') }}" alt="UnicFi" width="166" height="48"></a>
         </div>
     </div>
     @include('web.galeria.partials.filters')
     {{-- Content --}}
     <div class="container-fluid gallery-list">
+        <h1 class="sr-only">Galería de fotos de UnicFi</h1>
         <div class="row">
             <div class="search-info">
                 @if(isset($searchInfo))
@@ -37,12 +39,12 @@
                             <div class="image">
                                 @if (count($article->images) >= 1)
                                     @if($article->thumb == null)
-                                        <img src="{{ asset('webimages/main/gen/catalog-gen.jpg') }}" class="img-responsive" alt="">
+                                        <img src="{{ asset('webimages/main/gen/catalog-gen.jpg') }}" class="img-responsive" alt="{{ strip_tags($article->title) }}" loading="lazy">
                                     @else
-                                        <img src="{{ asset('webimages/catalogoimg/'.$article->thumb) }}" class="img-responsive" alt="">
+                                        <img src="{{ asset('webimages/catalogoimg/'.$article->thumb) }}" class="img-responsive" alt="{{ strip_tags($article->title) }}" loading="lazy">
                                     @endif
                                 @else
-                                    <img src="{{ asset('webimages/main/gen/catalog-gen.jpg') }}" class="img-responsive" alt="">
+                                    <img src="{{ asset('webimages/main/gen/catalog-gen.jpg') }}" class="img-responsive" alt="{{ strip_tags($article->title) }}" loading="lazy">
                                 @endif
                                 {{-- <div class="overlay">
                                     <button class="btn"> Ver más...</button>

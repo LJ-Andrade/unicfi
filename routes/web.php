@@ -10,6 +10,8 @@
 //Route::get('/', ['as' => 'web', 'uses' => 'WebController@home']);
 Route::get('/', function(){ return view('web/web'); });
 Route::get('director', function(){ return view('web/director'); });
+Route::get('sitemap.xml', ['as' => 'web.sitemap', 'uses' => 'WebController@sitemap']);
+Route::get('llms-full.txt', ['as' => 'web.llmsfull', 'uses' => 'WebController@llmsFull']);
 Route::get('wmail', function(){ return redirect('https://accounts.zoho.com/signin?servicename=VirtualOffice&signupurl=https://mail.zoho.com'); });
 
 

@@ -8,10 +8,10 @@ class ErrorController extends Controller
 {
     public function notfound()
     {
-        return view('errors.404');
+        return response()->view('errors.404', [], 404);
     }
     public function fatal()
     {
-        return view('errors.500');
-    }   
+        return response()->view('errors.500', [], 500);
+    }
 }

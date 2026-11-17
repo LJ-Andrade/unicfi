@@ -1,2 +1,39 @@
+# UnicFi — https://unicfi.com
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /vadmin
+Disallow: /login
+Disallow: /register
+Disallow: /password
+Disallow: /wmail
+Disallow: /*?title=
+
+# Buscadores con IA y asistentes (permitidos explícitamente)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://unicfi.com/sitemap.xml

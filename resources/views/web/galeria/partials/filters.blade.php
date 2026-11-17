@@ -8,7 +8,7 @@
 			{{-- <span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span> --}}
-			<i class="ion-ios-search"></i>
+			@include('layouts.web.partials.icon', ['name' => 'search'])
 		</button>
 	</div>
 
@@ -53,7 +53,7 @@
 				{!! Form::open(['route' => 'web.galeria', 'method' => 'GET', 'class' => 'navbar-form navbar-left']) !!}
 					<div class="form-group search-bar">
 						{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Buscar por título', 'aria-describedby' => 'search']) !!}
-						<button type="submit" class="btn search-btn"><i class="ion-ios-search"></i></button>
+						<button type="submit" class="btn search-btn" aria-label="Buscar">@include('layouts.web.partials.icon', ['name' => 'search'])</button>
 					</div>
 				{!! Form::close() !!}
 				</form> 
@@ -66,16 +66,16 @@
 
 <div class="portfolio-filter-mobile">
 	<span class="title">Galería</span>
-	<button class="Show-Mobile-Filter btn filterMobileBtn"> <b><i class="ion-android-search"></i></b></button>
+	<button type="button" class="Show-Mobile-Filter btn filterMobileBtn" aria-label="Buscar"> <b>@include('layouts.web.partials.icon', ['name' => 'search'])</b></button>
 	<div class="Fiter-Container filter-container Hidden">
 		<div class="Close-Mobile-Filters close-this">X</div>
-		<div class="filter-inner animated fadeIn ">
+		<div class="filter-inner ">
 			<h3>Buscar</h3>
 			<div class="search-input">
 				{!! Form::open(['route' => 'web.galeria', 'method' => 'GET', 'class' => '']) !!}
 					<div class="form-group search-bar">
 						{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Buscar por título', 'aria-describedby' => 'search']) !!}
-						<button type="submit" class="btn search-btn"><i class="ion-ios-search"></i></button>
+						<button type="submit" class="btn search-btn" aria-label="Buscar">@include('layouts.web.partials.icon', ['name' => 'search'])</button>
 					</div>
 				{!! Form::close() !!}
 			</div>

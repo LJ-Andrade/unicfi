@@ -1,5 +1,5 @@
 @extends('layouts.web.main')
-@section('title', config('app.name'). " | Imágen")
+@section('title', strip_tags($article->title) . ' | Galería UnicFi')
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/owlcarousel2/owl.carousel.min.css') }}">
@@ -9,7 +9,7 @@
 @section('content')
     <div class="container-fluid top-banner banner-galeria">
         <div class="main-logo">
-            <a href="{{ url('/') }}"><img src="{{ asset('webimages/logos/logo.png') }}" alt="UnicFi Logo"></a>
+            <a href="{{ url('/') }}"><img src="{{ asset('webimages/logos/logo.png') }}" alt="UnicFi" width="166" height="48"></a>
         </div>
     </div>
     @include('web.galeria.partials.filters')
@@ -20,11 +20,11 @@
                 <div class="gallery-slider">
                     <div class="owl-carousel owl-theme">
                         @if(count($article->images) == 0)
-                            <div class="swiper-slide"><img src="{{ asset('webimages/gen/article-gen.jpg') }}" class="slider-image"></div>
+                            <div class="swiper-slide"><img src="{{ asset('webimages/gen/article-gen.jpg') }}" class="slider-image" alt="{{ strip_tags($article->title) }}"></div>
                         @else 
                             @foreach($article->images as $image)
                                 <div class="item" style="width:100%">
-                                    <div class="swiper-slide"><img src="{{ asset('webimages/catalogoimg/'.$image->name) }}"></div>
+                                    <div class="swiper-slide"><img src="{{ asset('webimages/catalogoimg/'.$image->name) }}" alt="{{ strip_tags($article->title) }} - foto {{ $loop->iteration }}" {{ $loop->first ? '' : 'loading=lazy' }}></div>
                                 </div>
                             @endforeach
                         @endif

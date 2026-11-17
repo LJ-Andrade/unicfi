@@ -51,24 +51,13 @@ class Handler extends ExceptionHandler
         // Original Line
         // return parent::render($request, $exception);
 
-        // Moded Line
-        if($this->isHttpException($exception))
-        {
-            switch($exception->getStatusCode())
-            {
-                case 404:
-                    return redirect()->route('404');
-                    break;
-                case '500':
-                    return redirect()->route('404');
-                    break;
-                default: 
-                    return $this->renderHttpException($exception);
-                    break;
-            }
-        } else {
-            return parent::render($request, $exception);
+        // Las páginas inexistentes se muestran en la misma URL con estado 404 real
+        // (antes redirigían a /404 con estado 200, un "soft 404" que Google penaliza).
+        if ($this->isHttpException($exception) && $exception->getStatusCode() == 404 && !$request->expectsJson()) {
+            return response()->view('errors.404', [], 404);
         }
+
+        return parent::render($request, $exception);
     }
 
     

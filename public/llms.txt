@@ -1,0 +1,42 @@
+# UnicFi
+
+> UnicFi es una organización de actividad física y bienestar de la Ciudad Autónoma de Buenos Aires (Argentina). Ofrece entrenamientos personales, grupales y online, programas de bienestar corporativo para empresas, actividades para consorcios y edificios, y diseño y gestión de espacios deportivos. Su lema es "Trabajamos para que te sientas bien".
+
+UnicFi trabaja con profesionales especialistas en entrenamiento y un equipo multidisciplinario de médicos, nutricionistas, psicólogos y kinesiólogos. Atiende principalmente en Palermo y Belgrano (CABA) y también de forma online.
+
+## Servicios
+
+- [Entrenamientos personales, grupales y a distancia](https://unicfi.com/#Main-Big-Menu): entrenamiento personalizado, clases grupales al aire libre (funcional, running team, preparación física para fútbol), natación para adultos y clases online en vivo (funcional, localizada, stretching).
+- [Bienestar corporativo para empresas](https://unicfi.com/#Main-Big-Menu): clases grupales en la empresa, charlas saludables, pausas activas, planificación deportiva, equipos de running, planes alimentarios y organización de torneos, también para equipos en home office.
+- [Propuestas para consorcios](https://unicfi.com/#DeportivosRecreativos): actividades deportivas y recreativas en los espacios comunes de edificios (yoga, funcional, natación, gimnasia en el agua), colonias de vacaciones y actividades para niños.
+- [Diseño y gestión de espacios deportivos](https://unicfi.com/#DeportivosRecreativos): asesoramiento en el diseño, la gestión y el equipamiento de espacios deportivos y recreativos.
+- [Cursos, charlas y seminarios](https://unicfi.com/#DeportivosRecreativos): Primeros Auxilios y RCP, Ergonomía, Nutrición y Adicciones.
+
+## Páginas principales
+
+- [Inicio](https://unicfi.com/): presentación de UnicFi y todos sus servicios.
+- [Noticias](https://unicfi.com/noticias): novedades, horarios de clases y artículos sobre salud y actividad física.
+- [Galería](https://unicfi.com/galeria): fotos de entrenamientos, clases y eventos.
+- [Director](https://unicfi.com/director): trayectoria del director, valores, misión y visión.
+
+## Preguntas frecuentes
+
+- ¿Dónde entrenan? Principalmente en Palermo y Belgrano (CABA), con clases al aire libre, natación para adultos y entrenamiento personalizado. También hay clases online en vivo, y para empresas y consorcios UnicFi va a sus propios espacios.
+- ¿Tienen clases online? Sí: funcional, localizada y stretching en vivo, de lunes a viernes.
+- ¿Cómo funciona para empresas? Propuesta a medida con clases en la empresa, pausas activas, charlas saludables, planificación deportiva, equipos de running, planes alimentarios y torneos. También para equipos en home office.
+- ¿Qué ofrecen a consorcios? Yoga, funcional, natación y gimnasia en el agua en los espacios comunes, colonias de vacaciones y actividades para chicos.
+- ¿Quiénes dan las clases? Profesionales especialistas en entrenamiento con un equipo de médicos, nutricionistas, psicólogos y kinesiólogos.
+- Más preguntas: https://unicfi.com/#Preguntas
+
+## Contacto
+
+- WhatsApp: +54 9 11 2720 6422
+- Teléfono: +54 11 4555 7672
+- Email: holaunicfi@gmail.com
+- Instagram: https://www.instagram.com/unicfi/
+- Formulario: https://unicfi.com/#contact
+
+## Opcional
+
+- [Mapa del sitio](https://unicfi.com/sitemap.xml)
+- [Versión completa con todas las noticias](https://unicfi.com/llms-full.txt)

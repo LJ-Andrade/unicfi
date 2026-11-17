@@ -1,9 +1,25 @@
 <script type="text/javascript" src="{{ asset('plugins/jquery/jquery-3.3.1.min.js')}} "></script>
 <script type="text/javascript" src="{{ asset('plugins/bootstrap/tether.min.js')}} "></script>
 <script type="text/javascript" src="{{ asset('plugins/bootstrap/bootstrap3/bootstrap.min.js')}} "></script>
-<script type="text/javascript" src="{{ asset('plugins/wow/script.wow.js')}} "></script>
-<script type="text/javascript" src="{{ asset('js/web.js') }} "></script>
+<script type="text/javascript" src="{{ asset('js/web.js') }}?v={{ filemtime(public_path('js/web.js')) }}"></script>
 <script>
+
+    // Main Menu: cerrar con anclas de la misma página y con Escape
+    (function(){
+        var $btn = $('.MainMenuBtn');
+        function closeMainMenu(){
+            if ($btn.hasClass('is-active')) { $btn.trigger('click'); }
+        }
+        $btn.on('click', function(){
+            $(this).attr('aria-expanded', $(this).hasClass('is-active') ? 'true' : 'false');
+        });
+        $('#MainMenu .MainMenuA').on('click', function(){
+            if (this.pathname === window.location.pathname && this.hash) { closeMainMenu(); }
+        });
+        $(document).on('keydown', function(e){
+            if (e.key === 'Escape') { closeMainMenu(); }
+        });
+    })();
 
     // Main Contact Form
     $(document).on('submit','#MainContactForm',function(e){
