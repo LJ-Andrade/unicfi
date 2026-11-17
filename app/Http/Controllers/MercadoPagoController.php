@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use MP;
+use MercadoPago\Client\Preference\PreferenceClient;
+use MercadoPago\MercadoPagoConfig;
 
 class MercadoPagoController extends Controller
 {
@@ -24,11 +25,10 @@ class MercadoPagoController extends Controller
             ],
         ];
 
-        $preference = MP::create_preference($preferenceData);
+        MercadoPagoConfig::setAccessToken(config('mercadopago.access_token'));
+        $preference = (new PreferenceClient())->create($preferenceData);
 
-        // return dd($preference);
-        $initPoint = $preference['response']['init_point'];
-        // return dd($preference['response']['init_point']);
+        $initPoint = $preference->init_point;
         return view('store.checkout-mp')
             ->with('initPoint', $initPoint);
     }

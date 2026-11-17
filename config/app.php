@@ -178,15 +178,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        // MercadoPago Api
-        SantiGraviano\LaravelMercadoPago\Providers\MercadoPagoServiceProvider::class,
-        // Debug Bar
-        Barryvdh\Debugbar\ServiceProvider::class,
-        // PDF Export
-        Barryvdh\DomPDF\ServiceProvider::class,
-        // Excel Export
-        Maatwebsite\Excel\ExcelServiceProvider::class,
-    
     ],
 
     /*
@@ -235,15 +226,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        // Custom Packages
-        // DebugBar
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        // Mercado Pago
-        'MP' => SantiGraviano\LaravelMercadoPago\Facades\MP::class,
-        // PDF Export
-        'PDF' => Barryvdh\DomPDF\Facade::class,
-        // Excel Export
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Html' => App\Support\Html::class,
+        'Menu' => App\Support\Menu::class,
+        'Form' => App\Support\Form::class,
     ],
 
 ];

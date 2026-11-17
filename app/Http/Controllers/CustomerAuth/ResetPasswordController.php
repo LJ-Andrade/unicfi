@@ -4,7 +4,7 @@ namespace App\Http\Controllers\CustomerAuth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ResetsPasswords;
+use App\Http\Controllers\Concerns\ResetsPasswords;
 //Auth Facade
 use Illuminate\Support\Facades\Auth;
 //Password Broker Facade

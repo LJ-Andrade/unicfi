@@ -40,8 +40,16 @@ Route::get('galeria_etiqueta/{name}', ['uses' => 'WebController@searchCatalogimg
 |--------------------------------------------------------------------------
 */
 
-Auth::routes();
 // AUTH ROUTES
+Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
+Route::post('login', ['uses' => 'Auth\LoginController@login']);
+Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
+Route::get('register', ['as' => 'register', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
+Route::post('register', ['uses' => 'Auth\RegisterController@register']);
+Route::get('password/reset', ['as' => 'password.request', 'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm']);
+Route::post('password/email', ['as' => 'password.email', 'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail']);
+Route::get('password/reset/{token}', ['as' => 'password.reset', 'uses' => 'Auth\ResetPasswordController@showResetForm']);
+Route::post('password/reset', ['uses' => 'Auth\ResetPasswordController@reset']);
 Route::group(['prefix'=> 'vadmin'], function() {
     // Login Routes...
     Route::get('login', ['as' => 'vadmin.login', 'uses' => 'Auth\LoginController@showLoginForm']);

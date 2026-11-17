@@ -9,9 +9,11 @@ use App\CatalogTag;
 use App\CatalogArticle;
 use App\CatalogImage;
 use App\CatalogAtribute1;
+use App\Exports\ViewExport;
 use File;
 use PDF;
 use Excel;
+use Maatwebsite\Excel\Excel as ExcelWriter;
 
 class ArticlesController extends Controller
 {
@@ -72,12 +74,11 @@ class ArticlesController extends Controller
     {
         $items = $this->getData($params);
         
-		Excel::create('Excel', function($excel) use($items){
-            $excel->sheet('Listado', function($sheet) use($items) {   
-                $sheet->loadView('vadmin.catalog.invoice-excel', 
-                compact('items'));
-            });
-        })->export('xls');       
+		return Excel::download(
+            new ViewExport('vadmin.catalog.invoice-excel', compact('items')),
+            'Excel.xls',
+            ExcelWriter::XLS
+        );
     }
 
     public function getData($params)
@@ -171,15 +172,15 @@ class ArticlesController extends Controller
  
         try {
             if($thumbnail){
-                $thumb = \Image::make($thumbnail);
-                $thumb->encode('jpg', 80)->fit(250, 250)->save($imgPath.$article->id.'-0'.$extension);
+                $thumb = \Image::read($thumbnail);
+                $thumb->cover(250, 250)->toJpeg(quality: 80)->save($imgPath.$article->id.'-0'.$extension);
                 $article->thumb    = $article->id.'-0'.$extension;
                 $article->save();
 
-                $thumbToImg = \Image::make($thumbnail);
+                $thumbToImg = \Image::read($thumbnail);
                 $image       = new CatalogImage();
                 $image->name = $article->id.'-1'.$extension;
-                $thumbToImg->encode('jpg', 80)->fit(800, 800)->save($imgPath.$image->name);
+                $thumbToImg->cover(800, 800)->toJpeg(quality: 80)->save($imgPath.$image->name);
                 $image->article()->associate($article);
                 $image->save();
             }
@@ -189,8 +190,8 @@ class ArticlesController extends Controller
                 foreach($images as $phisic_image)
                 {
                     $filename = $article->id.'-'.$number++;
-                    $img      = \Image::make($phisic_image);
-                    $img->encode('jpg', 80)->fit(800, 800)->save($imgPath.$filename.$extension);
+                    $img      = \Image::read($phisic_image);
+                    $img->cover(800, 800)->toJpeg(quality: 80)->save($imgPath.$filename.$extension);
                     
                     $image            = new CatalogImage();
                     $image->name      = $filename.$extension;
@@ -279,15 +280,15 @@ class ArticlesController extends Controller
                 
         try {
             if($thumbnail){
-                $thumb = \Image::make($thumbnail);
-                $thumb->encode('jpg', 80)->fit(250, 250)->save($imgPath.$article->id.'-0'.$extension);
+                $thumb = \Image::read($thumbnail);
+                $thumb->cover(250, 250)->toJpeg(quality: 80)->save($imgPath.$article->id.'-0'.$extension);
                 $article->thumb    = $article->id.'-0'.$extension;
                 $article->save();
 
-                $thumbToImg = \Image::make($thumbnail);
+                $thumbToImg = \Image::read($thumbnail);
                 $image       = new CatalogImage();
                 $image->name = $article->id.'-1'.$extension;
-                $thumbToImg->encode('jpg', 80)->fit(800, 800)->save($imgPath.$image->name);
+                $thumbToImg->cover(800, 800)->toJpeg(quality: 80)->save($imgPath.$image->name);
                 $image->article()->associate($article);
                 $image->save();
             }
@@ -297,8 +298,8 @@ class ArticlesController extends Controller
                 foreach($images as $phisic_image)
                 {
                     $filename = $article->id.'-'.$number++;
-                    $img      = \Image::make($phisic_image);
-                    $img->encode('jpg', 80)->fit(800, 800)->save($imgPath.$filename.$extension);
+                    $img      = \Image::read($phisic_image);
+                    $img->cover(800, 800)->toJpeg(quality: 80)->save($imgPath.$filename.$extension);
                     
                     $image            = new CatalogImage();
                     $image->name      = $filename.$extension;

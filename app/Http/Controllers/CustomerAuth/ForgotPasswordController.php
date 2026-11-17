@@ -4,7 +4,7 @@ namespace App\Http\Controllers\CustomerAuth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use App\Http\Controllers\Concerns\SendsPasswordResetEmails;
 //Password Broker Facade
 use Illuminate\Support\Facades\Password;
 

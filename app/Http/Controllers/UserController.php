@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Exports\ViewExport;
 use Auth;
 use Image;
 use File;
 use PDF;
 use Excel;
+use Maatwebsite\Excel\Excel as ExcelWriter;
 
 class UserController extends Controller
 {
@@ -68,12 +70,11 @@ class UserController extends Controller
     public function exportXls($params)
     {   
         $items = $this->getData($params);
-        Excel::create('listado-de-usuarios', function($excel) use($items){
-            $excel->sheet('Listado', function($sheet) use($items) {   
-                $sheet->loadView('vadmin.users.invoice-excel', 
-                compact('items'));
-            });
-        })->export('xls');         
+        return Excel::download(
+            new ViewExport('vadmin.users.invoice-excel', compact('items')),
+            'listado-de-usuarios.xls',
+            ExcelWriter::XLS
+        );
     }
 
     public function getData($params)
@@ -134,7 +135,7 @@ class UserController extends Controller
                 mkdir($path, 0777);
                 umask($oldmask);
             }
-            Image::make($avatar)->encode('jpg', 80)->fit(300, 300)->save($path.$filename);
+            Image::read($avatar)->cover(300, 300)->toJpeg(quality: 80)->save($path.$filename);
             $user->avatar = $filename;
         }
 
@@ -185,7 +186,7 @@ class UserController extends Controller
                 mkdir($path, 0777);
                 umask($oldmask);
             }
-            Image::make($avatar)->encode('jpg', 80)->fit(300, 300)->save($path.$filename);
+            Image::read($avatar)->cover(300, 300)->toJpeg(quality: 80)->save($path.$filename);
         }
         
         $user->fill($request->all());
@@ -212,8 +213,8 @@ class UserController extends Controller
                 umask($oldmask);
             }
             try{
-                $avatar = \Image::make($avatar);
-                $avatar->encode('jpg', 80)->fit(300, 300)->save($path.$filename);
+                $avatar = \Image::read($avatar);
+                $avatar->cover(300, 300)->toJpeg(quality: 80)->save($path.$filename);
                 $user->avatar = $filename;
                 $user->save();
                 return redirect('vadmin/users/'.$user->id)->with('message', 'Avatar actualizado');

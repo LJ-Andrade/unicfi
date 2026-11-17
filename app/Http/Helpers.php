@@ -342,20 +342,3 @@ function getUrl()
     $url = $_SERVER['REQUEST_URI'];
     return $url;
 }
-
-// This class is for get View Name
-// Ex of use = To show Active Menu Links
-class Menu
-{
-    public static function activeMenu($uri='')
-    {
-     $active = '';
-   
-     if (Request::is(Request::segment(1) . '/' . $uri . '/*') || Request::is(Request::segment(1) . '/' . $uri) || Request::is($uri))
-     {
-      $active = 'active';
-     }
-   
-     return $active;
-    }   
-}

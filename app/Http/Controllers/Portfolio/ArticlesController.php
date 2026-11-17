@@ -133,9 +133,9 @@ class ArticlesController extends Controller
             {
                 $name = md5($phisic_image->getFilename().time()).'.'.$phisic_image->getClientOriginalExtension();
                 
-                $img = \Image::make($phisic_image->path());
+                $img = \Image::read($phisic_image->path());
                 
-                $img->fit(600)->save($path.'/'.$name);
+                $img->cover(600, 600)->save($path.'/'.$name);
 
                 $image = new Image();
                 $image->name = $name;
@@ -194,9 +194,9 @@ class ArticlesController extends Controller
             foreach($images as $phisic_image)
             {
                 $name         = md5($phisic_image->getFilename().time()).'.'.$phisic_image->getClientOriginalExtension();
-                $img          = \Image::make($phisic_image->path());
+                $img          = \Image::read($phisic_image->path());
                 
-                $img->fit(600)->save($path.'/'.$name);
+                $img->cover(600, 600)->save($path.'/'.$name);
 
                 $image        = new Image();
                 $image->name  = $name;

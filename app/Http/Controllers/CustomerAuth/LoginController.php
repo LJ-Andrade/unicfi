@@ -4,7 +4,7 @@ namespace App\Http\Controllers\CustomerAuth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Http\Controllers\Concerns\AuthenticatesUsers;
 use App\Customer;
 
 class LoginController extends Controller
@@ -73,7 +73,7 @@ class LoginController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function logout(Request $request){
-        $this->guard('customer')->logout();
+        $this->guard()->logout();
         $request->session()->invalidate();
         return redirect('/tienda');
     }
